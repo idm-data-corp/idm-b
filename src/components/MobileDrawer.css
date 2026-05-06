@@ -1,0 +1,194 @@
+.md {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.md-bar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 48px;
+  padding: 0 16px;
+  background: #fff;
+  border-bottom: 1px solid var(--c-border);
+}
+
+.md-bar-title {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--c-text);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.md-close {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-text);
+  background: transparent;
+  border: 0;
+}
+
+.md-close:hover {
+  background: var(--c-bg-alt);
+}
+
+.md-nav {
+  flex: 1;
+}
+
+.md-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.md-nav > ul > li {
+  border-bottom: 1px solid var(--c-border);
+}
+
+.md-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 18px 16px;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--c-text);
+  background: transparent;
+  border: 0;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.md-row:hover,
+.md-row-link:hover {
+  background: var(--c-bg-alt);
+}
+
+.md-row[aria-expanded='true'] {
+  color: var(--c-blue-60);
+}
+
+/* Expanded mega menu inside the drawer */
+.md-sub {
+  background: var(--c-bg-alt);
+  padding: 8px 16px 24px;
+}
+
+.md-cat {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--c-border);
+}
+
+.md-cat:last-of-type {
+  border-bottom: 0;
+}
+
+.md-cat-heading {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--c-blue-70);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+
+.md-cat-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.md-item {
+  display: block;
+  padding: 10px 0;
+  font-size: 1rem;
+  color: var(--c-text);
+  text-decoration: none;
+}
+
+.md-item:hover {
+  color: var(--c-link);
+}
+
+.md-explore {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 16px;
+  padding: 14px 16px;
+  background: var(--c-blue-60);
+  color: #fff;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.md-footer {
+  padding: 24px 16px 32px;
+  border-top: 1px solid var(--c-border);
+  background: var(--c-bg-alt);
+}
+
+.md-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 16px;
+  background: var(--c-blue-60);
+  color: #fff;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  text-decoration: none;
+  margin-bottom: 16px;
+}
+
+.md-cta:hover {
+  background: var(--c-blue-70);
+}
+
+.md-utility {
+  display: grid;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.md-utility a {
+  display: block;
+  padding: 8px 0;
+  font-size: var(--fs-small);
+  color: var(--c-text-mid);
+  text-decoration: none;
+}
+
+.md-utility a:hover {
+  color: var(--c-link);
+}
+
+@media (min-width: 768px) {
+  /* Drawer should never appear on tablet/desktop. The Header hides the
+     hamburger above this breakpoint, but belt-and-braces. */
+  .md { display: none; }
+}

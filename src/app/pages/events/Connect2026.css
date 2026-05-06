@@ -1,0 +1,245 @@
+/* IDMB Connect 2026 event page */
+.ec-hero {
+  padding: 72px 0 64px;
+  background: linear-gradient(150deg, #0a1128 0%, #0d1a3a 60%, #001d6c 100%);
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ec-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+
+@media (min-width: 900px) {
+  .ec-hero-grid { grid-template-columns: 1fr auto; align-items: start; }
+}
+
+.ec-eyebrow {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #78a9ff;
+  margin-bottom: 16px;
+}
+
+.ec-hero-h {
+  font-size: clamp(2.25rem, 4vw + 1rem, 4rem);
+  font-weight: 300;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.ec-hero-sub {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 58ch;
+  margin-bottom: 32px;
+}
+
+.ec-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Meta card */
+.ec-hero-meta {
+  min-width: 240px;
+}
+
+.ec-meta-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.ec-meta-item {
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ec-meta-item:last-child { border-bottom: none; }
+
+.ec-meta-dt {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 4px;
+}
+
+.ec-meta-dd {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+/* Shared section heading */
+.ec-section-h {
+  font-size: clamp(1.5rem, 2vw + 0.5rem, 2rem);
+  font-weight: 300;
+  letter-spacing: -0.015em;
+  color: var(--c-blue-70);
+  margin-bottom: 32px;
+}
+
+/* Agenda */
+.ec-agenda {
+  padding: 72px 0;
+  background: var(--c-bg);
+}
+
+.ec-agenda-note {
+  font-size: var(--fs-small);
+  color: var(--c-text-mid);
+  margin-top: -16px;
+  margin-bottom: 40px;
+}
+
+.ec-agenda-day {
+  margin-bottom: 48px;
+}
+
+.ec-agenda-day:last-child { margin-bottom: 0; }
+
+.ec-agenda-day-h {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--c-blue-70);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--c-blue-60);
+}
+
+.ec-agenda-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.ec-agenda-item {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--c-border);
+  align-items: baseline;
+}
+
+.ec-agenda-time {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--c-text-mid);
+  font-variant-numeric: tabular-nums;
+}
+
+.ec-agenda-title {
+  font-size: 0.9375rem;
+  color: var(--c-text);
+  line-height: 1.4;
+}
+
+/* Speakers */
+.ec-speakers {
+  padding: 72px 0;
+  background: var(--c-bg-alt);
+  border-top: 1px solid var(--c-border);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.ec-speakers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.ec-speaker-card {
+  display: flex;
+  gap: 16px;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid var(--c-border);
+  align-items: flex-start;
+}
+
+.ec-speaker-avatar {
+  width: 48px;
+  height: 48px;
+  background: var(--c-blue-70);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-small);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.ec-speaker-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--c-text);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.ec-speaker-role {
+  font-size: var(--fs-small);
+  color: var(--c-blue-60);
+  margin-bottom: 6px;
+}
+
+.ec-speaker-desc {
+  font-size: var(--fs-small);
+  color: var(--c-text-mid);
+  line-height: 1.5;
+}
+
+.ec-speakers-note {
+  font-size: var(--fs-small);
+  color: var(--c-text-mid);
+}
+
+/* Register */
+.ec-register {
+  padding: 64px 0;
+  background: var(--c-bg);
+}
+
+.ec-register-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 768px) {
+  .ec-register-grid { grid-template-columns: 1fr auto; align-items: center; }
+}
+
+.ec-register-body {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--c-text);
+  max-width: 54ch;
+}
+
+.ec-register-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+  .ec-register-actions { align-items: flex-end; }
+}

@@ -1,0 +1,81 @@
+.et {
+  padding: 48px 0 56px;
+}
+
+.et-header {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .et-header {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+}
+
+.et-h {
+  font-size: var(--fs-h1);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.et-lede {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--c-text);
+  align-self: center;
+}
+
+.et-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+}
+
+@media (min-width: 600px) {
+  .et-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1056px) {
+  .et-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.et-tile {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 168px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid var(--c-border);
+  color: var(--c-text);
+  text-decoration: none;
+  transition: box-shadow 160ms;
+}
+
+.et-tile:hover {
+  box-shadow: 0 4px 0 0 var(--c-blue-60) inset;
+  text-decoration: none;
+}
+
+.et-tile-title {
+  font-size: var(--fs-small);
+  color: var(--c-text);
+}
+
+.et-tile-icon {
+  align-self: end;
+  color: var(--c-blue-60);
+  margin-top: 32px;
+}
+
+.et-tile-arrow {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  color: var(--c-blue-60);
+}

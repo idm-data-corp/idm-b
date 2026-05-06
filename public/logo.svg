@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="IDMB">
+  <title>IDMB</title>
+  <rect width="512" height="512" rx="96" fill="#0f62fe"/>
+  <rect x="176" y="112" width="224" height="58" rx="29" fill="#82cfff"/>
+  <rect x="96"  y="224" width="320" height="58" rx="29" fill="#ffffff"/>
+  <rect x="144" y="336" width="224" height="58" rx="29" fill="#ffffff" fill-opacity="0.78"/>
+</svg>

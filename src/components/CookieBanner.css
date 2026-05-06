@@ -1,0 +1,59 @@
+.ck {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #f4f4f4;
+  border-top: 1px solid var(--c-border);
+  z-index: 60;
+  font-size: var(--fs-xs);
+  color: var(--c-text);
+  box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.ck-inner {
+  position: relative;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.ck-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--c-text);
+  padding: 4px;
+}
+
+.ck-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px 24px;
+  align-items: start;
+  padding-right: 24px;
+}
+
+@media (min-width: 768px) {
+  .ck-grid { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+.ck-h { font-size: var(--fs-small); font-weight: 600; margin-bottom: 4px; }
+
+.ck-actions { display: flex; flex-direction: column; gap: 8px; align-items: stretch; }
+.ck-note { margin-bottom: 8px; }
+
+.ck-btn {
+  padding: 10px 12px;
+  font-size: var(--fs-small);
+  text-align: center;
+  border: 1px solid transparent;
+}
+
+.ck-btn-primary { background: var(--c-blue-60); color: #fff; }
+.ck-btn-primary:hover { background: var(--c-blue-70); }
+
+.ck-btn-secondary { background: var(--c-blue-60); color: #fff; }
+.ck-btn-secondary:hover { background: var(--c-blue-70); }

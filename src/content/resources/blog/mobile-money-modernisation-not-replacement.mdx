@@ -1,0 +1,56 @@
+export const meta = {
+  kind: 'blog',
+  slug: 'mobile-money-modernisation-not-replacement',
+  title: 'Mobile money modernisation: why it\'s not a replacement problem',
+  date: '2026-03-11',
+  author: { name: 'Amara Osei', role: 'CEO, IDMB' },
+  excerpt: 'Mobile money operators that have tried "rip and replace" mostly failed. The successful modernisations kept the brand, agents, and float — and changed the ledger underneath.',
+  readTime: '8 min read',
+  tags: ['Mobile Money', 'Strategy', 'Banking'],
+};
+
+## The rip-and-replace fallacy
+
+Between 2015 and 2022, at least a dozen mid-sized mobile money operators attempted a full platform replacement. The pattern was consistent: a new core vendor, a big bang cutover, a migration project that ran 18 months over budget, and in most cases, a partial rollback to the old system for at least two years during the "parallel run."
+
+The customers never noticed the new platform. They noticed the outages.
+
+The lesson that took too long to learn: **mobile money modernisation is not a core banking replacement problem. It's a data migration problem, a float reconciliation problem, and an agent trust problem.** The technology is the easiest part.
+
+## What users actually care about
+
+Mobile money users care about three things in order: availability, float accuracy, and speed. Most of them interact with the system through a USSD menu on a $40 handset with intermittent network coverage. They do not know or care what runs the ledger.
+
+What this means for a modernisation: the USSD menu, the agent app, the float management logic and the SMS confirmation messages are the user-facing product. The ledger is the engine room. You can refit the engine room without touching the bridge.
+
+## The overlay approach
+
+The architecture that works: run the new core in parallel, migrate product lines one at a time, and use the existing system as the system of record until each product line is fully migrated.
+
+1. **Start with new customer accounts**: every new account opened goes onto the new ledger. Existing accounts stay on legacy.
+2. **Migrate dormant accounts first**: accounts with zero balance and no transactions in 90 days carry zero reconciliation risk. Move them in bulk.
+3. **Migrate by agent cluster**: mobile money agent networks are geographically clustered. Migrating one region at a time bounds the blast radius of any reconciliation issue.
+4. **Keep the USSD bridge up throughout**: the old USSD menu routes to a translation layer that can talk to either ledger. Customers never see a change.
+
+This approach typically takes 12–18 months for a 1–3 million account book. That's longer than the vendor slide deck says, but shorter than a failed big bang.
+
+## Float is the hardest part
+
+The agent float model in mobile money is the piece that no core banking vendor understands until they try to migrate it. Agents hold prefunded float — essentially a credit balance — which they use to cash in and cash out for customers. The float reconciliation happens at end of day (or sometimes continuously with newer systems).
+
+Migrating float to a new ledger requires:
+- An exact, audited snapshot of every agent's float balance at cutover
+- A dual-write period where float movements are recorded on both systems
+- A reconciliation report that the agent network operations team can actually read
+
+The IDMB float management module was built specifically for this. It models agent float as a first-class wallet type, supports dual-write during migration, and generates the end-of-day float report in the format that agent operations teams are used to seeing.
+
+## Regulatory coordination
+
+Mobile money licences in most markets (Central Bank of Kenya, Bank of Ghana, BCEAO, RBI) require regulatory notification for a core platform change. In some markets, it requires approval. Starting that conversation 6 months before the first account migration is not optional.
+
+The IDMB regulatory team has completed this process in 14 markets. We have template notification letters, a standard data room, and relationships with the relevant regulatory contacts. This is not advertised prominently in the product documentation, but it's one of the most valuable things we offer.
+
+## The short version
+
+Mobile money modernisation succeeds when you treat it as a migration problem, not a replacement. Keep what works (brand, agents, USSD, float model), change what's limiting you (ledger throughput, API surface, compliance tooling). The IDMB platform is designed for exactly this overlay architecture.

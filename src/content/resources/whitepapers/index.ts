@@ -1,0 +1,40 @@
+import type { ResourceEntry } from '../types';
+
+export const WHITEPAPERS: ResourceEntry[] = [
+  {
+    kind: 'whitepaper',
+    slug: 'modern-core-banking-architecture',
+    title: 'Modern core banking architecture: from monolith to composable API platform',
+    date: '2026-03-01',
+    author: { name: 'Tunde Adeyemi', role: 'CTO, IDMB' },
+    excerpt: 'A technical deep-dive into how the IDMB ledger is architected for real-time, high-throughput banking workloads — and what it means to move from a monolithic core to a composable API platform.',
+    readTime: '25 min read',
+    tags: ['Architecture', 'Banking', 'Technical'],
+    pdfUrl: '/resources/whitepapers/modern-core-banking-architecture.pdf',
+    load: () => import('./modern-core-banking-architecture.mdx'),
+  },
+  {
+    kind: 'whitepaper',
+    slug: 'aml-compliance-embedded-finance',
+    title: 'AML compliance in embedded finance: a practical guide for programme managers',
+    date: '2026-02-10',
+    author: { name: 'Kwame Asante', role: 'Chief Compliance Officer, IDMB' },
+    excerpt: 'Practical guidance on anti-money laundering obligations, risk tiering and the operational model for programme managers using banking-as-a-service infrastructure.',
+    readTime: '20 min read',
+    tags: ['Compliance', 'AML', 'Embedded Finance', 'Regulatory'],
+    pdfUrl: '/resources/whitepapers/aml-compliance-embedded-finance.pdf',
+    load: () => import('./aml-compliance-embedded-finance.mdx'),
+  },
+  {
+    kind: 'whitepaper',
+    slug: 'cross-border-payments-corridor-economics',
+    title: 'Cross-border payment corridor economics: FX, compliance and settlement',
+    date: '2026-01-15',
+    author: { name: 'Priya Nair', role: 'Head of Payments, IDMB' },
+    excerpt: 'Why cross-border payments are still slow and expensive — and how modern corridor infrastructure is changing the economics.',
+    readTime: '18 min read',
+    tags: ['Payments', 'Cross-border', 'FX'],
+    pdfUrl: '/resources/whitepapers/cross-border-payments-corridor-economics.pdf',
+    load: () => import('./cross-border-payments-corridor-economics.mdx'),
+  },
+];

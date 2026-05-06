@@ -1,0 +1,122 @@
+/* Solutions index page */
+.sol-idx-hero {
+  padding: 72px 0 64px;
+  background:
+    radial-gradient(ellipse at bottom left, rgba(15, 98, 254, 0.06), transparent 55%),
+    linear-gradient(180deg, #f4f7ff 0%, var(--c-bg) 100%);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.sol-idx-eyebrow {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-blue-60);
+  margin-bottom: 16px;
+}
+
+.sol-idx-h {
+  font-size: clamp(2rem, 3vw + 1rem, 3.5rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--c-blue-70);
+  margin-bottom: 20px;
+}
+
+.sol-idx-sub {
+  font-size: 1.125rem;
+  line-height: 1.55;
+  color: var(--c-text);
+  max-width: 60ch;
+}
+
+/* Grid section */
+.sol-idx-grid-section {
+  padding: 64px 0 96px;
+  background: var(--c-bg);
+}
+
+.sol-idx-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: var(--c-border);
+  border: 1px solid var(--c-border);
+}
+
+@media (min-width: 640px) {
+  .sol-idx-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1056px) {
+  .sol-idx-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.sol-idx-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 32px;
+  background: #fff;
+  color: var(--c-text);
+  text-decoration: none;
+  transition: background 120ms ease;
+  min-height: 240px;
+}
+
+.sol-idx-card:hover {
+  background: var(--c-bg-alt);
+  text-decoration: none;
+}
+
+.sol-idx-card:hover .sol-idx-card-label {
+  color: var(--c-link);
+}
+
+.sol-idx-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.sol-idx-card-icon {
+  color: var(--c-blue-60);
+}
+
+.sol-idx-card-tag {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--c-text-mid);
+}
+
+.sol-idx-card-label {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.25;
+  transition: color 120ms ease;
+}
+
+.sol-idx-card-headline {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--c-blue-70);
+}
+
+.sol-idx-card-desc {
+  font-size: var(--fs-small);
+  line-height: 1.6;
+  color: var(--c-text-mid);
+  flex: 1;
+}
+
+.sol-idx-card-arrow {
+  align-self: flex-end;
+  color: var(--c-link);
+  margin-top: 8px;
+}

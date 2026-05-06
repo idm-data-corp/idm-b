@@ -1,0 +1,35 @@
+.legal-main {
+  background: var(--c-bg);
+  min-height: 60vh;
+}
+
+.legal-col {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 56px 16px 96px;
+}
+
+.legal-col h1 {
+  font-size: var(--fs-h1);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+.legal-col h2 {
+  font-size: var(--fs-h2);
+  font-weight: 400;
+  margin: 32px 0 12px;
+}
+
+.legal-col p,
+.legal-col li {
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--c-text);
+  margin-bottom: 12px;
+}
+
+.legal-col a {
+  color: var(--c-link);
+}

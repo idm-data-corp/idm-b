@@ -1,0 +1,95 @@
+export const meta = {
+  kind: 'engineering',
+  slug: 'building-idempotent-ledger-api',
+  title: 'Building an idempotent ledger API: lessons from production',
+  date: '2026-04-14',
+  author: { name: 'Tunde Adeyemi', role: 'CTO, IDMB' },
+  excerpt: 'Idempotency is easy to spec and hard to implement correctly. Here are the edge cases we encountered building the IDMB ledger API, and how we solved them.',
+  readTime: '11 min read',
+  tags: ['Engineering', 'APIs', 'Distributed Systems'],
+};
+
+## Why idempotency is harder than it looks
+
+The concept is simple: if you retry a request with the same idempotency key, you get the same response without the operation being applied twice. The implementation has corners.
+
+We built the IDMB ledger API to be idempotent on all state-mutating operations. After three years in production with some of the highest-volume financial operators in our markets, here's what we learned.
+
+## The distributed lock problem
+
+The naive implementation of idempotency is a lookup table: on every request, look up the key in the table; if found, return the stored response; if not found, process the request and store the result.
+
+The problem: two concurrent requests with the same key arrive before either has been stored. Both find "not found," both process the operation, both store the result. You now have a double-apply.
+
+The correct implementation requires a distributed lock. The first request to arrive for a given key acquires the lock, processes the operation, and releases the lock. The second request acquires the lock, finds the stored result, and returns it.
+
+We use Redis for the lock. The key insight: the lock must be acquired *before* the database write, not after. The lock TTL is set to 30 seconds — long enough to cover any plausible processing time, short enough that a crashed process doesn't hold the lock indefinitely.
+
+```go
+func (s *LedgerService) Transfer(ctx context.Context, req *TransferRequest) (*TransferResponse, error) {
+    lockKey := "idempotency:" + req.IdempotencyKey
+    lock, err := s.redis.SetNX(ctx, lockKey, "locked", 30*time.Second)
+    if err != nil {
+        return nil, fmt.Errorf("acquiring lock: %w", err)
+    }
+    if !lock {
+        // Key already in flight or already processed
+        return s.waitForResult(ctx, req.IdempotencyKey)
+    }
+    defer s.redis.Del(ctx, lockKey)
+
+    // Check if already processed
+    if resp, err := s.store.GetIdempotencyResult(ctx, req.IdempotencyKey); err == nil {
+        return resp, nil
+    }
+
+    // Process and store result
+    resp, err := s.processTransfer(ctx, req)
+    if err != nil {
+        return nil, err
+    }
+
+    s.store.SetIdempotencyResult(ctx, req.IdempotencyKey, resp, 48*time.Hour)
+    return resp, nil
+}
+```
+
+## The partial failure problem
+
+What happens when the transfer completes (the ledger entries are written) but the idempotency result write fails? On retry, the system doesn't find the result in the lookup table, reprocesses the request, and applies the transfer twice.
+
+We solve this with a two-phase commit pattern:
+1. Write the idempotency key to a "pending" state before the operation
+2. Process the operation
+3. Update the idempotency key to "complete" with the stored response
+
+If step 3 fails, the key is in "pending" state. On retry, we detect "pending" and wait for step 3 to complete (or, if the original request has timed out, we re-run step 3 by querying the ledger for the transfer with this idempotency key).
+
+## The response mismatch problem
+
+What if the same idempotency key is sent with different request bodies? Options:
+1. Return the original response (ignore the different body)
+2. Return an error
+
+We return an error: `409 Conflict` with a body that explains the key was already used with different parameters. We log both requests for fraud analysis (reusing keys with different amounts is a potential fraud signal).
+
+## Key expiry
+
+We store idempotency results for 48 hours. After that, a request with the same key is treated as a new operation. We surface this in the API response for stored results:
+
+```json
+{
+  "idempotency_key": "txn_prod_28af91",
+  "result": "complete",
+  "stored_until": "2026-03-16T09:43:00Z",
+  "response": { ... }
+}
+```
+
+## The cross-region problem
+
+IDMB is deployed across 5 regions. A client sending a retry may not reach the same region as the original request (due to DNS changes, failover, or a load balancer change). Our idempotency store is a globally replicated Redis cluster with strong read-after-write consistency. The cost is 8ms of replication latency on writes. We accept this as the price of correctness.
+
+## What we still get wrong sometimes
+
+The one failure mode we haven't fully eliminated: if a client sends the same idempotency key *concurrently from two different API keys* (i.e. two different authenticated clients), our lock is per-API-key, not globally per-key. The global lock would be more correct but would also mean that a key collision between two unrelated customers causes one of them to block. The per-key-per-API-key model is the better UX trade-off, even if it's technically less correct.

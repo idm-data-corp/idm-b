@@ -1,0 +1,47 @@
+# https://www.idmb.com/robots.txt
+# IDMB - Banking, Wallets & Data Analytics Infrastructure
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /internal/
+Disallow: /*?*utm_
+Disallow: /*?*ref=
+Disallow: /*?*sessionid=
+
+# Image and asset crawlers
+User-agent: Googlebot-Image
+Allow: /
+Allow: /og-image.svg
+Allow: /favicon.svg
+
+# Common AI / LLM crawlers - adjust to your policy.
+# Default: allow indexing of public content.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Block known bad / aggressive crawlers
+User-agent: AhrefsBot
+Crawl-delay: 30
+
+User-agent: SemrushBot
+Crawl-delay: 30
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Sitemaps
+Sitemap: https://www.idmb.com/sitemap.xml

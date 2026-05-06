@@ -1,0 +1,62 @@
+export const meta = {
+  kind: 'whitepaper',
+  slug: 'aml-compliance-embedded-finance',
+  title: 'AML compliance in embedded finance: a practical guide for programme managers',
+  date: '2026-02-10',
+  author: { name: 'Kwame Asante', role: 'Chief Compliance Officer, IDMB' },
+  excerpt: 'Practical guidance on anti-money laundering obligations, risk tiering and the operational model for programme managers using banking-as-a-service infrastructure.',
+  readTime: '20 min read',
+  tags: ['Compliance', 'AML', 'Embedded Finance', 'Regulatory'],
+  pdfUrl: '/resources/whitepapers/aml-compliance-embedded-finance.pdf',
+};
+
+## Executive summary
+
+Embedded finance enables non-financial businesses to offer banking products through regulated infrastructure. This model creates a shared compliance obligation between the infrastructure provider (sponsor bank, BaaS platform) and the programme manager (the embedding business). This paper describes the AML obligations that programme managers carry, the operational model for meeting them, and how the IDMB platform is designed to reduce the compliance burden without eliminating the programme manager's ownership of it.
+
+Key conclusions:
+- Programme managers retain a share of the AML obligation even when using a regulated infrastructure provider; this obligation cannot be fully outsourced
+- Risk-based tiering is the most operationally efficient approach to KYC and transaction monitoring
+- The compliance tools in the infrastructure platform should surface decision-ready information to the programme manager's team, not make the decisions themselves
+
+## Part 1: The regulatory framework
+
+### Who owns AML in a BaaS model?
+
+In a traditional banking model, the bank owns the full AML obligation. In a BaaS model, the obligation is shared across a chain: the regulated institution (sponsor bank or licensed BaaS provider), the BaaS platform, and the programme manager.
+
+The exact division of obligation varies by jurisdiction and by the terms of the programme agreement. In general:
+
+- The **licensed institution** owns the regulatory relationship, files reports, holds the licence
+- The **BaaS platform** (IDMB) provides the monitoring tools, transaction screening, and reporting infrastructure
+- The **programme manager** owns the customer relationship, designs the product, and makes the final decisions on customer acceptance and transaction limits
+
+The programme manager cannot delegate the customer relationship. If a customer commits financial crime using the programme manager's product, regulatory scrutiny falls on the programme manager's product decisions as well as the platform's monitoring.
+
+### The key obligations
+
+Anti-money laundering regulation in most markets (FATF standards, EU AMLD, UK MLR, US BSA) imposes four core obligations:
+
+1. **Customer due diligence (CDD)**: verify the identity of customers before they transact; maintain records; update verification when risk profile changes
+2. **Transaction monitoring**: detect unusual activity that may indicate money laundering or terrorist financing
+3. **Suspicious activity reporting**: file Suspicious Activity Reports (SARs) or Suspicious Transaction Reports (STRs) with the relevant financial intelligence unit when suspicious activity is identified
+4. **Sanctions screening**: screen customers and transactions against applicable sanctions lists (OFAC, UN, EU, national lists) in real time
+
+Each of these obligations has a "risk-based approach" corollary: the intensity of the obligation scales with the risk of the customer and the transaction. This is not a loophole — it's the regulatory design. It is explicitly intended to allow financial institutions to focus resources on higher-risk relationships.
+
+## Part 2: The risk-based approach in practice
+
+### Customer risk tiering
+
+The IDMB compliance module supports configurable customer risk tiers. A typical tiering model for a consumer wallet programme:
+
+| Tier | KYC requirement | Transaction limits | Monitoring intensity |
+|------|----------------|-------------------|---------------------|
+| 0 | Email + phone | $500/month | Low (rule-based only) |
+| 1 | Government ID + selfie | $5,000/month | Standard |
+| 2 | ID + selfie + proof of address | $50,000/month | Enhanced |
+| 3 | EDD (enhanced due diligence) | Negotiated | High (manual review queue) |
+
+Tiers are set at wallet creation and can be upgraded (with a new verification step) but not downgraded without a compliance review.
+
+[Full paper continues in PDF with: transaction monitoring rule design, SAR workflow, sanctions screening architecture, case studies from IDMB customers, and a programme manager compliance checklist.]

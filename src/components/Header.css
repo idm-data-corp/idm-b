@@ -1,0 +1,240 @@
+.hdr {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--c-bg);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.hdr-inner {
+  display: flex;
+  align-items: stretch;
+  height: 48px;
+  padding-left: 0;
+}
+
+@media (min-width: 768px) {
+  .hdr-inner {
+    padding-left: 16px;
+  }
+}
+
+/* Hamburger — visible on mobile only */
+.hdr-burger {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-text);
+  background: transparent;
+  border: 0;
+  border-right: 1px solid var(--c-border);
+}
+
+.hdr-burger:hover {
+  background: var(--c-bg-alt);
+}
+
+@media (min-width: 768px) {
+  .hdr-burger { display: none; }
+}
+
+.hdr-logo {
+  display: flex;
+  align-items: center;
+  padding-right: 16px;
+  padding-left: 16px;
+  border-right: 1px solid var(--c-border);
+  color: var(--c-text);
+}
+
+@media (min-width: 768px) {
+  .hdr-logo {
+    padding-left: 0;
+  }
+}
+
+.hdr-nav {
+  flex: 1;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hdr-nav {
+    display: block;
+  }
+}
+
+.hdr-nav ul {
+  display: flex;
+  height: 100%;
+  align-items: stretch;
+}
+
+.hdr-nav li {
+  display: flex;
+}
+
+.hdr-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 16px;
+  height: 100%;
+  font-size: var(--fs-small);
+  color: var(--c-text);
+  letter-spacing: 0;
+  border: 0;
+  background: transparent;
+  transition: background 120ms ease, box-shadow 120ms ease;
+  text-decoration: none;
+}
+
+.hdr-link:hover {
+  background: var(--c-bg-alt);
+  text-decoration: none;
+}
+
+/* Active (open) state mirrors IBM's blue 2px outline */
+.hdr-link.is-open {
+  background: #fff;
+  box-shadow: inset 0 0 0 2px var(--c-blue-60);
+}
+
+.hdr-actions {
+  display: flex;
+  margin-left: auto;
+}
+
+.hdr-icon {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-text);
+  background: transparent;
+  border: 0;
+  transition: background 120ms ease, box-shadow 120ms ease;
+  text-decoration: none;
+}
+
+.hdr-icon:hover {
+  background: var(--c-bg-alt);
+}
+
+.hdr-icon.is-open {
+  background: #fff;
+  box-shadow: inset 0 0 0 2px var(--c-blue-60);
+}
+
+/* On the smallest screens, drop secondary icons (chat / region) so the bar
+   stays clean. Search + Account remain visible alongside the hamburger. */
+.hdr-icon.hdr-icon-secondary {
+  display: none;
+}
+
+@media (min-width: 480px) {
+  .hdr-icon.hdr-icon-secondary {
+    display: inline-flex;
+  }
+}
+
+/* Header tray (Search / Region / Account) */
+.hdr-tray {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-bottom: 1px solid var(--c-border);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.06);
+  z-index: 60;
+}
+
+.hdr-tray-inner {
+  position: relative;
+  padding: 16px 56px 16px 16px;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.hdr-tray-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-text);
+}
+
+.hdr-tray-close:hover {
+  background: var(--c-bg-alt);
+}
+
+.hdr-tray-content h3 {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--c-text-mid);
+}
+
+.hdr-tray-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 4px 16px;
+}
+
+.hdr-tray-list a,
+.hdr-tray-list button {
+  display: block;
+  padding: 8px 0;
+  font-size: var(--fs-body);
+  color: var(--c-text);
+  text-align: left;
+  width: 100%;
+  text-decoration: none;
+}
+
+.hdr-tray-list a:hover,
+.hdr-tray-list button:hover {
+  color: var(--c-link);
+}
+
+/* Inline search */
+.hdr-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 12px;
+  border: 1px solid var(--c-border);
+  background: #fff;
+}
+
+.hdr-search-input {
+  flex: 1;
+  height: 40px;
+  border: 0;
+  outline: 0;
+  font-size: var(--fs-body);
+  background: transparent;
+  color: var(--c-text);
+}
+
+.hdr-search-go {
+  height: 40px;
+  padding: 0 16px;
+  background: var(--c-blue-60);
+  color: #fff;
+  font-size: var(--fs-small);
+  border: 0;
+  cursor: pointer;
+}
+
+.hdr-search-go:hover {
+  background: var(--c-blue-70);
+}

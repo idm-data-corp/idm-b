@@ -1,0 +1,48 @@
+import type { ResourceEntry } from '../types';
+
+export const ENGINEERING_POSTS: ResourceEntry[] = [
+  {
+    kind: 'engineering',
+    slug: 'building-idempotent-ledger-api',
+    title: 'Building an idempotent ledger API: lessons from production',
+    date: '2026-04-14',
+    author: { name: 'Tunde Adeyemi', role: 'CTO, IDMB' },
+    excerpt: "Idempotency is easy to spec and hard to implement correctly. Here are the edge cases we encountered building the IDMB ledger API, and how we solved them.",
+    readTime: '11 min read',
+    tags: ['Engineering', 'APIs', 'Distributed Systems'],
+    load: () => import('./building-idempotent-ledger-api.mdx'),
+  },
+  {
+    kind: 'engineering',
+    slug: 'postgres-ledger-throughput-50k-tps',
+    title: 'Getting to 50k TPS on Postgres: the IDMB ledger story',
+    date: '2026-03-28',
+    author: { name: 'Tunde Adeyemi', role: 'CTO, IDMB' },
+    excerpt: "We run the IDMB ledger on Postgres. Here's how we got to 50,000 transactions per second on a system that prioritises correctness over throughput.",
+    readTime: '13 min read',
+    tags: ['Engineering', 'PostgreSQL', 'Performance', 'Database'],
+    load: () => import('./postgres-ledger-throughput-50k-tps.mdx'),
+  },
+  {
+    kind: 'engineering',
+    slug: 'webhook-delivery-at-scale',
+    title: 'Webhook delivery at scale: guaranteed once, ordered, observable',
+    date: '2026-03-05',
+    author: { name: 'Amara Osei', role: 'CEO, IDMB' },
+    excerpt: "IDMB delivers 2 billion webhooks per month. Here's the delivery infrastructure and the hard trade-offs around ordering, retries and observability.",
+    readTime: '9 min read',
+    tags: ['Engineering', 'Webhooks', 'Infrastructure'],
+    load: () => import('./webhook-delivery-at-scale.mdx'),
+  },
+  {
+    kind: 'engineering',
+    slug: 'multi-region-active-active-banking',
+    title: 'Multi-region active-active: running a banking ledger across 5 data centres',
+    date: '2026-02-11',
+    author: { name: 'Tunde Adeyemi', role: 'CTO, IDMB' },
+    excerpt: "Banking requires 99.99% availability. Achieving that with a strongly consistent ledger across 5 regions is a distributed systems problem with very few good answers.",
+    readTime: '14 min read',
+    tags: ['Engineering', 'Infrastructure', 'Distributed Systems', 'Reliability'],
+    load: () => import('./multi-region-active-active-banking.mdx'),
+  },
+];

@@ -1,0 +1,13 @@
+/* TEAM */
+  Site: IDMB
+  Contact: hello [at] idmb.com
+  Location: Worldwide
+
+/* THANKS */
+  To every customer building the next generation of financial products on IDMB.
+
+/* SITE */
+  Last update: 2026/05/05
+  Standards: HTML5, CSS3, ES2022, WCAG 2.2 AA
+  Components: React 18, Vite 5, TypeScript 5
+  Topics: banking infrastructure, wallets infrastructure, data analytics

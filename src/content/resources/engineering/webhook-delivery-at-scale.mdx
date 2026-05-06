@@ -1,0 +1,93 @@
+export const meta = {
+  kind: 'engineering',
+  slug: 'webhook-delivery-at-scale',
+  title: 'Webhook delivery at scale: guaranteed once, ordered, observable',
+  date: '2026-03-05',
+  author: { name: 'Amara Osei', role: 'CEO, IDMB' },
+  excerpt: 'IDMB delivers 2 billion webhooks per month. Here\'s the delivery infrastructure and the hard trade-offs around ordering, retries and observability.',
+  readTime: '9 min read',
+  tags: ['Engineering', 'Webhooks', 'Infrastructure'],
+};
+
+## The requirements
+
+IDMB fires a webhook for every ledger event: every entry, every card authorisation, every compliance check, every payout. At peak, that's about 100,000 events per second. The delivery requirements:
+
+- **At-least-once delivery**: every event must reach the customer's endpoint, even if their server is temporarily unavailable
+- **Ordering**: events for a given entity (account, card, wallet) must be delivered in the order they were created
+- **Observability**: customers must be able to see delivery status, retry history, and payload for every event
+- **Back-pressure**: if a customer's endpoint is consistently failing, we must not DoS them on recovery
+
+At-least-once delivery is a fairly standard requirement. Ordering is hard. Getting both while handling back-pressure is harder.
+
+## The delivery pipeline
+
+```
+Ledger write
+    │
+    ▼
+Event bus (Kafka)
+    │  topic: ledger-events (partitioned by account_id)
+    ▼
+Webhook dispatcher workers
+    │  fan-out: one delivery queue per customer endpoint
+    ▼
+Customer delivery queue (Redis sorted set)
+    │  score: delivery_timestamp (next scheduled attempt)
+    ▼
+Delivery workers (per customer)
+    │  HTTP POST to customer endpoint
+    ▼
+Delivery log (Postgres)
+```
+
+Kafka partitioning by `account_id` ensures ordering within an account. Events for different accounts may be delivered in parallel, but events for the same account are always processed by the same partition worker, preserving sequence.
+
+The customer delivery queue is a Redis sorted set keyed by `(customer_id, endpoint_id)` with score as the next scheduled delivery time. This means all pending events for a given customer endpoint form an ordered queue.
+
+## The retry schedule
+
+On first delivery failure, we back off exponentially:
+
+```
+Attempt 1: immediate
+Attempt 2: 1 minute
+Attempt 3: 5 minutes
+Attempt 4: 30 minutes
+Attempt 5: 2 hours
+Attempt 6: 12 hours
+Attempt 7: 24 hours
+```
+
+After 7 failures (roughly 39 hours), the event is marked `exhausted` and the customer is notified via email. They can replay exhausted events from the webhook dashboard.
+
+The key detail: we don't retry individual events independently. We retry **in order**. If event N is in a failed state, events N+1, N+2... for the same endpoint are held until N is delivered or exhausted. This preserves ordering but means a consistently failing endpoint builds up a queue.
+
+## The back-pressure mechanism
+
+When a customer endpoint has >1000 queued events, we pause new dispatches to that endpoint and alert the customer. The pause is lifted when the queue drops below 100. This prevents a recovering endpoint from being overwhelmed.
+
+We also apply a circuit breaker: if an endpoint returns 5xx for >50% of requests in a 5-minute window, we pause delivery for 10 minutes regardless of queue depth. This is the "don't DoS on recovery" protection.
+
+## Observability
+
+Every delivery attempt is logged:
+
+```json
+{
+  "event_id": "evt_9fa2",
+  "endpoint_id": "ep_001",
+  "attempt": 3,
+  "status": "failed",
+  "http_status": 503,
+  "response_body_preview": "Service Unavailable",
+  "latency_ms": 2140,
+  "next_attempt_at": "2026-03-04T14:30:00Z"
+}
+```
+
+The webhook dashboard exposes delivery logs, retry history and payload inspection for all events in the past 7 days. The API exposes the same data for programmatic monitoring.
+
+## What we got wrong
+
+Our first version used a global delivery queue rather than a per-endpoint queue. The result: a single slow endpoint blocked delivery for events from completely unrelated entities. A banking customer's card authorisation webhook was delayed because the same global queue had a backed-up payout webhook for a different product line. Per-endpoint queues were an obvious fix in retrospect, but it took a production incident to force the change.

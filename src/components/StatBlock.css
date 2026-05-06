@@ -1,0 +1,160 @@
+.sbk {
+  padding: 64px 0;
+}
+
+.sbk-bg-default { background: var(--c-bg); }
+.sbk-bg-alt     { background: var(--c-bg-alt); }
+.sbk-bg-dark    { background: var(--c-blue-80); color: #fff; }
+.sbk-bg-dark .sbk-h     { color: #fff; }
+.sbk-bg-dark .sbk-intro { color: #c6c6c6; }
+.sbk-bg-dark .sbk-eyebrow { color: #82cfff; }
+
+.sbk-grid {
+  display: grid;
+  gap: 32px;
+}
+
+.sbk-header {
+  max-width: 780px;
+}
+
+.sbk-eyebrow {
+  font-size: var(--fs-small);
+  color: var(--c-text-mid);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.sbk-h {
+  font-size: var(--fs-h1);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+
+.sbk-intro {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: var(--c-text);
+}
+
+.sbk-row {
+  display: grid;
+}
+
+/* ── Variant: cards (default) - bordered tiles ────────────────────────── */
+.sbk-v-cards .sbk-row {
+  gap: 1px;
+  background: var(--c-border);
+  border: 1px solid var(--c-border);
+}
+.sbk-v-cards .sbk-row[data-count='2'] { grid-template-columns: 1fr; }
+.sbk-v-cards .sbk-row[data-count='3'] { grid-template-columns: 1fr; }
+.sbk-v-cards .sbk-row[data-count='4'] { grid-template-columns: 1fr; }
+@media (min-width: 600px) {
+  .sbk-v-cards .sbk-row[data-count='2'] { grid-template-columns: 1fr 1fr; }
+  .sbk-v-cards .sbk-row[data-count='3'],
+  .sbk-v-cards .sbk-row[data-count='4'] { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 960px) {
+  .sbk-v-cards .sbk-row[data-count='3'] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .sbk-v-cards .sbk-row[data-count='4'] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+.sbk-v-cards .sbk-item {
+  background: #fff;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 180px;
+}
+
+/* ── Variant: inline - big numbers in a row, no card chrome ───────────── */
+.sbk-v-inline .sbk-row {
+  gap: 32px;
+  border-top: 1px solid var(--c-border);
+  padding-top: 32px;
+}
+.sbk-v-inline .sbk-row[data-count='2'] { grid-template-columns: 1fr; }
+.sbk-v-inline .sbk-row[data-count='3'] { grid-template-columns: 1fr; }
+.sbk-v-inline .sbk-row[data-count='4'] { grid-template-columns: 1fr; }
+@media (min-width: 600px) {
+  .sbk-v-inline .sbk-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 960px) {
+  .sbk-v-inline .sbk-row[data-count='3'] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .sbk-v-inline .sbk-row[data-count='4'] { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+.sbk-v-inline .sbk-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0;
+  background: transparent;
+}
+.sbk-v-inline .sbk-value {
+  font-size: clamp(2.75rem, 3vw + 1.5rem, 4.5rem);
+  letter-spacing: -0.03em;
+}
+
+/* ── Variant: rail - header on the left, stats stacked on the right ───── */
+.sbk-v-rail .sbk-grid {
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+@media (min-width: 960px) {
+  .sbk-v-rail .sbk-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    align-items: start;
+    gap: 64px;
+  }
+}
+.sbk-v-rail .sbk-row {
+  gap: 0;
+  grid-template-columns: 1fr;
+}
+.sbk-v-rail .sbk-item {
+  display: grid;
+  grid-template-columns: minmax(0, 280px) 1fr;
+  gap: 24px;
+  padding: 24px 0;
+  border-top: 1px solid var(--c-border);
+  align-items: baseline;
+  background: transparent;
+}
+.sbk-v-rail .sbk-row li:last-child .sbk-item {
+  border-bottom: 1px solid var(--c-border);
+}
+.sbk-v-rail .sbk-value {
+  font-size: clamp(2rem, 1.6vw + 1.5rem, 2.75rem);
+}
+
+/* Shared text styles */
+.sbk-value {
+  font-size: clamp(2rem, 2vw + 1.5rem, 3rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--c-blue-70);
+}
+
+.sbk-bg-dark .sbk-value { color: #fff; }
+.sbk-bg-dark .sbk-label { color: #c6c6c6; }
+
+.sbk-label {
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  color: var(--c-text-mid);
+}
+
+.sbk-sub {
+  font-size: var(--fs-small);
+  line-height: 1.45;
+  color: var(--c-text-mid);
+  margin-top: 4px;
+  opacity: 0.85;
+}
+
+.sbk-bg-dark .sbk-sub { color: #a8a8a8; }

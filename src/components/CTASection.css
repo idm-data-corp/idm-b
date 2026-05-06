@@ -1,0 +1,72 @@
+.cta {
+  padding: 80px 0;
+}
+
+.cta-light {
+  background: var(--c-bg-alt);
+  color: var(--c-text);
+}
+
+.cta-dark {
+  background: var(--c-blue-80);
+  color: #fff;
+}
+
+.cta-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .cta-grid {
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    gap: 48px;
+  }
+}
+
+.cta-h {
+  font-size: var(--fs-h1);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+
+.cta-sub {
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+.cta-dark .cta-sub {
+  color: #c6c6c6;
+}
+
+.cta-light .cta-sub {
+  color: var(--c-text-mid);
+}
+
+.cta-buttons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  max-width: 540px;
+}
+
+@media (min-width: 480px) {
+  .cta-buttons {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Keep buttons readable on the dark CTA: tertiary outlines in white. */
+.cta-dark .btn-tertiary {
+  color: #fff;
+  border-color: #fff;
+}
+
+.cta-dark .btn-tertiary:hover {
+  background: #fff;
+  color: var(--c-blue-80);
+}

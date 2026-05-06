@@ -1,0 +1,141 @@
+.hero {
+  background: var(--c-bg);
+  padding: 32px 0 56px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    grid-template-areas:
+      'copy visual'
+      'copy news';
+    gap: 24px 32px;
+  }
+}
+
+@media (min-width: 1056px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.4fr) 220px;
+    grid-template-areas: 'copy visual news';
+    gap: 32px;
+  }
+}
+
+.hero-copy { grid-area: copy; }
+.hero-visual { grid-area: visual; }
+.hero-news { grid-area: news; }
+
+.hero-title {
+  font-size: var(--fs-display);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--c-blue-70);
+  margin-bottom: 32px;
+}
+
+.hero-lede {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--c-text);
+  max-width: 38ch;
+  margin-bottom: 32px;
+}
+
+.hero-ctas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  max-width: 460px;
+}
+
+@media (min-width: 480px) {
+  .hero-ctas {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* .btn rules now live in src/styles/buttons.css. */
+
+.orch {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  aspect-ratio: 600 / 460;
+  display: block;
+  border-radius: 0;
+}
+
+@media (min-width: 1056px) {
+  .orch {
+    aspect-ratio: 6 / 5;
+  }
+}
+
+/* Latest News rail */
+.hero-news-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.hero-news ul {
+  display: grid;
+  gap: 0;
+}
+
+.hero-news-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid var(--c-border);
+  color: var(--c-link);
+  font-size: 1rem;
+  line-height: 1.35;
+  font-weight: 400;
+}
+
+.hero-news li:last-child .hero-news-item {
+  border-bottom: 1px solid var(--c-border);
+}
+
+.hero-news-item:hover {
+  color: var(--c-link-hover);
+  text-decoration: none;
+}
+
+.hero-news-item svg {
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.hero-news-pager {
+  display: flex;
+  gap: 4px;
+  margin-top: 16px;
+  justify-content: flex-end;
+}
+
+.hero-news-pager button {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-small);
+  color: var(--c-link);
+  background: transparent;
+  border-radius: 0;
+}
+
+.hero-news-pager .is-active button {
+  border-bottom: 2px solid var(--c-blue-60);
+}

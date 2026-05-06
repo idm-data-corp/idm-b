@@ -1,0 +1,222 @@
+/* Customer story hero */
+.cs-hero {
+  background:
+    radial-gradient(ellipse at top right, rgba(15, 98, 254, 0.08), transparent 60%),
+    linear-gradient(180deg, #f4f7ff 0%, var(--c-bg) 100%);
+  padding: 56px 0 64px;
+  border-bottom: 1px solid var(--c-border);
+}
+
+.cs-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: end;
+}
+
+@media (min-width: 960px) {
+  .cs-hero-grid {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 48px;
+  }
+}
+
+.cs-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-small);
+  color: var(--c-link);
+  text-decoration: none;
+  margin-bottom: 24px;
+}
+
+.cs-back:hover {
+  color: var(--c-link-hover);
+}
+
+.cs-back > span:first-child {
+  font-weight: 600;
+}
+
+.cs-hero-logo {
+  margin-bottom: 16px;
+  color: var(--c-text);
+}
+
+.cs-hero-eyebrow {
+  font-size: var(--fs-small);
+  color: var(--c-text-mid);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.cs-hero-h {
+  font-size: clamp(2rem, 2.5vw + 1rem, 3.25rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--c-blue-70);
+  margin-bottom: 24px;
+}
+
+.cs-hero-sub {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: var(--c-text);
+  max-width: 56ch;
+}
+
+.cs-hero-stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: var(--c-border);
+  border: 1px solid var(--c-border);
+}
+
+@media (min-width: 480px) {
+  .cs-hero-stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+.cs-hero-stats li {
+  background: #fff;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cs-hero-stat-value {
+  font-size: clamp(1.75rem, 1.8vw + 1rem, 2.25rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--c-blue-70);
+}
+
+.cs-hero-stat-label {
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  color: var(--c-text-mid);
+}
+
+/* Body — three problem/approach/result columns */
+.cs-body {
+  padding: 80px 0;
+  background: var(--c-bg);
+}
+
+.cs-body-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+@media (min-width: 960px) {
+  .cs-body-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 48px;
+  }
+}
+
+.cs-body-block h2 {
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--c-blue-70);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--c-blue-60);
+}
+
+.cs-body-block p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--c-text);
+  margin-bottom: 16px;
+}
+
+.cs-body-block p:last-child {
+  margin-bottom: 0;
+}
+
+/* Related stories */
+.cs-rel {
+  padding: 64px 0 96px;
+  background: var(--c-bg);
+}
+
+.cs-rel-h {
+  font-size: var(--fs-h2);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+}
+
+.cs-rel-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: var(--c-border);
+  border: 1px solid var(--c-border);
+  margin-bottom: 32px;
+}
+
+@media (min-width: 720px) {
+  .cs-rel-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1056px) {
+  .cs-rel-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.cs-rel-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 32px;
+  min-height: 200px;
+  background: #fff;
+  color: var(--c-text);
+  text-decoration: none;
+  transition: background 120ms ease;
+}
+
+.cs-rel-card:hover {
+  background: var(--c-bg-alt);
+}
+
+.cs-rel-card:hover .cs-rel-card-title {
+  color: var(--c-link);
+}
+
+.cs-rel-card-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.3;
+  transition: color 120ms ease;
+}
+
+.cs-rel-card-desc {
+  font-size: var(--fs-small);
+  line-height: 1.55;
+  color: var(--c-text-mid);
+  flex: 1;
+}
+
+.cs-rel-card-arrow {
+  align-self: flex-end;
+  color: var(--c-link);
+}
+
+.cs-rel-cta {
+  display: flex;
+  justify-content: flex-start;
+}

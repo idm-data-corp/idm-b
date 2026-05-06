@@ -1,0 +1,73 @@
+{
+  "name": "IDMB - Banking, Wallets & Data Analytics Infrastructure",
+  "short_name": "IDMB",
+  "description": "Modern banking, wallets and data analytics infrastructure for banks, fintechs and operators.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#0f62fe",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["finance", "business", "productivity"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/og-image.svg",
+      "sizes": "1200x630",
+      "type": "image/svg+xml",
+      "form_factor": "wide",
+      "label": "IDMB platform overview"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Banking infrastructure",
+      "short_name": "Banking",
+      "url": "/products/banking"
+    },
+    {
+      "name": "Wallets infrastructure",
+      "short_name": "Wallets",
+      "url": "/products/wallets"
+    },
+    {
+      "name": "Data analytics",
+      "short_name": "Analytics",
+      "url": "/products/analytics"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+export const meta = {
+  kind: 'blog',
+  slug: 'embedded-finance-what-operators-get-wrong',
+  title: 'Embedded finance: what operators get wrong about compliance',
+  date: '2026-04-08',
+  author: { name: 'Kwame Asante', role: 'Chief Compliance Officer, IDMB' },
+  excerpt: 'Embedding financial products into a non-financial app sounds simple. The compliance surface isn\'t. Here\'s where operators run into trouble.',
+  readTime: '9 min read',
+  tags: ['Compliance', 'Embedded Finance', 'Regulatory'],
+};
+
+## The promise and the problem
+
+Embedded finance is real. Platforms that add wallets, credit or payouts see meaningful revenue lifts and retention improvements. The promise is well understood. The problem most operators encounter is that they underestimate the compliance surface they're taking on — especially around KYC, AML and money transmission.
+
+This isn't a scare piece. It's a practical map of where teams run into trouble, and what the IDMB platform does to reduce that surface.
+
+## Mistake 1: treating KYC as a one-time event
+
+Identity verification at onboarding is necessary but not sufficient. Regulations in most jurisdictions (EU AMLD6, UK MLR 2017, US BSA/AML) require **ongoing due diligence**: if a customer's risk profile changes, you need to know about it.
+
+Practically, this means:
+- Periodic re-verification for high-risk customers
+- Adverse media and PEP screening on a schedule, not just at signup
+- Transaction behaviour monitoring that flags anomalies against the original risk profile
+
+The IDMB compliance module treats KYC as a stateful lifecycle, not a checkbox. Identity records have risk scores that update continuously as transaction data comes in. Thresholds trigger re-verification workflows automatically.
+
+## Mistake 2: assuming your BaaS provider owns the AML obligation
+
+The most common compliance misunderstanding in BaaS: *"The bank behind the programme handles AML, so we don't need to."*
+
+In most markets, the programme manager — the platform that holds the customer relationship — retains a share of the AML obligation. The IDMB platform generates the Suspicious Activity Reports (SARs) and Currency Transaction Reports (CTRs), but it is still your product and your customer. The regulatory expectation is that you understand the transaction patterns and can explain them.
+
+That means your team needs to be able to read the case management queue, not just route it to a third-party operations centre.
+
+## Mistake 3: one KYC tier for all customers
+
+Transaction limits, product access and monitoring intensity should all be tier-dependent. A personal wallet for micro-transactions looks nothing like a merchant wallet receiving $50,000/day. Running both through the same KYC tier is both over-compliant in one case and under-compliant in the other.
+
+IDMB's compliance module supports configurable tiering:
+- **Tier 0**: email + phone, maximum $500/month, no cross-border
+- **Tier 1**: full identity verification, standard AML, standard limits
+- **Tier 2**: enhanced due diligence (EDD), higher limits, cross-border enabled
+- **Custom tiers**: enterprise programmes can define their own
+
+The tier is set at wallet creation and can be upgraded (with a new KYC check) but not downgraded without a support ticket to prevent evasion.
+
+## Mistake 4: building your own SAR workflow
+
+Filing a Suspicious Activity Report is not complicated. Managing a queue of potential SARs across millions of transactions — deciding which to file, in what time window, with what narrative — is operationally complex and legally sensitive.
+
+The IDMB case management interface does the heavy lifting: transactions that breach configurable thresholds flow into a queue, analysts review them within the regulatory window (24 hours in most markets), and filing is one-click with a pre-populated narrative. The audit trail is immutable.
+
+## What "compliance built in" actually means
+
+When we say compliance is built into IDMB, we mean three things:
+
+1. **Policy as configuration**: AML rules, KYC tiers and transaction limits are configured, not coded. Your compliance team can update thresholds without an engineering sprint.
+2. **Shared obligation, clear ownership**: IDMB generates the monitoring output; your team reviews and files. The responsibility boundary is explicit and documented.
+3. **Regulator-ready data**: every decision — approve, reject, escalate — is timestamped, attributable and exportable for an examination.
+
+## The short version
+
+Embedded finance is not plug-and-play from a compliance perspective. The three traps are: treating KYC as a one-time event, assuming your BaaS partner owns AML, and running all customers through one risk tier. The platform you build on should make all three traps avoidable by design, not by policy.

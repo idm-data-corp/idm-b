@@ -1,0 +1,33 @@
+.abar {
+  display: none;
+  background: var(--c-bg-banner);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.abar-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 14px var(--gutter);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-small);
+}
+
+.abar-title {
+  color: var(--c-link);
+  font-weight: 600;
+}
+
+.abar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--c-text);
+}
+
+.abar-link:hover {
+  color: var(--c-link-hover);
+}

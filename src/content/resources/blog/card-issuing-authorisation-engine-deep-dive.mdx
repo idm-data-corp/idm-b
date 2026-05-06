@@ -1,0 +1,112 @@
+export const meta = {
+  kind: 'blog',
+  slug: 'card-issuing-authorisation-engine-deep-dive',
+  title: 'Card authorisation engine: how programmable rules work at 50M cards',
+  date: '2026-02-19',
+  author: { name: 'Tunde Adeyemi', role: 'CTO, IDMB' },
+  excerpt: 'Every card transaction runs through an authorisation decision in under 100ms. Here\'s what that decision tree looks like and how IDMB exposes it via API.',
+  readTime: '10 min read',
+  tags: ['Cards', 'Engineering', 'Architecture'],
+};
+
+## The 100ms contract
+
+Visa and Mastercard set a hard deadline: your issuer processor must respond to an authorisation request within 100ms or the transaction times out. At 50 million cards, peak authorisation volume is roughly 8,000 requests per second. Your engine needs to evaluate a decision tree for each one within that window.
+
+This is not a hard engineering problem if you design for it from day one. It becomes a hard problem if you inherit a rules engine that was designed for batch processing and tries to do a real-time database join on every auth.
+
+## What's in an authorisation request
+
+A card authorisation request (ISO 8583 message, translated to a JSON envelope in the IDMB API) contains:
+
+```json
+{
+  "card_id": "crd_8fa2",
+  "merchant": {
+    "name": "TESCO EXPRESS 4421",
+    "mcc": "5411",
+    "country": "GBR",
+    "terminal_id": "T0042"
+  },
+  "amount": { "value": 3450, "currency": "GBP" },
+  "transaction_type": "purchase",
+  "pos_entry_mode": "chip_pin",
+  "3ds": { "version": "2.2", "eci": "05" }
+}
+```
+
+Your authorisation engine receives this and must return `approved`, `declined`, or `refer_to_issuer` (plus a reason code) within the window.
+
+## The IDMB rules model
+
+Rules are evaluated in priority order. Each rule has:
+- **Condition**: a boolean expression over the request fields, card attributes and account state
+- **Action**: approve / decline / require_3ds / flag_for_review
+- **Priority**: lower numbers run first
+
+Example rule set for a consumer prepaid card:
+
+```json
+[
+  { "priority": 10, "condition": "card.status != 'active'",            "action": "decline", "code": "57" },
+  { "priority": 20, "condition": "account.available_balance < amount", "action": "decline", "code": "51" },
+  { "priority": 30, "condition": "merchant.country not in card.allowed_regions", "action": "decline", "code": "62" },
+  { "priority": 40, "condition": "daily_spend_total + amount > card.daily_limit", "action": "decline", "code": "61" },
+  { "priority": 50, "condition": "merchant.mcc in card.blocked_mcc_list",         "action": "decline", "code": "57" },
+  { "priority": 60, "condition": "risk_score > 0.85",                             "action": "require_3ds"        },
+  { "priority": 99, "condition": "true",                                           "action": "approve"           }
+]
+```
+
+Rules are stored per card programme (not per card). You can override specific rules at the card level (e.g. a corporate card that allows international spend but has a tighter MCC block list).
+
+## How we stay under 100ms
+
+The naive implementation — evaluate conditions by querying the database on every auth — breaks well before 1,000 RPS. Our implementation:
+
+1. **Card state cache**: every active card's state (status, limits, programme rules, account balance) is replicated to an in-memory store that's updated on every ledger entry. Auth reads from the cache, never from Postgres.
+
+2. **Rule pre-compilation**: conditions are compiled to bytecode at programme creation time. At auth time we're evaluating bytecode against a struct, not parsing a JSON expression.
+
+3. **Balance as integer**: stored and compared as an integer in the smallest currency unit (pence, cents). No floating-point arithmetic on the hot path.
+
+4. **Risk score async update**: the risk score attached to the card is updated asynchronously from the risk model (latency-insensitive). At auth time we read the pre-computed score.
+
+The result: p99 auth latency is 18ms from request receipt to decision, with a 99.99% availability SLA.
+
+## Webhooks and real-time notifications
+
+After the auth decision, IDMB fires a webhook to your application:
+
+```http
+POST https://your-app.example.com/webhooks/card-auth
+X-IDMB-Signature: sha256=...
+
+{
+  "event": "card.authorization.approved",
+  "authorization_id": "auth_7g91",
+  "card_id": "crd_8fa2",
+  "amount": { "value": 3450, "currency": "GBP" },
+  "merchant": { "name": "TESCO EXPRESS 4421", "mcc": "5411" },
+  "timestamp": "2026-02-14T14:22:07.341Z"
+}
+```
+
+Your application can use this webhook to update a real-time balance display, push an in-app notification, or trigger downstream logic (e.g. earning loyalty points for a specific MCC).
+
+## Adding your own rules via the API
+
+You don't need a support ticket to change card rules. The Rules API lets you add, update and delete rules on a programme or individual card:
+
+```http
+POST /v1/card-programmes/{id}/rules
+{
+  "priority": 45,
+  "condition": "merchant.name contains 'GAMBLING'",
+  "action": "decline",
+  "code": "57",
+  "label": "Block gambling merchants"
+}
+```
+
+Changes take effect within 2 seconds across all regions. No deployment required.

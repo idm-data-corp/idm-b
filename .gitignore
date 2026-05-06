@@ -1,0 +1,14 @@
+node_modules/
+dist/
+storybook-static/
+playwright-report/
+test-results/
+*.tsbuildinfo
+.DS_Store
+.vite/
+.env
+.env.local
+.env.*.local
+
+# Reference docs not part of the build
+IBMC.pdf

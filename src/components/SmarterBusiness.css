@@ -1,0 +1,121 @@
+.sb {
+  padding: 56px 0 32px;
+}
+
+.sb-h {
+  font-size: var(--fs-h1);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 32px;
+}
+
+.sb-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  background: #fff;
+  border: 1px solid var(--c-border);
+}
+
+.sb-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 96px;
+  padding: 16px;
+  background: var(--c-bg-alt);
+  border: 0;
+  border-right: 1px solid var(--c-border);
+  position: relative;
+  transition: background 120ms, filter 120ms;
+}
+
+.sb-tab > svg { transition: filter 160ms ease; }
+.sb-tab:not(.is-active) > svg { filter: grayscale(1) opacity(0.55); }
+.sb-tab:hover:not(.is-active) > svg { filter: grayscale(1) opacity(0.85); }
+
+.sb-tab:last-child { border-right: 0; }
+
+.sb-tab.is-active {
+  background: #fff;
+}
+
+.sb-tab.is-active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 3px;
+  background: var(--c-blue-60);
+}
+
+.sb-tab:hover { background: #fff; }
+
+.sb-panel {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  padding-top: 32px;
+}
+
+@media (min-width: 768px) {
+  .sb-panel {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+}
+
+.sb-customer {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--c-link);
+  margin-bottom: 16px;
+}
+
+.sb-para {
+  font-size: var(--fs-small);
+  line-height: 1.55;
+  color: var(--c-text);
+  margin-bottom: 32px;
+}
+
+.sb-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.sb-metric-value {
+  font-size: 2rem;
+  line-height: 1.1;
+  font-weight: 300;
+  color: var(--c-link);
+  margin-bottom: 8px;
+}
+
+.sb-metric-label {
+  font-size: var(--fs-small);
+  color: var(--c-text);
+  line-height: 1.4;
+}
+
+.sb-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sb-art {
+  position: relative;
+  border-radius: 0;
+  overflow: hidden;
+  aspect-ratio: 6 / 5;
+}
+
+.iso {
+  width: 100%;
+  height: 100%;
+  display: block;
+}

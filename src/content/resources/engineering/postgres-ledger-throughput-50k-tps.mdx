@@ -1,0 +1,93 @@
+export const meta = {
+  kind: 'engineering',
+  slug: 'postgres-ledger-throughput-50k-tps',
+  title: 'Getting to 50k TPS on Postgres: the IDMB ledger story',
+  date: '2026-03-28',
+  author: { name: 'Tunde Adeyemi', role: 'CTO, IDMB' },
+  excerpt: 'We run the IDMB ledger on Postgres. Here\'s how we got to 50,000 transactions per second on a system that prioritises correctness over throughput.',
+  readTime: '13 min read',
+  tags: ['Engineering', 'PostgreSQL', 'Performance', 'Database'],
+};
+
+## The constraint
+
+We chose PostgreSQL as the IDMB ledger store. This is an unusual choice for a high-throughput financial system — most systems at this scale use distributed databases (CockroachDB, YugabyteDB, Spanner) or purpose-built ledger storage. We chose Postgres for three reasons: correctness guarantees we trust, operational maturity we can hire for, and a community with 30 years of financial workload experience.
+
+The constraint: a single Postgres primary has a ceiling. Ours is around 80k transactions per second on our hardware (NVMe SSD, 96-core instances). We're currently running at ~50k TPS peak. This is tight, and everything we do is focused on staying well inside the ceiling with headroom.
+
+## What a ledger entry looks like
+
+```sql
+CREATE TABLE ledger_entries (
+    id          UUID        PRIMARY KEY DEFAULT gen_random_uuid(),
+    account_id  UUID        NOT NULL REFERENCES accounts(id),
+    entry_type  TEXT        NOT NULL,  -- 'debit' | 'credit'
+    amount      BIGINT      NOT NULL,  -- in minor currency units (pence, cents)
+    currency    CHAR(3)     NOT NULL,
+    balance_after BIGINT    NOT NULL,  -- materialised balance snapshot
+    transfer_id UUID,                  -- groups the debit and credit of a transfer
+    idempotency_key TEXT,
+    metadata    JSONB,
+    created_at  TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+```
+
+The entry table is append-only. We never UPDATE or DELETE rows. Ever. The `balance_after` column is a materialised snapshot — the account balance at the point this entry was written, for fast balance reads without summing the full history.
+
+## The concurrency model
+
+The hard problem: two concurrent transfers debit the same account. Both need to check the balance before applying, and both must not result in a negative balance (for accounts with no overdraft).
+
+The naive approach — SELECT balance, check, INSERT entry — has a TOCTOU race. We solve it with **optimistic concurrency control**:
+
+Each account has a `version` column. Before writing an entry, we read the current version. We write the entry only if the version hasn't changed:
+
+```sql
+WITH current AS (
+  SELECT balance_after, version FROM accounts WHERE id = $1 FOR UPDATE
+)
+UPDATE accounts
+SET 
+  version       = version + 1,
+  balance_after = balance_after - $amount
+WHERE id = $1 
+  AND version = (SELECT version FROM current)
+  AND balance_after >= $amount
+RETURNING version;
+```
+
+If the UPDATE affects 0 rows (version mismatch or insufficient balance), we retry with fresh state. Contention on a single account is rare at normal volumes — accounts don't receive thousands of concurrent debits. When it does happen (e.g. a central liquidity account during a payout batch), we rate-limit the queue.
+
+## The write amplification problem
+
+Every transfer writes two rows to `ledger_entries` (debit + credit) and updates two rows in `accounts`. At 50k TPS, that's 200k row operations per second. Postgres WAL write amplification means the actual I/O is ~3–5x the logical row write count.
+
+Mitigations we applied:
+
+**1. Partition the entry table by month**
+
+```sql
+CREATE TABLE ledger_entries_2026_04 
+  PARTITION OF ledger_entries
+  FOR VALUES FROM ('2026-04-01') TO ('2026-05-01');
+```
+
+Monthly partitions keep the active partition small, keep index sizes manageable, and allow us to move historical months to cheaper storage.
+
+**2. Defer non-critical index updates**
+
+The entry table has three indexes: `(account_id, created_at)` for balance queries, `(transfer_id)` for transfer lookups, and `(idempotency_key)` for deduplication. The `idempotency_key` index is written asynchronously after the critical write path — we tolerate a 100ms window where the index is stale, which is acceptable because idempotency key lookup during that window falls back to a direct table scan.
+
+**3. Connection pooling via PgBouncer in transaction mode**
+
+At 50k TPS, naive connection management would require thousands of Postgres connections. We run PgBouncer in transaction mode: each transaction borrows a connection from the pool and returns it immediately after commit. Peak pool utilisation is ~200 connections.
+
+## The read path
+
+Balance reads hit a Redis cache, not Postgres. The cache is updated atomically with every entry write (we use a Lua script in Redis to ensure the cache update and the Postgres write are applied in the same logical step, with Redis as the replica). Cache hit rate is >99.5% for active accounts.
+
+## What we're watching
+
+The metric we track most closely is **lock wait time**: the time a transfer spends waiting to acquire the account-level lock. At our current load, p99 lock wait is 4ms. When this number starts climbing, we know we're approaching the contention ceiling and need to look at sharding the account namespace.
+
+We haven't needed to shard yet. When we do, the plan is a functional shard: separate Postgres instances for retail accounts, merchant accounts and internal (treasury) accounts, with cross-shard transfers handled by a distributed two-phase commit coordinator. We'll write that up when we build it.

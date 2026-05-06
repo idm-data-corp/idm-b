@@ -1,0 +1,93 @@
+/* Shared button primitive — used by <Button>, ProductHero, CTASection, the
+   home Hero and any inline `<a class="btn">` reference. Lives in global
+   styles so the rules are present regardless of which page is mounted. */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  min-height: 64px;
+  font-size: var(--fs-small);
+  line-height: 1.3;
+  text-align: left;
+  text-decoration: none;
+  border: 1px solid transparent;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 120ms, color 120ms, border-color 120ms;
+}
+
+.btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Sizes */
+.btn-size-md {
+  min-height: 64px;
+  padding: 16px;
+}
+
+.btn-size-lg {
+  min-height: 72px;
+  padding: 20px 24px;
+  font-size: 1rem;
+}
+
+/* Variant: primary — solid IBM blue, white text */
+.btn-primary {
+  background: var(--c-blue-60);
+  color: #fff;
+  border-color: var(--c-blue-60);
+}
+.btn-primary:hover {
+  background: var(--c-blue-70);
+  border-color: var(--c-blue-70);
+}
+
+/* Variant: secondary — solid darker indigo (used on light bgs to contrast
+   with primary, e.g. when two CTAs sit side by side) */
+.btn-secondary {
+  background: var(--c-blue-80);
+  color: #fff;
+  border-color: var(--c-blue-80);
+}
+.btn-secondary:hover {
+  background: #001d6c;
+  border-color: #001d6c;
+}
+
+/* Variant: tertiary — outlined IBM blue */
+.btn-tertiary {
+  background: transparent;
+  color: var(--c-blue-60);
+  border-color: var(--c-blue-60);
+}
+.btn-tertiary:hover {
+  background: var(--c-blue-60);
+  color: #fff;
+}
+
+/* Variant: ghost — text + chevron only, no border. Used inline in long copy. */
+.btn-ghost {
+  min-height: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--c-link);
+  border: 0;
+  gap: 12px;
+  font-size: var(--fs-small);
+}
+.btn-ghost:hover {
+  color: var(--c-link-hover);
+}
+.btn-ghost svg {
+  transition: transform 160ms ease;
+}
+.btn-ghost:hover svg {
+  transform: translateX(4px);
+}

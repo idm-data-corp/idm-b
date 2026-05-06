@@ -1,0 +1,133 @@
+/* Events landing page */
+.ev-land-hero {
+  padding: 72px 0 64px;
+  background:
+    radial-gradient(ellipse at center top, rgba(15, 98, 254, 0.08), transparent 60%),
+    linear-gradient(180deg, #161b2e 0%, #0a1128 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.ev-land-eyebrow {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #78a9ff;
+  margin-bottom: 16px;
+}
+
+.ev-land-h {
+  font-size: clamp(2rem, 3vw + 1rem, 3.5rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 20px;
+  max-width: 18ch;
+}
+
+.ev-land-sub {
+  font-size: 1.125rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 58ch;
+  margin-bottom: 32px;
+}
+
+/* List section */
+.ev-land-list {
+  padding: 64px 0 96px;
+  background: var(--c-bg);
+}
+
+.ev-land-list-h {
+  font-size: clamp(1.5rem, 2vw + 0.5rem, 2rem);
+  font-weight: 300;
+  letter-spacing: -0.015em;
+  color: var(--c-blue-70);
+  margin-bottom: 40px;
+}
+
+.ev-land-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .ev-land-cards { grid-template-columns: 1fr 1fr; }
+}
+
+.ev-land-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 36px 32px;
+  border: 1px solid var(--c-border);
+  background: #fff;
+  transition: box-shadow 120ms ease, border-color 120ms ease;
+}
+
+.ev-land-card:hover {
+  border-color: var(--c-blue-60);
+  box-shadow: 0 2px 12px rgba(15, 98, 254, 0.08);
+}
+
+.ev-land-card.is-featured {
+  border-color: var(--c-blue-60);
+  background: linear-gradient(140deg, #f4f7ff 0%, #fff 60%);
+}
+
+.ev-land-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.ev-land-card-type {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-blue-60);
+  background: rgba(15, 98, 254, 0.07);
+  padding: 3px 8px;
+}
+
+.ev-land-card-date,
+.ev-land-card-loc {
+  font-size: var(--fs-small);
+  color: var(--c-text-mid);
+}
+
+.ev-land-card-date::before { content: '📅 '; }
+.ev-land-card-loc::before  { content: '📍 '; }
+
+.ev-land-card-label {
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--c-text);
+  line-height: 1.2;
+}
+
+.ev-land-card-desc {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--c-text-mid);
+  flex: 1;
+}
+
+.ev-land-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--c-link);
+  text-decoration: none;
+  margin-top: 4px;
+}
+
+.ev-land-card-link:hover { text-decoration: underline; }

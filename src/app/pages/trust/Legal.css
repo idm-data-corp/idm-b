@@ -1,0 +1,140 @@
+/* Legal layout - narrow column, on-this-page TOC */
+
+.legal-body {
+  padding: 56px 0 96px;
+  background: var(--c-bg);
+}
+
+.legal-body-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+@media (min-width: 1056px) {
+  .legal-body-grid {
+    grid-template-columns: minmax(0, 1fr) 200px;
+  }
+  .legal-body-grid .otp {
+    position: sticky;
+    top: 64px;
+  }
+}
+
+.legal-hero {
+  padding: 48px 0 40px;
+  border-bottom: 1px solid var(--c-border);
+  background: var(--c-bg-alt);
+}
+
+.legal-hero-eyebrow {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-blue-60);
+  margin-bottom: 10px;
+}
+
+.legal-hero-h {
+  font-size: clamp(1.75rem, 2.5vw + 0.75rem, 2.5rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--c-blue-70);
+  margin-bottom: 12px;
+}
+
+.legal-last-updated {
+  font-size: var(--fs-small);
+  color: var(--c-text-mid);
+}
+
+/* Article prose */
+.legal-prose h2 {
+  font-size: clamp(1.25rem, 1.5vw + 0.5rem, 1.625rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--c-blue-70);
+  margin-top: 48px;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--c-border);
+}
+
+.legal-prose h3 {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--c-text);
+  margin-top: 28px;
+  margin-bottom: 10px;
+}
+
+.legal-prose p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--c-text);
+  margin-bottom: 16px;
+}
+
+.legal-prose ul,
+.legal-prose ol {
+  padding-left: 24px;
+  margin-bottom: 16px;
+}
+
+.legal-prose li {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--c-text);
+  margin-bottom: 6px;
+}
+
+.legal-prose a {
+  color: var(--c-link);
+  text-decoration: underline;
+}
+
+/* Certifications table */
+.legal-cert-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 24px;
+  font-size: var(--fs-small);
+}
+
+.legal-cert-table th,
+.legal-cert-table td {
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--c-border);
+  vertical-align: middle;
+  line-height: 1.5;
+}
+
+.legal-cert-table thead th {
+  background: var(--c-bg-alt);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--c-text-mid);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.legal-cert-table tbody tr:hover { background: var(--c-bg-alt); }
+
+.legal-cert-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  color: var(--c-blue-70);
+}
+
+.legal-cert-cell svg {
+  flex-shrink: 0;
+  color: var(--c-blue-70);
+}
+
+/* TOC styles now live in src/components/OnThisPage.css. */

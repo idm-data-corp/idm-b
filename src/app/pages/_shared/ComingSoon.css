@@ -1,0 +1,50 @@
+.cs {
+  background: var(--c-bg);
+  padding: 64px 0 96px;
+  min-height: 50vh;
+}
+
+.cs-grid {
+  display: grid;
+  gap: 32px;
+}
+
+.cs-copy {
+  max-width: 720px;
+}
+
+.cs-h {
+  font-size: var(--fs-display);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--c-blue-70);
+  margin-bottom: 24px;
+}
+
+.cs-lede {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: var(--c-text);
+  max-width: 60ch;
+  margin-bottom: 32px;
+}
+
+.cs-ctas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  max-width: 540px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 480px) {
+  .cs-ctas {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.cs-note {
+  font-size: var(--fs-small);
+  color: var(--c-text-light);
+}

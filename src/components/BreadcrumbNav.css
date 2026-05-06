@@ -1,0 +1,40 @@
+.bcn {
+  background: var(--c-bg-alt);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.bcn-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  font-size: var(--fs-small);
+  color: var(--c-text-mid);
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.bcn-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bcn-item a {
+  color: var(--c-link);
+  text-decoration: none;
+}
+
+.bcn-item a:hover {
+  color: var(--c-link-hover);
+  text-decoration: underline;
+}
+
+.bcn-item span[aria-current='page'] {
+  color: var(--c-text);
+}
+
+.bcn-sep {
+  color: var(--c-text-light);
+}

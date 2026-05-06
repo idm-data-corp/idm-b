@@ -1,0 +1,81 @@
+export const meta = {
+  kind: 'whitepaper',
+  slug: 'modern-core-banking-architecture',
+  title: 'Modern core banking architecture: from monolith to composable API platform',
+  date: '2026-03-01',
+  author: { name: 'Tunde Adeyemi', role: 'CTO, IDMB' },
+  excerpt: 'A technical deep-dive into how the IDMB ledger is architected for real-time, high-throughput banking workloads — and what it means to move from a monolithic core to a composable API platform.',
+  readTime: '25 min read',
+  tags: ['Architecture', 'Banking', 'Technical'],
+  pdfUrl: '/resources/whitepapers/modern-core-banking-architecture.pdf',
+};
+
+## Executive summary
+
+This paper describes the architectural principles behind the IDMB core banking platform, the trade-offs we made in designing a system for licensed banking at global scale, and what the transition from a monolithic core looks like in practice. It is written for platform architects, engineering leads and CTOs evaluating modern banking infrastructure.
+
+Key conclusions:
+- A composable API platform outperforms monolithic cores on every operational metric once throughput exceeds ~500 transactions per second
+- Event sourcing and double-entry are not optional for a production ledger — they are the foundation of reconciliation correctness
+- The migration path matters as much as the target architecture; organisations that plan a dual-ledger overlay succeed; those that plan a big-bang cutover mostly don't
+
+## Part 1: Why legacy cores fail at scale
+
+### The monolithic architecture pattern
+
+The dominant core banking architecture for institutions established before 2010 is a **monolithic COBOL or Java application** — a single process that handles account management, transaction processing, interest calculation, regulatory reporting and the batch jobs for end-of-day processing. The application talks to a single relational database, typically Oracle or IBM Db2.
+
+This architecture works well at the transaction volumes of the 1990s and early 2000s. It breaks in predictable ways at modern volumes:
+
+**Batch processing windows**: end-of-day interest calculation requires locking large portions of the account table. At 10M accounts, this batch window is 4–6 hours. Real-time payment schemes require 24/7 availability. These two requirements are incompatible on a traditional core.
+
+**Vertical scaling ceiling**: a monolithic database has a hard vertical scaling ceiling. When you hit it, the options are sharding (complex, risky, expensive) or a new database architecture (a rearchitecting project in its own right).
+
+**Tight coupling to the UI layer**: legacy cores were designed with proprietary front-end systems in mind. Adding an API layer on top of them — the most common modernisation approach — means translating between the API surface and the internal data model on every call. This translation layer becomes a performance bottleneck and a source of subtle bugs.
+
+### The API-layer overlay problem
+
+The most common first step in core modernisation is to put an API gateway in front of the existing core. This solves some problems (it makes integration easier for new products) but doesn't solve the underlying architectural issues.
+
+If the core processes transactions in batches, your API layer has real-time request semantics and batch-processing back-end semantics. The gap between them shows up as eventual consistency bugs: a payment accepted by the API isn't reflected in the balance for minutes or hours.
+
+The overlay also adds latency: API → gateway → translation layer → core → translation layer → gateway → API. Each hop adds 10–50ms. At 100k TPS, this adds up.
+
+## Part 2: The IDMB architecture
+
+### Principle 1: Event sourcing as the foundation
+
+The IDMB ledger does not store account balances. It stores **ledger entries** — the immutable record of every credit and debit against every account, from the beginning of time. Account balances are derived by projecting the entry log.
+
+This is not a novel idea — it's how double-entry bookkeeping has worked for 700 years. Modern distributed systems call it event sourcing. The implications for a banking system are significant:
+
+- **No balance update locks**: writes append to the entry log, they don't update a balance row. The entry log is append-only; there are no update conflicts.
+- **Auditability by construction**: the complete history of every account is in the entry log. You don't need a separate audit table.
+- **Replay and recovery**: any state can be reconstructed from the entry log. Disaster recovery is a matter of replaying events from a durable log, not restoring a database snapshot.
+- **Temporal queries**: "what was the balance of account X at 14:00 on 15 March?" is a trivial query against the entry log.
+
+The trade-off: balance reads are not free. Reading the current balance of an account requires summing its entry log. At large account sizes this is expensive. The solution is materialised balance projections: a secondary store that caches the current balance, updated atomically with every entry write. Balance reads hit the cache; writes go to the log.
+
+### Principle 2: Strong consistency on writes, eventual consistency on reads
+
+The IDMB ledger is strongly consistent on writes: a transfer either completes fully (both the debit and the credit are persisted) or it doesn't complete at all. This is enforced with optimistic concurrency control at the account level — each account has a version number that must match the expected value for a write to succeed. Conflicting writes fail immediately and must be retried.
+
+Reads are eventually consistent, with a configurable consistency window (default: 50ms). The practical implication: if you write a transfer and immediately read the balance, you may not see the updated balance within 50ms. For most financial products, this is acceptable. For products that require read-your-writes consistency (e.g. presenting a balance immediately after a transaction), we offer a synchronous read option that bypasses the cache and reads from the entry log directly, with a latency penalty.
+
+### Principle 3: The API surface is the product
+
+Legacy cores have internal APIs designed for internal consumption — proprietary, poorly documented, requiring specialist knowledge. The IDMB external API is designed to be the primary integration surface. There is no private API that exposes more capability than the external API. This has two implications:
+
+First, every capability we build is API-first. If it can't be expressed in the external API, it doesn't exist.
+
+Second, the external API is versioned and stable. Breaking changes are never introduced in a minor version. When we introduce a breaking change, we run the old and new versions in parallel for at least 12 months.
+
+## Part 3: Migration architecture
+
+[Full migration architecture, dual-ledger overlay, reconciliation pipeline, and cutover playbook are covered in the complete PDF version of this whitepaper.]
+
+## Conclusion
+
+Composable API banking infrastructure is not a future state — it's operating in production today at scale. The architectural principles (event sourcing, strong write consistency, API-first) are proven patterns, not experimental approaches. The migration path is the hard part, and it requires a parallel-run strategy rather than a big-bang cutover.
+
+The full whitepaper (PDF) includes a detailed migration playbook, a performance benchmark comparison against three major legacy cores, and case studies from two IDMB banking customers.

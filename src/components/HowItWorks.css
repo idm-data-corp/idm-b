@@ -1,0 +1,143 @@
+.hw {
+  padding: 64px 0;
+}
+
+.hw-bg-default { background: var(--c-bg); }
+.hw-bg-alt     { background: var(--c-bg-alt); }
+
+.hw-header {
+  margin-bottom: 32px;
+  max-width: 780px;
+}
+
+.hw-eyebrow {
+  font-size: var(--fs-small);
+  color: var(--c-text-mid);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.hw-h {
+  font-size: var(--fs-h1);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+
+.hw-intro {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: var(--c-text);
+}
+
+.hw-steps {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+  .hw-steps[data-count='3'] { grid-template-columns: repeat(3, 1fr); }
+  .hw-steps[data-count='4'] { grid-template-columns: repeat(2, 1fr); }
+  .hw-steps[data-count='5'] { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1056px) {
+  .hw-steps[data-count='4'] { grid-template-columns: repeat(4, 1fr); }
+  .hw-steps[data-count='5'] { grid-template-columns: repeat(5, 1fr); }
+}
+
+.hw-step {
+  position: relative;
+}
+
+.hw-step-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.hw-step-desc {
+  font-size: var(--fs-small);
+  line-height: 1.55;
+  color: var(--c-text-mid);
+}
+
+/* ── Variant: rail (default) - blue top-rule + monospace numerals ─────── */
+.hw-v-rail .hw-step {
+  padding: 24px 24px 24px 0;
+  border-top: 2px solid var(--c-blue-60);
+}
+.hw-v-rail .hw-num {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: var(--fs-small);
+  color: var(--c-blue-60);
+  margin: 12px 0 16px;
+  letter-spacing: 0.04em;
+}
+
+/* ── Variant: circles - numbered circles, no top-rule ─────────────────── */
+.hw-v-circles .hw-step {
+  padding: 0 16px 0 0;
+}
+.hw-v-circles .hw-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--c-blue-60);
+  color: #fff;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* ── Variant: connected - horizontal flow with connector lines ────────── */
+.hw-v-connected .hw-steps {
+  position: relative;
+}
+.hw-v-connected .hw-step {
+  position: relative;
+  padding: 0 16px 0 0;
+}
+.hw-v-connected .hw-num {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--c-blue-60);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--c-blue-60);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  z-index: 1;
+}
+.hw-v-connected .hw-connector {
+  position: absolute;
+  top: 18px;
+  left: 36px;
+  right: 0;
+  height: 2px;
+  background: repeating-linear-gradient(
+    to right,
+    var(--c-blue-60) 0 4px,
+    transparent 4px 8px
+  );
+  display: none;
+}
+@media (min-width: 720px) {
+  .hw-v-connected .hw-connector {
+    display: block;
+  }
+}

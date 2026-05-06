@@ -1,0 +1,12 @@
+# IDMB security disclosure policy
+# See https://securitytxt.org for the spec.
+
+Contact: mailto:security@idmb.com
+Contact: https://www.idmb.com/security/report
+Expires: 2027-05-05T00:00:00.000Z
+Encryption: https://www.idmb.com/.well-known/pgp-key.asc
+Acknowledgments: https://www.idmb.com/security/hall-of-fame
+Preferred-Languages: en
+Canonical: https://www.idmb.com/.well-known/security.txt
+Policy: https://www.idmb.com/security/policy
+Hiring: https://www.idmb.com/careers

@@ -1,0 +1,235 @@
+.fg {
+  padding: 64px 0;
+}
+
+.fg-bg-default { background: var(--c-bg); }
+.fg-bg-alt     { background: var(--c-bg-alt); }
+
+.fg-header {
+  margin-bottom: 32px;
+  max-width: 780px;
+}
+
+.fg-eyebrow {
+  font-size: var(--fs-small);
+  color: var(--c-text-mid);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.fg-h {
+  font-size: var(--fs-h1);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+
+.fg-intro {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: var(--c-text);
+}
+
+.fg-intro a {
+  color: var(--c-link);
+}
+
+.fg-grid {
+  display: grid;
+}
+
+.fg-cols-2 { grid-template-columns: 1fr; }
+.fg-cols-3 { grid-template-columns: 1fr; }
+.fg-cols-4 { grid-template-columns: 1fr; }
+
+@media (min-width: 600px) {
+  .fg-cols-2,
+  .fg-cols-3,
+  .fg-cols-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 960px) {
+  .fg-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .fg-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+.fg-grid li {
+  display: flex;
+}
+
+.fg-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 32px;
+  background: #fff;
+  color: var(--c-text);
+  text-decoration: none;
+  width: 100%;
+  transition: background 120ms ease;
+}
+
+.fg-card:hover {
+  text-decoration: none;
+}
+
+.fg-card:hover .fg-title {
+  color: var(--c-link);
+}
+
+.fg-card:hover .fg-arrow svg {
+  transform: translateX(4px);
+}
+
+.fg-icon {
+  display: inline-flex;
+  color: var(--c-blue-60);
+  margin-bottom: 8px;
+}
+
+.fg-num {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--c-blue-60);
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+
+.fg-title {
+  display: block;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.3;
+  transition: color 120ms ease;
+}
+
+.fg-desc {
+  font-size: var(--fs-small);
+  line-height: 1.55;
+  color: var(--c-text-mid);
+  flex: 1;
+}
+
+.fg-arrow {
+  display: inline-flex;
+  align-self: flex-end;
+  color: var(--c-link);
+  margin-top: 16px;
+}
+
+.fg-arrow svg {
+  transition: transform 160ms ease;
+}
+
+/* ── Variant: cards (default) - bordered grid, white tiles ───────────── */
+.fg-v-cards .fg-grid {
+  gap: 1px;
+  background: var(--c-border);
+  border: 1px solid var(--c-border);
+}
+
+.fg-v-cards .fg-card {
+  min-height: 240px;
+}
+
+.fg-v-cards .fg-card:hover {
+  background: var(--c-bg-alt);
+}
+
+/* ── Variant: numbered - replaces icons with big mono numerals ───────── */
+.fg-v-numbered .fg-grid {
+  gap: 1px;
+  background: var(--c-border);
+  border: 1px solid var(--c-border);
+}
+.fg-v-numbered .fg-card {
+  min-height: 220px;
+}
+.fg-v-numbered .fg-card:hover {
+  background: var(--c-bg-alt);
+}
+
+/* ── Variant: horizontal - icon left, copy right, no grid border ─────── */
+.fg-v-horizontal .fg-grid {
+  gap: 32px;
+}
+.fg-v-horizontal .fg-card {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 0;
+  background: transparent;
+  min-height: 0;
+}
+.fg-v-horizontal .fg-icon {
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  background: #edf5ff;
+  color: var(--c-blue-60);
+  margin-bottom: 0;
+}
+.fg-v-horizontal .fg-icon svg {
+  width: 24px;
+  height: 24px;
+}
+.fg-v-horizontal .fg-card > .fg-title,
+.fg-v-horizontal .fg-card > .fg-desc,
+.fg-v-horizontal .fg-card > .fg-arrow {
+  flex-basis: 100%;
+}
+.fg-v-horizontal .fg-card {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  grid-template-areas:
+    'icon title'
+    'icon desc'
+    'icon arrow';
+  gap: 4px 20px;
+}
+.fg-v-horizontal .fg-icon  { grid-area: icon; }
+.fg-v-horizontal .fg-title { grid-area: title; }
+.fg-v-horizontal .fg-desc  { grid-area: desc; }
+.fg-v-horizontal .fg-arrow {
+  grid-area: arrow;
+  align-self: flex-start;
+  margin-top: 8px;
+}
+.fg-v-horizontal .fg-card:hover {
+  background: transparent;
+}
+
+/* ── Variant: minimal - pure text, separator lines, no icons ─────────── */
+.fg-v-minimal .fg-grid {
+  gap: 0;
+}
+.fg-v-minimal .fg-card {
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 0;
+  border-top: 1px solid var(--c-border);
+  background: transparent;
+  min-height: 0;
+}
+.fg-v-minimal .fg-card:last-child,
+.fg-v-minimal .fg-grid li:last-child .fg-card {
+  border-bottom: 1px solid var(--c-border);
+}
+.fg-v-minimal .fg-card:hover {
+  background: transparent;
+}
+.fg-v-minimal .fg-title {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+.fg-v-minimal .fg-arrow {
+  align-self: flex-start;
+  margin-top: 8px;
+}

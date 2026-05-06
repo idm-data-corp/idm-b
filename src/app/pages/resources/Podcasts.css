@@ -1,0 +1,57 @@
+/* Podcast episode list */
+.pod-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--c-border);
+  border: 1px solid var(--c-border);
+}
+
+.pod-item {
+  display: flex;
+  gap: 24px;
+  padding: 32px;
+  background: #fff;
+  align-items: flex-start;
+}
+
+.pod-num {
+  font-size: var(--fs-small);
+  font-weight: 700;
+  color: var(--c-blue-60);
+  background: rgba(15, 98, 254, 0.08);
+  padding: 6px 12px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+.pod-item-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pod-item-meta {
+  font-size: var(--fs-small);
+  color: var(--c-text-mid);
+}
+
+.pod-item-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--c-text);
+}
+
+.pod-item-guest {
+  font-size: var(--fs-small);
+  color: var(--c-blue-60);
+}
+
+.pod-item-desc {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--c-text-mid);
+  max-width: 65ch;
+}

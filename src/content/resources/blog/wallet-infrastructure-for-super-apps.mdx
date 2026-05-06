@@ -1,0 +1,94 @@
+export const meta = {
+  kind: 'blog',
+  slug: 'wallet-infrastructure-for-super-apps',
+  title: 'Wallet infrastructure for super-apps: the multi-tenancy problem',
+  date: '2026-02-03',
+  author: { name: 'Amara Osei', role: 'CEO, IDMB' },
+  excerpt: 'A super-app wallet needs to serve millions of users, multiple merchant types, and regulatory requirements across markets — all from one integration. Here\'s how we architect that.',
+  readTime: '7 min read',
+  tags: ['Wallets', 'Architecture', 'Super-apps'],
+};
+
+## One integration, many products
+
+A super-app wallet is not a single product. At minimum, it's three:
+- A **consumer wallet**: the user's stored balance, used for purchases within the app
+- A **merchant wallet**: the merchant's balance, where payouts accumulate before settlement
+- A **platform wallet**: the operator's margin, fees and float, held separately from both
+
+These three wallet types have different compliance requirements, different lifecycle rules and different settlement behaviours. But from the end user's perspective, they're invisible — the app just works.
+
+The infrastructure underneath needs to manage all three programmatically, on a single ledger, across millions of accounts.
+
+## The tenancy model
+
+IDMB models this as a **programme hierarchy**: one root programme (your platform), with child programmes for each wallet type. Each programme has its own:
+- Regulatory compliance config (KYC tier, AML rules, transaction limits)
+- Settlement account (where balances settle at end of day)
+- Fee schedule (what IDMB charges you, and what you charge users)
+- Reporting segment (separate P&L view per programme)
+
+All programmes share the same ledger, so transfers between a consumer wallet and a merchant wallet are intra-ledger and immediate — no external payment rail required.
+
+## The payout problem
+
+The most operationally complex part of a super-app wallet is merchant payouts: accumulating merchant balances, running hold periods (to cover disputes and chargebacks), and initiating external bank transfers at the right time.
+
+The IDMB payout engine handles this. You configure:
+- Hold period per merchant risk tier (default: T+2 for new merchants, T+0 for established)
+- Payout schedule (daily, weekly, on-demand, or threshold-triggered)
+- Settlement bank account per merchant (from onboarding)
+- Payout fee (charged to merchant, retained by platform)
+
+At payout time, IDMB initiates the bank transfer via the configured rail (Faster Payments, SEPA, ACH, etc.) and fires a webhook. If the bank transfer fails (invalid sort code, closed account), the balance stays in the merchant wallet and the error is surfaced in the merchant dashboard.
+
+## KYC across user types
+
+Consumers, merchants, and enterprise merchants have different KYC requirements. A consumer wallet might only need email + phone for Tier 0 ($500/month limit). A merchant processing $100K/month needs full business verification: companies house lookup, director ID checks, and a source of funds statement.
+
+IDMB's KYC module supports different verification flows per programme. The API call is the same:
+
+```http
+POST /v1/wallets
+{
+  "programme": "prog_merchant_standard",
+  "owner": {
+    "type": "business",
+    "company_number": "12345678",
+    "directors": [{ "id": "usr_owner_001" }]
+  }
+}
+```
+
+The `programme` field determines which KYC tier is required and which verification provider to use.
+
+## Cross-border: the corridor problem
+
+If your super-app operates in multiple markets, you'll want users in one market to send money to users in another. This is the corridor problem: each country pair is a separate regulatory and FX challenge.
+
+IDMB supports 47 corridors, each with:
+- Pre-negotiated FX rate (spread published in the IDMB API)
+- Compliance check at transaction time (sanctions, PEP, velocity)
+- Local rail for the destination side (bank transfer, mobile money, cash pickup)
+
+The integration is one API call:
+
+```http
+POST /v1/wallets/{id}/transfers
+{
+  "recipient_wallet": "wlt_ke_003",
+  "amount": { "value": 5000, "currency": "GBP" },
+  "destination_currency": "KES",
+  "corridor": "GBR-KEN"
+}
+```
+
+IDMB handles the FX conversion, the compliance check, and the local disbursement. You get a webhook when the recipient's wallet is credited.
+
+## The reconciliation surface
+
+At the end of every day, IDMB produces a settlement report for each programme: total inflows, total outflows, net position, fees charged, and the expected bank settlement amount. These are available via API and as a file export (CSV or CAMT.053 for European programmes).
+
+The platform wallet's report is your P&L input. Every fee collected from consumers and merchants in the day is in that report, segmented by fee type.
+
+That's the operating model: complex multi-party money flows, one integration, one ledger, one reconciliation file.

@@ -1,0 +1,60 @@
+export const meta = {
+  kind: 'engineering',
+  slug: 'multi-region-active-active-banking',
+  title: 'Multi-region active-active: running a banking ledger across 5 data centres',
+  date: '2026-02-11',
+  author: { name: 'Tunde Adeyemi', role: 'CTO, IDMB' },
+  excerpt: 'Banking requires 99.99% availability. Achieving that with a strongly consistent ledger across 5 regions is a distributed systems problem with very few good answers.',
+  readTime: '14 min read',
+  tags: ['Engineering', 'Infrastructure', 'Distributed Systems', 'Reliability'],
+};
+
+## The availability requirement
+
+A banking ledger needs to be available at 99.99%+. That's 52 minutes of downtime per year. It means you cannot have a single point of failure anywhere in the write path. It also means that regional outages — which happen multiple times per year at every cloud provider — cannot take your ledger offline.
+
+The intuitive answer is active-active multi-region: run the ledger in multiple regions, accept writes in any region, and synchronise state across regions. The problem is that "strongly consistent" and "active-active across regions" are in tension. You can't have both without paying a latency penalty equal to the inter-region round trip.
+
+This is the CAP theorem in practice. For a banking ledger, we choose CP (consistency over availability) when there's a partition. Here's what that means operationally.
+
+## Our topology
+
+We run 5 regions: `eu-west-1` (London), `eu-central-1` (Frankfurt), `us-east-1` (Virginia), `ap-southeast-1` (Singapore), `af-south-1` (Cape Town).
+
+Each region has:
+- A Postgres primary (the ledger store)
+- A read replica (for balance reads + reporting)
+- A Redis cluster (for idempotency keys, balance cache, webhook queues)
+- A set of API workers (handle incoming requests)
+
+The **global primary** for ledger writes is `eu-west-1`. All write operations from all regions are routed to the global primary. Read operations are served from the local region's read replica.
+
+This is not active-active in the strictest sense — it's **active-passive with local reads**. Write latency for a request from Singapore to London is ~180ms round trip. This is acceptable for most banking operations. It's not acceptable for card authorisation (which needs to be under 100ms).
+
+## The card authorisation exception
+
+Card authorisation is the one write operation that cannot tolerate 180ms of inter-region latency. We solve this with **regional authorisation primaries**: each region has its own authorisation primary that handles auth decisions locally.
+
+The authorisation primary holds a local copy of the card state cache (balance, limits, programme rules). It's updated asynchronously from the global ledger primary with a consistency window of 50ms. For auth decisions, 50ms eventual consistency is acceptable — the risk of an out-of-date balance causing a wrongful approval on a recently depleted account is low and bounded.
+
+After the authorisation decision, the auth is posted to the global ledger primary for settlement. If the global primary is unreachable (network partition), authorisations are queued locally and replayed when connectivity is restored.
+
+## The failover model
+
+When the global primary becomes unreachable, we promote a secondary to primary. This is not automatic — it requires a human decision. Automatic failover in a financial system creates split-brain risk: two primaries accepting writes simultaneously, resulting in a ledger that diverges and requires expensive reconciliation.
+
+Our failover SLA is 5 minutes from detection to promotion. Detection is automated (health checks every 5 seconds from all regions); promotion requires sign-off from two on-call engineers.
+
+During the 5-minute window, writes are rejected (HTTP 503). Reads continue against the last-committed state. The 503 window is what contributes to our downtime budget — roughly 5 minutes per failover event.
+
+We target zero failover events per quarter. Actual performance: 2 planned (maintenance) and 0 unplanned in 2025.
+
+## Data residency
+
+Some customers (particularly those in the EU and in markets with explicit data localisation requirements) require that ledger data stays within a geographic boundary. We implement this with **residency-pinned accounts**: accounts flagged as `eu-residency` have their entries written to the EU-region ledger only and are never replicated to US or APAC replicas.
+
+The implication: if you need to move money between an EU-residency account and a US account, the cross-region transfer is handled as two local entries joined by a treasury settlement — the EU entry on the EU ledger, the US entry on the global ledger, reconciled via an IDMB treasury account. The customer sees a single transfer; the infrastructure sees two entries.
+
+## What we'd do differently
+
+If we were building from scratch today, we'd evaluate Spanner more seriously. Its external consistency model is closer to what we need than Postgres's single-primary consistency. The operational complexity and cost are higher, but the active-active write path is cleaner. We've stayed with Postgres because we know it deeply and the current architecture meets our availability targets. When we hit the next scaling ceiling, Spanner is the most likely successor.

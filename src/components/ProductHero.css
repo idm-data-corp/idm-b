@@ -1,0 +1,120 @@
+.ph {
+  background: var(--c-bg);
+  padding: 56px 0 72px;
+}
+
+/* Tinted background: subtle indigo-tinted wash for selected pages.
+   Keeps the existing palette but breaks visual monotony between pillars. */
+.ph-tone-tinted {
+  background:
+    radial-gradient(ellipse at top right, rgba(15, 98, 254, 0.10), transparent 60%),
+    linear-gradient(180deg, #f4f7ff 0%, var(--c-bg) 100%);
+}
+
+.ph-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+/* ── Variant: split - copy left, visual right ─────────────────────────── */
+@media (min-width: 960px) {
+  .ph-v-split.ph-with-visual .ph-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: 48px;
+  }
+}
+
+/* ── Variant: visual-left - visual left, copy right ───────────────────── */
+@media (min-width: 960px) {
+  .ph-v-visual-left.ph-with-visual .ph-grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: 48px;
+  }
+  .ph-v-visual-left .ph-copy   { order: 2; }
+  .ph-v-visual-left .ph-visual { order: 1; }
+}
+
+/* ── Variant: centered - copy stacked centered, visual below ──────────── */
+.ph-v-centered .ph-grid {
+  text-align: center;
+  justify-items: center;
+  gap: 40px;
+}
+.ph-v-centered .ph-copy {
+  max-width: 760px;
+}
+.ph-v-centered .ph-h {
+  font-size: clamp(2.75rem, 4.5vw + 1rem, 4.5rem);
+}
+.ph-v-centered .ph-lede {
+  margin-left: auto;
+  margin-right: auto;
+}
+.ph-v-centered .ph-ctas {
+  margin-left: auto;
+  margin-right: auto;
+}
+.ph-v-centered .ph-visual {
+  width: 100%;
+  max-width: 960px;
+}
+
+/* When centered hero has no visual, give it more vertical breathing room. */
+.ph-v-centered.ph-no-visual {
+  padding: 96px 0 96px;
+}
+
+.ph-copy {
+  max-width: 720px;
+}
+
+.ph-eyebrow {
+  font-size: var(--fs-small);
+  color: var(--c-text-mid);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ph-h {
+  font-size: var(--fs-display);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--c-blue-70);
+  margin-bottom: 24px;
+}
+
+.ph-lede {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: var(--c-text);
+  max-width: 56ch;
+  margin-bottom: 32px;
+}
+
+.ph-ctas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  max-width: 540px;
+}
+
+@media (min-width: 480px) {
+  .ph-ctas {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.ph-visual {
+  width: 100%;
+}
+
+.ph-visual > svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 6 / 5;
+}

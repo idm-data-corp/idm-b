@@ -1,0 +1,50 @@
+.err {
+  background: var(--c-bg);
+  padding: 96px 0;
+  min-height: 60vh;
+}
+
+.err-grid {
+  display: grid;
+  gap: 24px;
+  max-width: 720px;
+}
+
+.err-code {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 1rem;
+  color: var(--c-text-mid);
+}
+
+.err-h {
+  font-size: var(--fs-display);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--c-blue-70);
+}
+
+.err-lede {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: var(--c-text);
+}
+
+.err-ctas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  max-width: 760px;
+}
+
+@media (min-width: 480px) {
+  .err-ctas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 720px) {
+  .err-ctas {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
