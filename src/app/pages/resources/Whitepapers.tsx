@@ -20,7 +20,7 @@ export default function WhitepapersIndex() {
           <h1 className="res-h">In-depth research and technical guides</h1>
           <p className="res-sub">
             Long-form guides on banking architecture, compliance, payments infrastructure and
-            data analytics — written by the IDMB team for builders and operators.
+            data analytics - written by the IDMB team for builders and operators.
           </p>
         </div>
       </section>
@@ -44,7 +44,7 @@ export default function WhitepapersIndex() {
                       Read online
                     </Button>
                     {e.pdfUrl && (
-                      <a className="wp-item-pdf" href={mailto('sales', `Whitepaper PDF request — ${e.title}`)}>
+                      <a className="wp-item-pdf" href={mailto('sales', `Whitepaper PDF request - ${e.title}`)}>
                         Request PDF <ArrowRight size={14} />
                       </a>
                     )}

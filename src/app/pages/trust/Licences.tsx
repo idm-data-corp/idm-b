@@ -91,16 +91,16 @@ export default function TrustLicences() {
               customers:
             </p>
             <ul>
-              <li>Financial Conduct Authority (FCA) — United Kingdom</li>
-              <li>Prudential Regulation Authority (PRA) — United Kingdom</li>
+              <li>Financial Conduct Authority (FCA) - United Kingdom</li>
+              <li>Prudential Regulation Authority (PRA) - United Kingdom</li>
               <li>Central Bank of Ireland (CBI)</li>
               <li>De Nederlandsche Bank (DNB)</li>
-              <li>Bundesanstalt für Finanzdienstleistungsaufsicht (BaFin) — Germany</li>
+              <li>Bundesanstalt für Finanzdienstleistungsaufsicht (BaFin) - Germany</li>
               <li>Central Bank of Kenya (CBK)</li>
               <li>Bank of Ghana (BoG)</li>
               <li>Central Bank of Nigeria (CBN)</li>
               <li>South African Reserve Bank (SARB)</li>
-              <li>Financial Services Regulatory Authority (FSRA) — ADGM</li>
+              <li>Financial Services Regulatory Authority (FSRA) - ADGM</li>
             </ul>
 
             <h2 id="oss">Open-source notices</h2>

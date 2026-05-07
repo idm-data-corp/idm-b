@@ -14,7 +14,7 @@ import { mailto } from '../../lib/site';
 export const mobileMoney: SolutionContent = {
   heroEyebrow: 'Solutions · Mobile-money operators',
   heroTitle: <>A real-time core behind every transaction your subscribers make.</>,
-  heroLede: 'Swap the legacy switch infrastructure without retraining an agent network or rewriting a USSD menu. IDMB migrates your float, your corridors and your compliance — invisibly.',
+  heroLede: 'Swap the legacy switch infrastructure without retraining an agent network or rewriting a USSD menu. IDMB migrates your float, your corridors and your compliance - invisibly.',
   heroPrimary: { label: 'Talk to our mobile-money team', href: mailto('sales', 'Mobile-money operator enquiry') },
   heroSecondary: { label: 'See how Vela did it', href: PATHS.customerVela },
   heroVariant: 'split',
@@ -70,7 +70,7 @@ export const mobileMoney: SolutionContent = {
   },
 
   quote: {
-    quote: "We added fourteen corridors in our first year on IDMB. The same work used to take two years. Compliance screening just works — it's not a project anymore.",
+    quote: "We added fourteen corridors in our first year on IDMB. The same work used to take two years. Compliance screening just works - it's not a project anymore.",
     name: 'Nadia Kamara',
     role: 'COO, Vela',
     company: 'Vela',

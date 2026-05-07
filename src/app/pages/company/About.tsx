@@ -8,7 +8,7 @@ import './Company.css';
 const VALUES = [
   {
     label: 'Infrastructure thinking',
-    body: 'We build for the long haul. Primitive banking operations — the ledger write, the card authorisation, the KYC check — need to be correct before they can be fast.',
+    body: 'We build for the long haul. Primitive banking operations - the ledger write, the card authorisation, the KYC check - need to be correct before they can be fast.',
   },
   {
     label: 'Regulated seriousness',
@@ -42,8 +42,8 @@ export default function About() {
           <p className="co-eyebrow">About IDMB</p>
           <h1 className="co-h">Modern infrastructure for financial services</h1>
           <p className="co-sub">
-            IDMB was founded in 2019 on the belief that the core technology layer of banking —
-            the ledger, the card engine, the compliance stack — had not been rebuilt for the
+            IDMB was founded in 2019 on the belief that the core technology layer of banking -
+            the ledger, the card engine, the compliance stack - had not been rebuilt for the
             cloud era. We set out to build that layer: composable, API-first, built for the
             regulated environment in which our customers operate.
           </p>
@@ -65,7 +65,7 @@ export default function About() {
         <div className="container co-mission-inner">
           <h2 className="co-section-h">Our mission</h2>
           <p className="co-mission-body">
-            Enable any company — a 200-year-old regional bank or a three-person fintech — to
+            Enable any company - a 200-year-old regional bank or a three-person fintech - to
             build, launch and run regulated financial products safely on shared, modern
             infrastructure. Banking technology should not be the reason a product is late, slow
             or non-compliant.

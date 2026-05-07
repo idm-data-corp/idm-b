@@ -58,34 +58,34 @@ export default function TrustAccessibility() {
             <h2 id="features">Accessibility features</h2>
             <ul>
               <li>
-                <strong>Keyboard navigation</strong> — All interactive elements are reachable by
+                <strong>Keyboard navigation</strong> - All interactive elements are reachable by
                 keyboard. Navigation landmarks use semantic HTML (<code>nav</code>, <code>main</code>,
                 {' '}<code>footer</code>, <code>aside</code>).
               </li>
               <li>
-                <strong>Screen reader support</strong> — ARIA labels are applied to navigation menus,
+                <strong>Screen reader support</strong> - ARIA labels are applied to navigation menus,
                 icon buttons, disclosure widgets and data tables. We test with VoiceOver (macOS/iOS)
                 and NVDA (Windows).
               </li>
               <li>
-                <strong>Colour contrast</strong> — Text and interactive element contrast ratios meet
+                <strong>Colour contrast</strong> - Text and interactive element contrast ratios meet
                 or exceed WCAG 2.2 AA minimums (4.5:1 for normal text, 3:1 for large text and UI
                 components).
               </li>
               <li>
-                <strong>Text resize</strong> — All text scales correctly to 200% without loss of
+                <strong>Text resize</strong> - All text scales correctly to 200% without loss of
                 functionality or content.
               </li>
               <li>
-                <strong>Focus indicators</strong> — Visible focus rings are provided for all
+                <strong>Focus indicators</strong> - Visible focus rings are provided for all
                 keyboard-focusable elements using our design system's focus token.
               </li>
               <li>
-                <strong>Reduced motion</strong> — Animations respect the{' '}
+                <strong>Reduced motion</strong> - Animations respect the{' '}
                 <code>prefers-reduced-motion</code> media query.
               </li>
               <li>
-                <strong>No seizure risk</strong> — No content flashes more than 3 times per second.
+                <strong>No seizure risk</strong> - No content flashes more than 3 times per second.
               </li>
             </ul>
 

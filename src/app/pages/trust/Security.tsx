@@ -35,7 +35,7 @@ export default function TrustSecurity() {
             <h2 id="approach">Our approach to security</h2>
             <p>
               IDMB is infrastructure for regulated financial services. Our security programme is
-              built on the principle that security is not a feature added on top of the platform —
+              built on the principle that security is not a feature added on top of the platform -
               it is the platform. Every architectural decision, from the ledger write model to the
               API authentication scheme, is made with security as a first-order constraint.
             </p>
@@ -68,7 +68,7 @@ export default function TrustSecurity() {
 
             <h2 id="data">Data protection</h2>
             <p>
-              Customer data — including ledger entries, transaction records and identity documents —
+              Customer data - including ledger entries, transaction records and identity documents -
               is retained for the period required by applicable regulation (minimum 7 years in most
               markets) and then securely destroyed on schedule.
             </p>

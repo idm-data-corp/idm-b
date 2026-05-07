@@ -1,7 +1,7 @@
 import type { Preview } from '@storybook/react';
 import { MemoryRouter } from 'react-router-dom';
 
-/* Self-hosted IBM Plex — same set as src/main.tsx so stories use the
+/* Self-hosted IBM Plex - same set as src/main.tsx so stories use the
    production fonts. */
 import '@fontsource/ibm-plex-sans/300.css';
 import '@fontsource/ibm-plex-sans/400.css';

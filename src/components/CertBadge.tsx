@@ -1,5 +1,5 @@
 /* Stylised in-house compliance badges. These are not the trademark seals of
-   the certifying bodies — we render our own marks in a unified visual
+   the certifying bodies - we render our own marks in a unified visual
    language so the trust centre stays cohesive. The auditor name is in the
    adjacent caption and on the Compliance page table. */
 

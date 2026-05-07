@@ -11,7 +11,7 @@ export const meta = {
 
 ## Instant ≠ irrevocable
 
-The phrase "real-time payments" typically refers to the speed of the payee's notification and credit. But in most schemes, the payment isn't actually *final* at the moment it's received — it passes through a settlement window where it can still be reversed by the sending bank (usually up to 24 hours, sometimes more).
+The phrase "real-time payments" typically refers to the speed of the payee's notification and credit. But in most schemes, the payment isn't actually *final* at the moment it's received - it passes through a settlement window where it can still be reversed by the sending bank (usually up to 24 hours, sometimes more).
 
 This distinction matters enormously for:
 - **Merchants** who ship goods on receipt of payment
@@ -29,17 +29,17 @@ This distinction matters enormously for:
 | IMPS (India) | Real-time; irrevocable after 60 minutes in practice |
 | Cross-border wires | Next-day to T+2 settlement; recallable until correspondent bank confirms |
 
-The two main architectures are: **continuous gross settlement** (each payment settles individually, immediately — most modern real-time schemes) and **deferred net settlement** (payments batch-settle at the end of the day, leaving an intraday exposure window).
+The two main architectures are: **continuous gross settlement** (each payment settles individually, immediately - most modern real-time schemes) and **deferred net settlement** (payments batch-settle at the end of the day, leaving an intraday exposure window).
 
 ## The liquidity implication
 
 Even in continuous gross settlement schemes, your bank's settlement account at the central bank moves in real time. That means your float model must account for real-time outflows as well as real-time inflows. If you hold float in your settlement account to cover expected outflows, you need to model that balance at intra-second granularity during peak hours.
 
-The IDMB Treasury module does this: it maintains a live projection of your intraday liquidity position across every scheme you're connected to and will gate outgoing payments if the projected position would breach the configured floor. The gate is configurable — some operators prefer a hard block; others prefer an alert with manual override.
+The IDMB Treasury module does this: it maintains a live projection of your intraday liquidity position across every scheme you're connected to and will gate outgoing payments if the projected position would breach the configured floor. The gate is configurable - some operators prefer a hard block; others prefer an alert with manual override.
 
 ## The fraud implication
 
-APP fraud (a fraudster convinces a legitimate account holder to transfer money to a fraudster's account) is the primary fraud vector in real-time payment schemes. The irrevocability property is, paradoxically, what makes APP fraud attractive — once the money is in the fraudster's account, it's gone.
+APP fraud (a fraudster convinces a legitimate account holder to transfer money to a fraudster's account) is the primary fraud vector in real-time payment schemes. The irrevocability property is, paradoxically, what makes APP fraud attractive - once the money is in the fraudster's account, it's gone.
 
 The IDMB risk module applies a behavioural signal on every outgoing real-time payment: device fingerprint, session velocity, payee newness, amount percentile against the account's history and cross-account pattern matching. A score above the configured threshold gates the payment for additional confirmation (second-factor prompt or a call to the operations queue), without blocking the payment path entirely.
 
@@ -62,4 +62,4 @@ If you're building a product on real-time payments, the API should expose finali
 
 The `finality` field is either `pending`, `provisional`, or `irrevocable`. Your downstream systems should only act on `irrevocable` (or `provisional` if you've explicitly modelled the reclaim risk).
 
-That's what IDMB exposes. Most legacy core systems don't surface this field at all — they leave the finality logic to the integration developer, which is where fraud and liquidity models go wrong.
+That's what IDMB exposes. Most legacy core systems don't surface this field at all - they leave the finality logic to the integration developer, which is where fraud and liquidity models go wrong.

@@ -17,7 +17,7 @@ const MODULES = [
 const INCLUDED = [
   { title: 'Sandbox access', body: 'Fully-featured test environment with synthetic wallet data. No charge.' },
   { title: 'Multi-tenancy', body: 'Manage wallets for millions of end-users under a single regulated programme.' },
-  { title: 'Programmable controls', body: 'Spending limits, velocity rules and freeze/unfreeze per wallet — all via API.' },
+  { title: 'Programmable controls', body: 'Spending limits, velocity rules and freeze/unfreeze per wallet - all via API.' },
   { title: 'AML & screening', body: 'Sanctions and transaction monitoring applied at the wallet level by default.' },
   { title: 'Reconciliation feeds', body: 'Real-time webhooks and end-of-day settlement files included.' },
   { title: 'Global corridors', body: '47 live cross-border corridors with built-in compliance checks.' },
@@ -65,7 +65,7 @@ export default function PricingWallets() {
                     <td className="pr-sub-td-desc">{m.desc}</td>
                     <td className="pr-sub-td-rate">{m.rate}</td>
                     <td>
-                      <a className="pr-sub-td-contact" href={mailto('sales', `Wallets pricing — ${m.name}`)}>
+                      <a className="pr-sub-td-contact" href={mailto('sales', `Wallets pricing - ${m.name}`)}>
                         Contact for rate
                       </a>
                     </td>

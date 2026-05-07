@@ -44,7 +44,7 @@ export default function TrustPrivacy() {
               IDMB is a <strong>data processor</strong> for the personal data of end-users that
               our bank and fintech customers process through the platform. Each customer is the
               data controller for their end-users' data. This statement covers IDMB's role as a
-              <strong> data controller</strong> for the data we collect directly — website
+              <strong> data controller</strong> for the data we collect directly - website
               visitors, prospective customers and our own employees.
             </p>
 
@@ -63,7 +63,7 @@ export default function TrustPrivacy() {
             <h3>Customer employees and users of the developer portal</h3>
             <ul>
               <li>Name, work email, job title</li>
-              <li>Portal access logs (API calls, sandbox activity) — no financial end-user data</li>
+              <li>Portal access logs (API calls, sandbox activity) - no financial end-user data</li>
             </ul>
 
             <h2 id="how-we-use">How we use it</h2>

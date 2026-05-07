@@ -29,7 +29,7 @@ export type CustomerStoryContent = {
   heroSubtitle: React.ReactNode;
   heroStats: { value: string; label: string }[];
 
-  /* Body — three columns of long-form copy. Use <p> elements as the children. */
+  /* Body - three columns of long-form copy. Use <p> elements as the children. */
   body: {
     problem: React.ReactNode;
     approach: React.ReactNode;

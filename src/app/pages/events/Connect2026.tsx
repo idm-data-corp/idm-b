@@ -7,30 +7,30 @@ import './Connect2026.css';
 
 const AGENDA = [
   {
-    day: 'Day 1 — Thursday 18 September',
+    day: 'Day 1 - Thursday 18 September',
     sessions: [
       { time: '08:30', title: 'Registration & breakfast' },
-      { time: '09:30', title: 'Opening keynote: The decade of infrastructure — IDMB CEO' },
+      { time: '09:30', title: 'Opening keynote: The decade of infrastructure - IDMB CEO' },
       { time: '10:30', title: 'Panel: Core banking modernisation without the multi-year freeze' },
       { time: '12:00', title: 'Lunch & product demos' },
       { time: '13:30', title: 'Track A: Ledger architecture for 10M TPS' },
-      { time: '13:30', title: 'Track B: Card issuing at scale — learnings from 50M cards' },
-      { time: '15:00', title: 'Customer showcase: Northbank — rebuilding a core in 11 months' },
+      { time: '13:30', title: 'Track B: Card issuing at scale - learnings from 50M cards' },
+      { time: '15:00', title: 'Customer showcase: Northbank - rebuilding a core in 11 months' },
       { time: '16:00', title: 'Track A: Real-time payments and FX settlement' },
       { time: '16:00', title: 'Track B: Compliance-as-code: AML automation' },
       { time: '18:00', title: 'Evening reception & networking dinner' },
     ],
   },
   {
-    day: 'Day 2 — Friday 19 September',
+    day: 'Day 2 - Friday 19 September',
     sessions: [
-      { time: '09:00', title: 'Keynote: The developer platform roadmap — IDMB CTO' },
+      { time: '09:00', title: 'Keynote: The developer platform roadmap - IDMB CTO' },
       { time: '10:00', title: 'Workshop: Building on IDMB Wallets in 90 minutes' },
-      { time: '11:30', title: 'Panel: Embedded finance — where the next billion users come from' },
+      { time: '11:30', title: 'Panel: Embedded finance - where the next billion users come from' },
       { time: '13:00', title: 'Lunch' },
-      { time: '14:00', title: 'Track A: Data & fraud signals — from events to decisions' },
+      { time: '14:00', title: 'Track A: Data & fraud signals - from events to decisions' },
       { time: '14:00', title: 'Track B: Regulatory reporting across multiple jurisdictions' },
-      { time: '15:30', title: 'Customer showcase: Paywave — wallets for 9M users' },
+      { time: '15:30', title: 'Customer showcase: Paywave - wallets for 9M users' },
       { time: '16:30', title: "Closing keynote: What we're building next" },
       { time: '17:30', title: 'Close' },
     ],
@@ -60,13 +60,13 @@ export default function EventConnect2026() {
             <p className="ec-hero-sub">
               The flagship banking infrastructure summit. Two days of keynotes, customer
               showcases, workshops and deep-dives on core banking, wallets, payments and data
-              — for the engineers and product leaders building the next generation of finance.
+              - for the engineers and product leaders building the next generation of finance.
             </p>
             <div className="ec-hero-actions">
-              <Button variant="primary" href={mailto('summit', 'IDMB Connect 2026 — Registration')}>
+              <Button variant="primary" href={mailto('summit', 'IDMB Connect 2026 - Registration')}>
                 Reserve your seat
               </Button>
-              <Button variant="secondary" href={mailto('summit', 'IDMB Connect 2026 — Sponsor enquiry')}>
+              <Button variant="secondary" href={mailto('summit', 'IDMB Connect 2026 - Sponsor enquiry')}>
                 Sponsor the summit
               </Button>
             </div>
@@ -146,7 +146,7 @@ export default function EventConnect2026() {
             </p>
           </div>
           <div className="ec-register-actions">
-            <Button variant="primary" size="lg" href={mailto('summit', 'IDMB Connect 2026 — Registration')}>
+            <Button variant="primary" size="lg" href={mailto('summit', 'IDMB Connect 2026 - Registration')}>
               Reserve your seat
             </Button>
             <Button variant="tertiary" href={PATHS.eventsWebinars}>
@@ -159,7 +159,7 @@ export default function EventConnect2026() {
       <CTASection
         heading="Sponsor IDMB Connect 2026"
         subheading="Reach 600 senior engineers, product leaders and operators in the banking infrastructure space."
-        primary={{ label: 'Enquire about sponsorship', href: mailto('summit', 'Sponsorship enquiry — Connect 2026') }}
+        primary={{ label: 'Enquire about sponsorship', href: mailto('summit', 'Sponsorship enquiry - Connect 2026') }}
         secondary={{ label: 'View all events', href: PATHS.events }}
         tone="dark"
       />

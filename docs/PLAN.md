@@ -743,17 +743,17 @@ contributors can author a new sub-product page in a day.
 
 ### Phase 9 - Quality gates
 - [ ] Lighthouse CI on PRs against a fixed page set
-- [x] Axe CI on PRs — `tests/e2e/a11y.spec.ts` runs axe-core (WCAG 2.1 AA tags)
+- [x] Axe CI on PRs - `tests/e2e/a11y.spec.ts` runs axe-core (WCAG 2.1 AA tags)
       against 9 representative pages; fails on `serious` / `critical`
       violations. Run with `npm run test:a11y`.
-- [x] Playwright e2e smoke + visual regression — `tests/e2e/smoke.spec.ts`
+- [x] Playwright e2e smoke + visual regression - `tests/e2e/smoke.spec.ts`
       (page titles, primary CTAs, mega menu, footer, 404),
       `tests/e2e/mobile-drawer.spec.ts` (hamburger + accordion),
       `tests/visual/regression.spec.ts` (full-page screenshots at desktop
       + iPhone 14 widths). 68 tests across 4 spec files. Run with
       `npm run test:e2e` and `npm run test:visual`. Browser binaries are
       installed once via `npx playwright install chromium`.
-- [x] Bundle-size CI guard against §12 budgets — `scripts/check-bundle-size.ts`
+- [x] Bundle-size CI guard against §12 budgets - `scripts/check-bundle-size.ts`
       runs as the final step of `npm run build`. Fails on shell over-run
       (96 kB JS / 20 kB CSS), warns on lazy-chunk over-run (40 kB JS /
       8 kB CSS).

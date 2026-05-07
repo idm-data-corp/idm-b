@@ -62,7 +62,7 @@ Rules are stored per card programme (not per card). You can override specific ru
 
 ## How we stay under 100ms
 
-The naive implementation — evaluate conditions by querying the database on every auth — breaks well before 1,000 RPS. Our implementation:
+The naive implementation - evaluate conditions by querying the database on every auth - breaks well before 1,000 RPS. Our implementation:
 
 1. **Card state cache**: every active card's state (status, limits, programme rules, account balance) is replicated to an in-memory store that's updated on every ledger entry. Auth reads from the cache, never from Postgres.
 

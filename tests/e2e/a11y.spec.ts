@@ -9,7 +9,7 @@ import AxeBuilder from '@axe-core/playwright';
      - Customer story (Northbank)
      - Customers index
      - Pricing
-     - Trust legal page (Privacy — has the OnThisPage TOC + tables)
+     - Trust legal page (Privacy - has the OnThisPage TOC + tables)
      - Event page (Connect 2026)
      - 404
 

@@ -13,7 +13,7 @@ const EPISODES = [
     guest: 'Sofia Lindqvist, Head of Core Banking, Northbank',
     date: '2026-04-10',
     duration: '58 min',
-    desc: 'How Northbank rebuilt its core banking system on IDMB in 11 months — the team structure, the migration strategy, and what they would do differently.',
+    desc: 'How Northbank rebuilt its core banking system on IDMB in 11 months - the team structure, the migration strategy, and what they would do differently.',
   },
   {
     num: 11,
@@ -21,7 +21,7 @@ const EPISODES = [
     guest: 'Karim El-Amin, CTO, Vela',
     date: '2026-03-20',
     duration: '51 min',
-    desc: 'How Vela runs 47 cross-border corridors with one operations team — corridor selection, liquidity management and the compliance model.',
+    desc: 'How Vela runs 47 cross-border corridors with one operations team - corridor selection, liquidity management and the compliance model.',
   },
   {
     num: 10,
@@ -29,7 +29,7 @@ const EPISODES = [
     guest: 'Fatima Al-Rashid, Head of Data, Mosaic',
     date: '2026-02-28',
     duration: '46 min',
-    desc: 'How Mosaic uses IDMB Data signals to underwrite borrowers in under 4 minutes — the model design, the data pipeline and the regulatory constraints.',
+    desc: 'How Mosaic uses IDMB Data signals to underwrite borrowers in under 4 minutes - the model design, the data pipeline and the regulatory constraints.',
   },
 ];
 
@@ -65,7 +65,7 @@ export default function Podcasts() {
                   <strong className="pod-item-title">{ep.title}</strong>
                   <p className="pod-item-guest">{ep.guest}</p>
                   <p className="pod-item-desc">{ep.desc}</p>
-                  <Button variant="tertiary" href={mailto('newsletter', `Podcast episode ${ep.num} — listen`)} hideArrow>
+                  <Button variant="tertiary" href={mailto('newsletter', `Podcast episode ${ep.num} - listen`)} hideArrow>
                     Listen now
                   </Button>
                 </div>

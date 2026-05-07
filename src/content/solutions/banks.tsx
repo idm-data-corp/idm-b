@@ -14,7 +14,7 @@ import { mailto } from '../../lib/site';
 export const banks: SolutionContent = {
   heroEyebrow: 'Solutions · Licensed banks',
   heroTitle: <>The modern core your bank has been waiting for.</>,
-  heroLede: 'Replace your legacy core with a real-time, API-first ledger — without a multi-year freeze. IDMB customers go live in months, not decades.',
+  heroLede: 'Replace your legacy core with a real-time, API-first ledger - without a multi-year freeze. IDMB customers go live in months, not decades.',
   heroPrimary: { label: 'Talk to our banking team', href: mailto('sales', 'Licensed banks enquiry') },
   heroSecondary: { label: 'See the Northbank story', href: PATHS.customerNorthbank },
   heroVariant: 'split',
@@ -64,7 +64,7 @@ export const banks: SolutionContent = {
   storyCallout: {
     eyebrow: 'Customer story · Banking',
     heading: <>Northbank migrated USD&nbsp;2.1B in deposits over one weekend.</>,
-    summary: 'A 70-year-old retail bank replaced its mainframe core, card programme and data layer on IDMB — without a single customer-facing outage. The legacy core was decommissioned that Monday.',
+    summary: 'A 70-year-old retail bank replaced its mainframe core, card programme and data layer on IDMB - without a single customer-facing outage. The legacy core was decommissioned that Monday.',
     stat: '0',
     statLabel: 'customer-facing outages during a weekend core cutover',
     href: PATHS.customerNorthbank,

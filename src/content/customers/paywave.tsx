@@ -59,7 +59,7 @@ export const paywave: CustomerStoryContent = {
           tail of multi-second outliers to a flat 180ms p95. The support backlog shrank by nearly half.
         </p>
         <p>
-          The wallet team — six engineers — was redeployed to building new products on top of IDMB
+          The wallet team - six engineers - was redeployed to building new products on top of IDMB
           rather than maintaining infrastructure. Paywave shipped its tap-to-pay launch, four new
           corridor expansions and an in-app FX feature in the year after the migration.
         </p>

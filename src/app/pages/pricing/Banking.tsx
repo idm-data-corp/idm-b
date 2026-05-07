@@ -36,7 +36,7 @@ export default function PricingBanking() {
           <h1 className="pr-sub-h">Banking module pricing</h1>
           <p className="pr-sub-lede">
             Usage-based pricing across core banking, card issuing, payments, compliance and treasury.
-            Every module is independently licensed — only pay for what your product uses.
+            Every module is independently licensed - only pay for what your product uses.
           </p>
           <div className="pr-sub-hero-actions">
             <Button variant="primary" href={PATHS.developersSandbox}>Open the sandbox</Button>
@@ -65,7 +65,7 @@ export default function PricingBanking() {
                     <td className="pr-sub-td-desc">{m.desc}</td>
                     <td className="pr-sub-td-rate">{m.rate}</td>
                     <td>
-                      <a className="pr-sub-td-contact" href={mailto('sales', `Banking pricing — ${m.name}`)}>
+                      <a className="pr-sub-td-contact" href={mailto('sales', `Banking pricing - ${m.name}`)}>
                         Contact for rate
                       </a>
                     </td>

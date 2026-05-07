@@ -14,7 +14,7 @@ export const northbank: CustomerStoryContent = {
   customer: { name: 'Northbank', industry: 'Licensed retail bank', region: 'Western Europe', logo: LogoNorthbank },
   heroEyebrow: 'Customer story · Banking',
   heroTitle: <>Northbank rebuilt its core on IDMB in eleven months.</>,
-  heroSubtitle: 'A 70-year-old retail bank replaced a legacy mainframe with the IDMB ledger, an in-house card programme and a unified data layer — without a single customer-facing outage.',
+  heroSubtitle: 'A 70-year-old retail bank replaced a legacy mainframe with the IDMB ledger, an in-house card programme and a unified data layer - without a single customer-facing outage.',
   heroStats: [
     { value: 'USD 2.1B', label: 'in customer deposits migrated to IDMB without a customer-facing outage' },
     { value: '11 months', label: 'from contract signature to a fully live retail bank on IDMB' },
@@ -32,7 +32,7 @@ export const northbank: CustomerStoryContent = {
         </p>
         <p>
           The board signed off on a rewrite in early 2025. The CTO told the team they had eleven months
-          and zero appetite for a customer-facing outage. The brief was the opposite of "lift and shift" —
+          and zero appetite for a customer-facing outage. The brief was the opposite of "lift and shift" -
           it had to land on a real-time, regulator-ready platform that would carry the bank for the
           next twenty years.
         </p>
@@ -41,7 +41,7 @@ export const northbank: CustomerStoryContent = {
     approach: (
       <>
         <p>
-          Northbank chose IDMB because the modules — ledger, cards, payments, compliance, data — already
+          Northbank chose IDMB because the modules - ledger, cards, payments, compliance, data - already
           fit together. The bank ran a parallel-run for the first six months, every transaction posting
           to both the legacy core and the IDMB ledger. By month seven, the IDMB numbers matched to the
           cent.
@@ -60,7 +60,7 @@ export const northbank: CustomerStoryContent = {
       <>
         <p>
           Northbank's reconciliation now runs continuously instead of overnight. Statutory returns
-          refresh in lockstep with the ledger and have already passed two regulator reviews — the most
+          refresh in lockstep with the ledger and have already passed two regulator reviews - the most
           recent one took two days end-to-end.
         </p>
         <p>

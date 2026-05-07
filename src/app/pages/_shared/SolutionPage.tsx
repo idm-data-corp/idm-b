@@ -28,7 +28,7 @@ export type SolutionContent = {
   heroVariant?: ProductHeroVariant;
   heroTone?: 'plain' | 'tinted';
 
-  /* Pain points — the 3 challenges this buyer persona faces */
+  /* Pain points - the 3 challenges this buyer persona faces */
   painHeading: string;
   painIntro?: React.ReactNode;
   pains: PainPoint[];

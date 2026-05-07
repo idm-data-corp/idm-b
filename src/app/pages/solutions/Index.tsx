@@ -20,7 +20,7 @@ const SOLUTIONS = [
     href: PATHS.solutionsBanks,
     icon: IconHybridInfra,
     label: 'Licensed banks',
-    headline: 'Modernise your core — without the multi-year rip-and-replace.',
+    headline: 'Modernise your core - without the multi-year rip-and-replace.',
     desc: 'Core banking APIs, real-time ledger, card issuing and regulatory reporting on a platform built for licensed institutions.',
     tag: 'Banking',
   },
@@ -29,7 +29,7 @@ const SOLUTIONS = [
     icon: IconAIModels,
     label: 'Fintechs & neobanks',
     headline: 'Ship a regulated financial product in weeks, not years.',
-    desc: 'Wallet infrastructure, card issuing, payments and compliance — everything a neobank needs, none of the regulatory plumbing to build yourself.',
+    desc: 'Wallet infrastructure, card issuing, payments and compliance - everything a neobank needs, none of the regulatory plumbing to build yourself.',
     tag: 'Banking · Wallets',
   },
   {
@@ -37,7 +37,7 @@ const SOLUTIONS = [
     icon: IconAIProductivity,
     label: 'Marketplaces & super-apps',
     headline: 'Power multi-party payouts and embedded wallets at scale.',
-    desc: 'Merchant wallets, buyer balances, split payouts and KYC flows — built for platforms with thousands of counterparties.',
+    desc: 'Merchant wallets, buyer balances, split payouts and KYC flows - built for platforms with thousands of counterparties.',
     tag: 'Wallets',
   },
   {
@@ -69,7 +69,7 @@ const SOLUTIONS = [
     icon: IconConsulting,
     label: 'Lenders & credit products',
     headline: 'Disburse loans and collect repayments on a single ledger.',
-    desc: 'Loan wallets, automated disbursement, real-time cashflow signals and risk scoring — from underwriting to repayment on one platform.',
+    desc: 'Loan wallets, automated disbursement, real-time cashflow signals and risk scoring - from underwriting to repayment on one platform.',
     tag: 'Data · Banking',
   },
 ];
@@ -86,7 +86,7 @@ export default function SolutionsIndex() {
           <h1 className="sol-idx-h">Built for how you actually work</h1>
           <p className="sol-idx-sub">
             IDMB ships the same banking, wallets and data infrastructure to every kind of financial
-            operator — from a 70-year-old licensed bank to a Day 1 neobank. Choose the profile that
+            operator - from a 70-year-old licensed bank to a Day 1 neobank. Choose the profile that
             fits your organisation.
           </p>
         </div>

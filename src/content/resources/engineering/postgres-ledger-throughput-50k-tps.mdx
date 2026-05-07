@@ -11,7 +11,7 @@ export const meta = {
 
 ## The constraint
 
-We chose PostgreSQL as the IDMB ledger store. This is an unusual choice for a high-throughput financial system — most systems at this scale use distributed databases (CockroachDB, YugabyteDB, Spanner) or purpose-built ledger storage. We chose Postgres for three reasons: correctness guarantees we trust, operational maturity we can hire for, and a community with 30 years of financial workload experience.
+We chose PostgreSQL as the IDMB ledger store. This is an unusual choice for a high-throughput financial system - most systems at this scale use distributed databases (CockroachDB, YugabyteDB, Spanner) or purpose-built ledger storage. We chose Postgres for three reasons: correctness guarantees we trust, operational maturity we can hire for, and a community with 30 years of financial workload experience.
 
 The constraint: a single Postgres primary has a ceiling. Ours is around 80k transactions per second on our hardware (NVMe SSD, 96-core instances). We're currently running at ~50k TPS peak. This is tight, and everything we do is focused on staying well inside the ceiling with headroom.
 
@@ -32,13 +32,13 @@ CREATE TABLE ledger_entries (
 );
 ```
 
-The entry table is append-only. We never UPDATE or DELETE rows. Ever. The `balance_after` column is a materialised snapshot — the account balance at the point this entry was written, for fast balance reads without summing the full history.
+The entry table is append-only. We never UPDATE or DELETE rows. Ever. The `balance_after` column is a materialised snapshot - the account balance at the point this entry was written, for fast balance reads without summing the full history.
 
 ## The concurrency model
 
 The hard problem: two concurrent transfers debit the same account. Both need to check the balance before applying, and both must not result in a negative balance (for accounts with no overdraft).
 
-The naive approach — SELECT balance, check, INSERT entry — has a TOCTOU race. We solve it with **optimistic concurrency control**:
+The naive approach - SELECT balance, check, INSERT entry - has a TOCTOU race. We solve it with **optimistic concurrency control**:
 
 Each account has a `version` column. Before writing an entry, we read the current version. We write the entry only if the version hasn't changed:
 
@@ -56,7 +56,7 @@ WHERE id = $1
 RETURNING version;
 ```
 
-If the UPDATE affects 0 rows (version mismatch or insufficient balance), we retry with fresh state. Contention on a single account is rare at normal volumes — accounts don't receive thousands of concurrent debits. When it does happen (e.g. a central liquidity account during a payout batch), we rate-limit the queue.
+If the UPDATE affects 0 rows (version mismatch or insufficient balance), we retry with fresh state. Contention on a single account is rare at normal volumes - accounts don't receive thousands of concurrent debits. When it does happen (e.g. a central liquidity account during a payout batch), we rate-limit the queue.
 
 ## The write amplification problem
 
@@ -76,7 +76,7 @@ Monthly partitions keep the active partition small, keep index sizes manageable,
 
 **2. Defer non-critical index updates**
 
-The entry table has three indexes: `(account_id, created_at)` for balance queries, `(transfer_id)` for transfer lookups, and `(idempotency_key)` for deduplication. The `idempotency_key` index is written asynchronously after the critical write path — we tolerate a 100ms window where the index is stale, which is acceptable because idempotency key lookup during that window falls back to a direct table scan.
+The entry table has three indexes: `(account_id, created_at)` for balance queries, `(transfer_id)` for transfer lookups, and `(idempotency_key)` for deduplication. The `idempotency_key` index is written asynchronously after the critical write path - we tolerate a 100ms window where the index is stale, which is acceptable because idempotency key lookup during that window falls back to a direct table scan.
 
 **3. Connection pooling via PgBouncer in transaction mode**
 

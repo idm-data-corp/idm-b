@@ -17,7 +17,7 @@ export default function BlogIndex() {
           <p className="res-eyebrow">Blog</p>
           <h1 className="res-h">Product, customer and industry stories</h1>
           <p className="res-sub">
-            How banks, fintechs and operators build on IDMB — plus the product thinking
+            How banks, fintechs and operators build on IDMB - plus the product thinking
             and industry analysis behind what we build.
           </p>
         </div>

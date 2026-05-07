@@ -42,7 +42,7 @@ export const mosaic: CustomerStoryContent = {
         <p>
           Mosaic embedded its lending product into IDMB Data. Every applicant who consented opened a
           read-only IDMB wallet that pulled in their actual income and outgoing flows from licensed
-          bank rails. IDMB Risk scored the applicant in real time — including a behavioural signal
+          bank rails. IDMB Risk scored the applicant in real time - including a behavioural signal
           layer that the in-house team would have taken a year to build.
         </p>
         <p>
@@ -55,8 +55,8 @@ export const mosaic: CustomerStoryContent = {
     result: (
       <>
         <p>
-          Approval rates lifted from the low forties to the high fifties within a quarter — a 38% relative
-          uplift — and the 90-day default rate held flat. Fraud false-positives dropped 31%. Median
+          Approval rates lifted from the low forties to the high fifties within a quarter - a 38% relative
+          uplift - and the 90-day default rate held flat. Fraud false-positives dropped 31%. Median
           decision time moved from "the underwriter will get back to you" to under four minutes.
         </p>
         <p>
@@ -70,7 +70,7 @@ export const mosaic: CustomerStoryContent = {
 
   quote: {
     quote:
-      'IDMB Data lets us underwrite a borrower in under four minutes and lift our approval rate by nearly forty percent — using cashflow signals we never had access to before.',
+      'IDMB Data lets us underwrite a borrower in under four minutes and lift our approval rate by nearly forty percent - using cashflow signals we never had access to before.',
     name: 'Priya Subramanian',
     role: 'Head of Credit',
   },

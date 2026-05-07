@@ -65,7 +65,7 @@ const FAQS: { q: string; a: string }[] = [
   },
   {
     q: 'Are compliance and KYC costs included?',
-    a: 'Compliance screening (AML, sanctions, KYC) is a separately metered service billed per transaction screened or per identity verified. This keeps pricing transparent — you only pay for the checks your product actually runs.',
+    a: 'Compliance screening (AML, sanctions, KYC) is a separately metered service billed per transaction screened or per identity verified. This keeps pricing transparent - you only pay for the checks your product actually runs.',
   },
   {
     q: 'Can I mix modules from different pillars?',
@@ -86,7 +86,7 @@ export default function PricingOverview() {
           <p className="pr-ov-eyebrow">Pricing</p>
           <h1 className="pr-ov-h">Transparent, usage-based pricing</h1>
           <p className="pr-ov-sub">
-            Pay for what you use. Every IDMB module is independently priced — no bundled tiers that
+            Pay for what you use. Every IDMB module is independently priced - no bundled tiers that
             force you to overpay for capabilities you don't need. Start in the sandbox for free and
             get a production quote after a 30-minute call with our team.
           </p>
@@ -128,7 +128,7 @@ export default function PricingOverview() {
             <h2 className="pr-ov-enterprise-h">Custom pricing for regulated institutions</h2>
             <p className="pr-ov-enterprise-body">
               Licensed banks, large fintechs and mobile-money operators typically run on a custom
-              enterprise agreement — with committed-use discounts, dedicated infrastructure, private
+              enterprise agreement - with committed-use discounts, dedicated infrastructure, private
               SLAs and compliance co-pilot support included.
             </p>
           </div>

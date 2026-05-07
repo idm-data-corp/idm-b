@@ -1,4 +1,4 @@
-/* Shared button primitive — used by <Button>, ProductHero, CTASection, the
+/* Shared button primitive - used by <Button>, ProductHero, CTASection, the
    home Hero and any inline `<a class="btn">` reference. Lives in global
    styles so the rules are present regardless of which page is mounted. */
 
@@ -38,7 +38,7 @@
   font-size: 1rem;
 }
 
-/* Variant: primary — solid IBM blue, white text */
+/* Variant: primary - solid IBM blue, white text */
 .btn-primary {
   background: var(--c-blue-60);
   color: #fff;
@@ -49,7 +49,7 @@
   border-color: var(--c-blue-70);
 }
 
-/* Variant: secondary — solid darker indigo (used on light bgs to contrast
+/* Variant: secondary - solid darker indigo (used on light bgs to contrast
    with primary, e.g. when two CTAs sit side by side) */
 .btn-secondary {
   background: var(--c-blue-80);
@@ -61,7 +61,7 @@
   border-color: #001d6c;
 }
 
-/* Variant: tertiary — outlined IBM blue */
+/* Variant: tertiary - outlined IBM blue */
 .btn-tertiary {
   background: transparent;
   color: var(--c-blue-60);
@@ -72,7 +72,7 @@
   color: #fff;
 }
 
-/* Variant: ghost — text + chevron only, no border. Used inline in long copy. */
+/* Variant: ghost - text + chevron only, no border. Used inline in long copy. */
 .btn-ghost {
   min-height: 0;
   padding: 0;

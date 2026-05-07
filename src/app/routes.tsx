@@ -188,7 +188,7 @@ export const router = createBrowserRouter([
     children: withErrorBoundary([
       { index: true, element: <Home /> },
       ...routesByLayout('marketing'),
-      /* Dynamic article routes — slug-based, under MarketingLayout */
+      /* Dynamic article routes - slug-based, under MarketingLayout */
       {
         path: '/resources/blog/:slug',
         element: <Suspense fallback={null}><ResourceArticle kind="blog" /></Suspense>,

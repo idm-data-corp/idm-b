@@ -17,7 +17,7 @@ Most demos don't cover that. Ours does.
 
 ## Double-entry is not optional
 
-The IDMB ledger is strictly double-entry. Every debit has a matching credit. Every entry is immutable — we never update a row, we write a compensating entry. This sounds obvious, but a surprising number of modern "core banking" APIs are a single-table balance store with an audit log bolted on. That's not a ledger. That's a spreadsheet with a webhook.
+The IDMB ledger is strictly double-entry. Every debit has a matching credit. Every entry is immutable - we never update a row, we write a compensating entry. This sounds obvious, but a surprising number of modern "core banking" APIs are a single-table balance store with an audit log bolted on. That's not a ledger. That's a spreadsheet with a webhook.
 
 Double-entry means:
 - Reconciliation is always consistent by construction
@@ -28,13 +28,13 @@ Double-entry means:
 
 The pattern that breaks first at scale is synchronous balance reads during write operations. If your core bank answers "what is the current balance?" by summing the entry table in real time, you've already lost at 50k TPS.
 
-The IDMB approach: **event-sourced writes, materialised balance reads**. Writes go into the entry log immediately. Balances are projected asynchronously and cached with strong consistency guarantees — the read path never blocks the write path.
+The IDMB approach: **event-sourced writes, materialised balance reads**. Writes go into the entry log immediately. Balances are projected asynchronously and cached with strong consistency guarantees - the read path never blocks the write path.
 
 The implication for integrators: if you call `GET /accounts/{id}/balance` and `POST /ledger/transfer` in the same millisecond from two threads, both calls are correct. The transfer will either complete fully or not at all (idempotency key + optimistic locking on the account), and the balance will reflect it within the consistency window you've configured (default: 50ms).
 
 ## What idempotency actually means
 
-Every IDMB write endpoint accepts an `Idempotency-Key` header. If you send the same key twice — due to a timeout retry, a dead queue reprocessing, or a bug — the second request returns the original response without replaying the operation.
+Every IDMB write endpoint accepts an `Idempotency-Key` header. If you send the same key twice - due to a timeout retry, a dead queue reprocessing, or a bug - the second request returns the original response without replaying the operation.
 
 The key is stored for 48 hours. After that, it expires and a new request with the same key is treated as a fresh operation. This is the same model Stripe popularised. We copy it because it's correct.
 

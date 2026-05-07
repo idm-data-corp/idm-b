@@ -1,6 +1,6 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 
-/* IDMB Storybook config — points at component-level *.stories.tsx files
+/* IDMB Storybook config - points at component-level *.stories.tsx files
    colocated with the modules they document. Uses our existing Vite config. */
 const config: StorybookConfig = {
   framework: {

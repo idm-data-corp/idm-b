@@ -64,7 +64,7 @@ export default function SupportContact() {
             <h3>Response time targets</h3>
             {PRIORITIES.map((pr) => (
               <div key={pr.p} className="sup-contact-row">
-                <strong>{pr.p} — {pr.label}</strong>
+                <strong>{pr.p} - {pr.label}</strong>
                 <p>{pr.desc}</p>
                 <p style={{ marginTop: 4, color: 'var(--c-link)', fontWeight: 600, fontSize: '0.875rem' }}>
                   Initial response: {pr.response}

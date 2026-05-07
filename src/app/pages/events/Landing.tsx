@@ -22,7 +22,7 @@ const EVENTS = [
     href: PATHS.eventsWebinars,
     type: 'Webinar series',
     label: 'IDMB Webinars',
-    date: 'Monthly — next: 12 June 2026',
+    date: 'Monthly - next: 12 June 2026',
     location: 'Online',
     desc: 'Monthly deep-dives into specific IDMB modules, customer engineering case studies, regulatory updates and API walkthroughs. Live Q&A included.',
     cta: 'Browse webinars',
@@ -43,7 +43,7 @@ export default function EventsLanding() {
             Where builders of the financial stack come together
           </h1>
           <p className="ev-land-sub">
-            From our flagship annual summit to monthly technical webinars — IDMB events bring
+            From our flagship annual summit to monthly technical webinars - IDMB events bring
             together engineers, product teams and operators building on modern money infrastructure.
           </p>
           <Button variant="secondary" href={mailto('summit', 'Events newsletter')}>

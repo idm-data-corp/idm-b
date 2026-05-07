@@ -11,7 +11,7 @@ export const meta = {
 
 ## The promise and the problem
 
-Embedded finance is real. Platforms that add wallets, credit or payouts see meaningful revenue lifts and retention improvements. The promise is well understood. The problem most operators encounter is that they underestimate the compliance surface they're taking on — especially around KYC, AML and money transmission.
+Embedded finance is real. Platforms that add wallets, credit or payouts see meaningful revenue lifts and retention improvements. The promise is well understood. The problem most operators encounter is that they underestimate the compliance surface they're taking on - especially around KYC, AML and money transmission.
 
 This isn't a scare piece. It's a practical map of where teams run into trouble, and what the IDMB platform does to reduce that surface.
 
@@ -30,7 +30,7 @@ The IDMB compliance module treats KYC as a stateful lifecycle, not a checkbox. I
 
 The most common compliance misunderstanding in BaaS: *"The bank behind the programme handles AML, so we don't need to."*
 
-In most markets, the programme manager — the platform that holds the customer relationship — retains a share of the AML obligation. The IDMB platform generates the Suspicious Activity Reports (SARs) and Currency Transaction Reports (CTRs), but it is still your product and your customer. The regulatory expectation is that you understand the transaction patterns and can explain them.
+In most markets, the programme manager - the platform that holds the customer relationship - retains a share of the AML obligation. The IDMB platform generates the Suspicious Activity Reports (SARs) and Currency Transaction Reports (CTRs), but it is still your product and your customer. The regulatory expectation is that you understand the transaction patterns and can explain them.
 
 That means your team needs to be able to read the case management queue, not just route it to a third-party operations centre.
 
@@ -48,7 +48,7 @@ The tier is set at wallet creation and can be upgraded (with a new KYC check) bu
 
 ## Mistake 4: building your own SAR workflow
 
-Filing a Suspicious Activity Report is not complicated. Managing a queue of potential SARs across millions of transactions — deciding which to file, in what time window, with what narrative — is operationally complex and legally sensitive.
+Filing a Suspicious Activity Report is not complicated. Managing a queue of potential SARs across millions of transactions - deciding which to file, in what time window, with what narrative - is operationally complex and legally sensitive.
 
 The IDMB case management interface does the heavy lifting: transactions that breach configurable thresholds flow into a queue, analysts review them within the regulatory window (24 hours in most markets), and filing is one-click with a pre-populated narrative. The audit trail is immutable.
 
@@ -58,7 +58,7 @@ When we say compliance is built into IDMB, we mean three things:
 
 1. **Policy as configuration**: AML rules, KYC tiers and transaction limits are configured, not coded. Your compliance team can update thresholds without an engineering sprint.
 2. **Shared obligation, clear ownership**: IDMB generates the monitoring output; your team reviews and files. The responsibility boundary is explicit and documented.
-3. **Regulator-ready data**: every decision — approve, reject, escalate — is timestamped, attributable and exportable for an examination.
+3. **Regulator-ready data**: every decision - approve, reject, escalate - is timestamped, attributable and exportable for an examination.
 
 ## The short version
 

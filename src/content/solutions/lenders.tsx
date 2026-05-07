@@ -14,7 +14,7 @@ import { mailto } from '../../lib/site';
 export const lenders: SolutionContent = {
   heroEyebrow: 'Solutions · Lenders & credit products',
   heroTitle: <>Disburse faster. Score smarter. Recover cleanly.</>,
-  heroLede: 'IDMB gives credit teams a single platform for loan wallets, automated disbursement, cashflow-based risk scoring and repayment tracking — from underwriting to close.',
+  heroLede: 'IDMB gives credit teams a single platform for loan wallets, automated disbursement, cashflow-based risk scoring and repayment tracking - from underwriting to close.',
   heroPrimary: { label: 'Talk to our credit team', href: mailto('sales', 'Lender/credit product enquiry') },
   heroSecondary: { label: 'See how Mosaic uses IDMB', href: PATHS.customerMosaic },
   heroVariant: 'centered',
@@ -30,7 +30,7 @@ export const lenders: SolutionContent = {
     {
       icon: IconAIProductivity,
       title: 'Disbursement is slower than the decision',
-      desc: 'A 5-minute credit decision followed by a 48-hour disbursement is a broken promise. Borrowers expect the money to arrive the same day — preferably the same minute.',
+      desc: 'A 5-minute credit decision followed by a 48-hour disbursement is a broken promise. Borrowers expect the money to arrive the same day - preferably the same minute.',
     },
     {
       icon: IconHybridInfra,
@@ -70,7 +70,7 @@ export const lenders: SolutionContent = {
   },
 
   quote: {
-    quote: 'We used to approve one in five applicants. On IDMB cashflow signals we approve one in three — with a lower NPL rate. The data was always there. We just couldn\'t see it in real time.',
+    quote: 'We used to approve one in five applicants. On IDMB cashflow signals we approve one in three - with a lower NPL rate. The data was always there. We just couldn\'t see it in real time.',
     name: 'Priya Nair',
     role: 'Chief Risk Officer, Mosaic',
     company: 'Mosaic',

@@ -14,7 +14,7 @@ export const vela: CustomerStoryContent = {
   customer: { name: 'Vela', industry: 'Cross-border remittance', region: 'Africa, MENA & APAC', logo: LogoVela },
   heroEyebrow: 'Customer story · Wallets',
   heroTitle: <>Vela runs cross-border settlement across 47 corridors on IDMB.</>,
-  heroSubtitle: 'A remittance operator collapsed three vendor stacks into one IDMB integration — and now runs forty-seven corridors with one operations team, one compliance team and one ledger.',
+  heroSubtitle: 'A remittance operator collapsed three vendor stacks into one IDMB integration - and now runs forty-seven corridors with one operations team, one compliance team and one ledger.',
   heroStats: [
     { value: '47',       label: 'live cross-border corridors across Africa, MENA and APAC' },
     { value: '99.99%',   label: 'platform availability for cross-border settlement in 2025' },
@@ -40,7 +40,7 @@ export const vela: CustomerStoryContent = {
       <>
         <p>
           Vela moved settlement, FX and screening onto IDMB cross-border wallets. The IDMB compliance
-          pack — travel-rule, beneficial-ownership and country-of-origin checks — replaced three vendor
+          pack - travel-rule, beneficial-ownership and country-of-origin checks - replaced three vendor
           contracts. The IDMB ledger replaced fourteen home-grown reconciliation jobs.
         </p>
         <p>

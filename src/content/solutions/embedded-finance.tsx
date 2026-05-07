@@ -14,7 +14,7 @@ import { mailto } from '../../lib/site';
 export const embeddedFinance: SolutionContent = {
   heroEyebrow: 'Solutions · Embedded finance',
   heroTitle: <>White-label banking and wallets for any brand, any vertical.</>,
-  heroLede: 'IDMB is the regulated infrastructure layer that lets non-bank businesses issue accounts, cards and wallets under their own brand — without applying for a licence or managing a core.',
+  heroLede: 'IDMB is the regulated infrastructure layer that lets non-bank businesses issue accounts, cards and wallets under their own brand - without applying for a licence or managing a core.',
   heroPrimary: { label: 'Talk to the BaaS team', href: mailto('sales', 'Embedded finance enquiry') },
   heroSecondary: { label: 'Explore the API', href: PATHS.developersDocs },
   heroVariant: 'split',
@@ -35,7 +35,7 @@ export const embeddedFinance: SolutionContent = {
     {
       icon: IconDataMgmt,
       title: 'You need data as much as you need accounts',
-      desc: 'Embedded finance creates a rich behavioural signal — spending patterns, cashflow timing, product affinity. Without a data layer, you\'re handing that signal to your infrastructure provider.',
+      desc: 'Embedded finance creates a rich behavioural signal - spending patterns, cashflow timing, product affinity. Without a data layer, you\'re handing that signal to your infrastructure provider.',
     },
   ],
 
@@ -62,7 +62,7 @@ export const embeddedFinance: SolutionContent = {
   storyCallout: {
     eyebrow: 'Customer story · Banking',
     heading: <>Northbank embedded IDMB across three product lines without a separate licence per market.</>,
-    summary: 'Northbank used IDMB\'s multi-jurisdiction infrastructure to expand a regulated card programme into five markets in the first quarter — without applying for five separate licences or negotiating five sponsor bank agreements.',
+    summary: 'Northbank used IDMB\'s multi-jurisdiction infrastructure to expand a regulated card programme into five markets in the first quarter - without applying for five separate licences or negotiating five sponsor bank agreements.',
     stat: '5 markets',
     statLabel: 'card programme launched across, using one IDMB regulatory envelope',
     href: PATHS.customerNorthbank,
@@ -79,7 +79,7 @@ export const embeddedFinance: SolutionContent = {
 
   cta: {
     heading: 'Embed banking and wallets into your product',
-    subheading: 'Talk to our BaaS team about your use case — vertical, geography, product type and scale. We\'ll scope the right IDMB configuration.',
+    subheading: 'Talk to our BaaS team about your use case - vertical, geography, product type and scale. We\'ll scope the right IDMB configuration.',
     primary: { label: 'Talk to the BaaS team', href: mailto('sales', 'Embedded finance enquiry') },
     secondary: { label: 'Explore the API reference', href: PATHS.developersDocs },
   },

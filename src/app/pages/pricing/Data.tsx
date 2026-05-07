@@ -34,7 +34,7 @@ export default function PricingData() {
           <p className="pr-sub-eyebrow">Pricing · Data</p>
           <h1 className="pr-sub-h">Data module pricing</h1>
           <p className="pr-sub-lede">
-            Event-based pricing on the data layer — pay per event streamed, per seat on real-time
+            Event-based pricing on the data layer - pay per event streamed, per seat on real-time
             dashboards and per transaction evaluated for risk. No warehouse markup, no egress
             surprises.
           </p>
@@ -65,7 +65,7 @@ export default function PricingData() {
                     <td className="pr-sub-td-desc">{m.desc}</td>
                     <td className="pr-sub-td-rate">{m.rate}</td>
                     <td>
-                      <a className="pr-sub-td-contact" href={mailto('sales', `Data pricing — ${m.name}`)}>
+                      <a className="pr-sub-td-contact" href={mailto('sales', `Data pricing - ${m.name}`)}>
                         Contact for rate
                       </a>
                     </td>

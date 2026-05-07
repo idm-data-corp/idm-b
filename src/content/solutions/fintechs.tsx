@@ -14,7 +14,7 @@ import { mailto } from '../../lib/site';
 export const fintechs: SolutionContent = {
   heroEyebrow: 'Solutions · Fintechs & neobanks',
   heroTitle: <>Go from idea to regulated product in under ninety days.</>,
-  heroLede: 'IDMB gives you the full fintech stack — accounts, wallets, cards, payments and compliance — through one API contract. You build the brand; we handle the licensed infrastructure.',
+  heroLede: 'IDMB gives you the full fintech stack - accounts, wallets, cards, payments and compliance - through one API contract. You build the brand; we handle the licensed infrastructure.',
   heroPrimary: { label: 'Open a free sandbox', href: PATHS.developersSandbox },
   heroSecondary: { label: 'Talk to our team', href: mailto('sales', 'Fintech/neobank enquiry') },
   heroVariant: 'centered',
@@ -25,7 +25,7 @@ export const fintechs: SolutionContent = {
     {
       icon: IconSecurity,
       title: 'Compliance is the invisible blocker',
-      desc: 'KYC onboarding, sanctions screening, AML monitoring and regulator reporting — all before you write a line of product code. Most teams underestimate this by half.',
+      desc: 'KYC onboarding, sanctions screening, AML monitoring and regulator reporting - all before you write a line of product code. Most teams underestimate this by half.',
     },
     {
       icon: IconHybridInfra,
@@ -62,7 +62,7 @@ export const fintechs: SolutionContent = {
   storyCallout: {
     eyebrow: 'Customer story · Wallets',
     heading: <>Paywave embedded 9.4M wallets and tap-to-pay cards in six months.</>,
-    summary: 'The regional super-app integrated IDMB Wallets and Card-linked to power multi-currency balances, instant transfers and NFC tap-to-pay — without building their own card programme or ledger.',
+    summary: 'The regional super-app integrated IDMB Wallets and Card-linked to power multi-currency balances, instant transfers and NFC tap-to-pay - without building their own card programme or ledger.',
     stat: '−47%',
     statLabel: 'drop in wallet-related support tickets after migrating to IDMB',
     href: PATHS.customerPaywave,
@@ -79,7 +79,7 @@ export const fintechs: SolutionContent = {
 
   cta: {
     heading: 'Build your neobank on IDMB today',
-    subheading: 'Open a full-featured sandbox — no commitment, no credit card. Your first live transaction could be ninety days away.',
+    subheading: 'Open a full-featured sandbox - no commitment, no credit card. Your first live transaction could be ninety days away.',
     primary: { label: 'Open the sandbox', href: PATHS.developersSandbox },
     secondary: { label: 'Talk to sales', href: mailto('sales', 'Fintech/neobank enquiry') },
   },

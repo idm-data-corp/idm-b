@@ -38,7 +38,7 @@ export default function TrustCompliance() {
             <p>
               IDMB operates as infrastructure for licensed financial institutions. Our compliance
               programme is designed to satisfy the obligations of both IDMB as an operator and our
-              customers — banks, fintechs and payment service providers — as regulated entities. We
+              customers - banks, fintechs and payment service providers - as regulated entities. We
               maintain a suite of independent certifications, submit to annual audits and publish
               our regulatory posture so customers can incorporate our evidence into their own
               compliance frameworks.
@@ -91,26 +91,26 @@ export default function TrustCompliance() {
             <h2 id="regulatory">Regulatory posture</h2>
             <p>
               IDMB provides infrastructure and does not itself hold a banking, e-money or payment
-              institution licence in any jurisdiction. Our customers — who hold the relevant
-              licences — retain full responsibility for their regulatory obligations. IDMB supports
+              institution licence in any jurisdiction. Our customers - who hold the relevant
+              licences - retain full responsibility for their regulatory obligations. IDMB supports
               this through:
             </p>
             <ul>
               <li>
-                <strong>Regulatory reporting exports</strong> — pre-built data extracts formatted
+                <strong>Regulatory reporting exports</strong> - pre-built data extracts formatted
                 for common regulatory returns (Basel III capital reporting, IFRS 9 provision
                 schedules, transaction monitoring reports).
               </li>
               <li>
-                <strong>Audit trail API</strong> — every ledger event, access log and configuration
+                <strong>Audit trail API</strong> - every ledger event, access log and configuration
                 change is available via a tamper-evident audit trail API with 7-year retention.
               </li>
               <li>
-                <strong>Regulator access portal</strong> — on-demand read access for supervisory
+                <strong>Regulator access portal</strong> - on-demand read access for supervisory
                 authorities, scoped per jurisdiction and approved by the customer.
               </li>
               <li>
-                <strong>Regulatory change support</strong> — IDMB monitors regulatory change across
+                <strong>Regulatory change support</strong> - IDMB monitors regulatory change across
                 all operating jurisdictions and publishes impact notices to customers no later than
                 90 days before a requirement takes effect.
               </li>
@@ -123,20 +123,20 @@ export default function TrustCompliance() {
             </p>
             <ul>
               <li>
-                <strong>Transaction monitoring</strong> — rule-based and ML-assisted screening of
+                <strong>Transaction monitoring</strong> - rule-based and ML-assisted screening of
                 every ledger transaction against configurable typology libraries.
               </li>
               <li>
-                <strong>Sanctions screening</strong> — real-time name and entity screening against
+                <strong>Sanctions screening</strong> - real-time name and entity screening against
                 OFAC, UN, EU, FCDO and customer-defined lists, with configurable fuzzy-match
                 thresholds.
               </li>
               <li>
-                <strong>KYC lifecycle</strong> — identity verification, ongoing monitoring and
+                <strong>KYC lifecycle</strong> - identity verification, ongoing monitoring and
                 PEP/adverse media checks managed through the Compliance API.
               </li>
               <li>
-                <strong>SAR workflow</strong> — case management and SAR/STR export integrated with
+                <strong>SAR workflow</strong> - case management and SAR/STR export integrated with
                 the regulatory reporting module.
               </li>
             </ul>
@@ -151,10 +151,10 @@ export default function TrustCompliance() {
               their primary data residency region at contract time:
             </p>
             <ul>
-              <li>EU (eu-west-1, eu-central-1) — GDPR data boundary</li>
-              <li>Africa (af-south-1) — customer data stays in-continent</li>
-              <li>UK (eu-west-2) — post-Brexit UK data boundary</li>
-              <li>Middle East (me-south-1) — GCC data residency</li>
+              <li>EU (eu-west-1, eu-central-1) - GDPR data boundary</li>
+              <li>Africa (af-south-1) - customer data stays in-continent</li>
+              <li>UK (eu-west-2) - post-Brexit UK data boundary</li>
+              <li>Middle East (me-south-1) - GCC data residency</li>
             </ul>
             <p>
               Cross-region replication for disaster recovery uses encrypted, customer-authorised

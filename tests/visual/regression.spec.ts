@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-/* Visual regression — screenshots a representative page per archetype at
+/* Visual regression - screenshots a representative page per archetype at
    both desktop and mobile widths. The first run creates the baseline
    snapshots in tests/visual/regression.spec.ts-snapshots/. Subsequent
    runs compare against the baseline and fail on any visible diff above

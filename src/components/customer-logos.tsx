@@ -1,6 +1,6 @@
 /* Inline SVG wordmarks for the four reference customers used across the site
    (home SmarterBusiness section, customer-story pages, sub-product quotes).
-   Each takes an optional `size` prop (logo height in px) — width scales
+   Each takes an optional `size` prop (logo height in px) - width scales
    to maintain the wordmark proportions. */
 
 type LogoProps = { size?: number };

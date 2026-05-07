@@ -4,7 +4,7 @@ export const meta = {
   title: 'Wallet infrastructure for super-apps: the multi-tenancy problem',
   date: '2026-02-03',
   author: { name: 'Amara Osei', role: 'CEO, IDMB' },
-  excerpt: 'A super-app wallet needs to serve millions of users, multiple merchant types, and regulatory requirements across markets — all from one integration. Here\'s how we architect that.',
+  excerpt: 'A super-app wallet needs to serve millions of users, multiple merchant types, and regulatory requirements across markets - all from one integration. Here\'s how we architect that.',
   readTime: '7 min read',
   tags: ['Wallets', 'Architecture', 'Super-apps'],
 };
@@ -16,7 +16,7 @@ A super-app wallet is not a single product. At minimum, it's three:
 - A **merchant wallet**: the merchant's balance, where payouts accumulate before settlement
 - A **platform wallet**: the operator's margin, fees and float, held separately from both
 
-These three wallet types have different compliance requirements, different lifecycle rules and different settlement behaviours. But from the end user's perspective, they're invisible — the app just works.
+These three wallet types have different compliance requirements, different lifecycle rules and different settlement behaviours. But from the end user's perspective, they're invisible - the app just works.
 
 The infrastructure underneath needs to manage all three programmatically, on a single ledger, across millions of accounts.
 
@@ -28,7 +28,7 @@ IDMB models this as a **programme hierarchy**: one root programme (your platform
 - Fee schedule (what IDMB charges you, and what you charge users)
 - Reporting segment (separate P&L view per programme)
 
-All programmes share the same ledger, so transfers between a consumer wallet and a merchant wallet are intra-ledger and immediate — no external payment rail required.
+All programmes share the same ledger, so transfers between a consumer wallet and a merchant wallet are intra-ledger and immediate - no external payment rail required.
 
 ## The payout problem
 

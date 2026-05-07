@@ -71,7 +71,7 @@ export default function ResourceArticle({ kind }: Props) {
         heading="Build on IDMB"
         subheading="Open a sandbox and try the platform, or talk to our team about your infrastructure needs."
         primary={{ label: 'Open the sandbox', href: PATHS.developersSandbox }}
-        secondary={{ label: 'Talk to sales', href: mailto('sales', `Article CTA — ${entry.title}`) }}
+        secondary={{ label: 'Talk to sales', href: mailto('sales', `Article CTA - ${entry.title}`) }}
         tone="dark"
       />
     </>

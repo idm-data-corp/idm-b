@@ -27,7 +27,7 @@ const STORIES: StoryCard[] = [
     industry: 'Licensed retail bank',
     region: 'Western Europe',
     pillar: 'Banking',
-    headline: 'Northbank rebuilt its core on IDMB in eleven months — with zero customer-facing outages.',
+    headline: 'Northbank rebuilt its core on IDMB in eleven months - with zero customer-facing outages.',
     resultStat: { value: 'USD 2.1B', label: 'in deposits migrated to the IDMB ledger' },
     logo: LogoNorthbank,
   },
@@ -47,7 +47,7 @@ const STORIES: StoryCard[] = [
     industry: 'Consumer & SMB lender',
     region: 'Southern Africa',
     pillar: 'Data',
-    headline: 'Mosaic underwrites a borrower in under four minutes on IDMB Data — and lifted approval rates 38%.',
+    headline: 'Mosaic underwrites a borrower in under four minutes on IDMB Data - and lifted approval rates 38%.',
     resultStat: { value: '+38%', label: 'lift in approval rates with IDMB cashflow signals' },
     logo: LogoMosaic,
   },
@@ -90,7 +90,7 @@ export default function CustomersIndex() {
           </h1>
           <p className="ci-lede">
             How licensed banks, super-apps, lenders and remittance operators ship financial products
-            on the IDMB platform — and what it takes them to stand on a regulated, real-time stack.
+            on the IDMB platform - and what it takes them to stand on a regulated, real-time stack.
           </p>
         </div>
       </section>

@@ -34,7 +34,7 @@ test.describe('Page metadata', () => {
   }
 });
 
-test.describe('Home — primary CTA', () => {
+test.describe('Home - primary CTA', () => {
   test('clicking "Start building on IDMB" lands on /platform', async ({ page }) => {
     await page.goto('/');
     /* Hero primary CTA scrolls to the platform anchor on the same page;
@@ -44,12 +44,12 @@ test.describe('Home — primary CTA', () => {
   });
 });
 
-test.describe('Mega menu — desktop', () => {
+test.describe('Mega menu - desktop', () => {
   test.use({ viewport: { width: 1280, height: 800 } });
 
   test('opens Banking menu and routes to a sub-product', async ({ page }) => {
     await page.goto('/');
-    /* Skip on mobile project — nav is hidden < 768px (the mobile drawer
+    /* Skip on mobile project - nav is hidden < 768px (the mobile drawer
        has its own test below). */
     const navBanking = page.getByRole('button', { name: /^Banking/, exact: false });
     await navBanking.click();

@@ -14,7 +14,7 @@ import { mailto } from '../../lib/site';
 export const marketplaces: SolutionContent = {
   heroEyebrow: 'Solutions · Marketplaces & super-apps',
   heroTitle: <>Power every side of your marketplace with one money layer.</>,
-  heroLede: 'Multi-party payouts, buyer balances, merchant wallets and KYC at platform scale — without stitching together five different providers.',
+  heroLede: 'Multi-party payouts, buyer balances, merchant wallets and KYC at platform scale - without stitching together five different providers.',
   heroPrimary: { label: 'Talk to the platform team', href: mailto('sales', 'Marketplace enquiry') },
   heroSecondary: { label: 'Open a sandbox', href: PATHS.developersSandbox },
   heroVariant: 'visual-left',
@@ -25,7 +25,7 @@ export const marketplaces: SolutionContent = {
     {
       icon: IconAIProductivity,
       title: 'Payouts are slow and opaque',
-      desc: 'Merchants wait days for settlement. When something goes wrong — a failed payout, a duplicate, a disputed amount — there is no auditable trail to reason from.',
+      desc: 'Merchants wait days for settlement. When something goes wrong - a failed payout, a duplicate, a disputed amount - there is no auditable trail to reason from.',
     },
     {
       icon: IconSecurity,
@@ -63,7 +63,7 @@ export const marketplaces: SolutionContent = {
   storyCallout: {
     eyebrow: 'Customer story · Wallets',
     heading: <>Paywave runs 9.4M multi-currency wallets and cross-app payouts on IDMB.</>,
-    summary: 'Paywave used IDMB Wallets to power buyer balances, merchant float accounts and cross-border payouts — replacing four separate vendors with one integration.',
+    summary: 'Paywave used IDMB Wallets to power buyer balances, merchant float accounts and cross-border payouts - replacing four separate vendors with one integration.',
     stat: '9.4M',
     statLabel: 'active wallets powered by IDMB across the Paywave super-app',
     href: PATHS.customerPaywave,

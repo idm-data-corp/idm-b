@@ -10,10 +10,10 @@ import './TrustCentre.css';
 type CertKind = 'iso27001' | 'iso27701' | 'soc2' | 'pcidss' | 'gdpr' | 'ukdpa';
 
 const CERTS: { kind: CertKind; label: string; desc: string }[] = [
-  { kind: 'iso27001', label: 'ISO/IEC 27001:2022', desc: 'Information security management — audited by BSI Group' },
-  { kind: 'soc2',     label: 'SOC 2 Type II',      desc: 'Security, availability and confidentiality — audited by Deloitte' },
-  { kind: 'pcidss',   label: 'PCI DSS Level 1',    desc: 'Cardholder data environment — assessed annually by a QSA' },
-  { kind: 'iso27701', label: 'ISO/IEC 27701:2019', desc: 'Privacy information management — extends ISO 27001' },
+  { kind: 'iso27001', label: 'ISO/IEC 27001:2022', desc: 'Information security management - audited by BSI Group' },
+  { kind: 'soc2',     label: 'SOC 2 Type II',      desc: 'Security, availability and confidentiality - audited by Deloitte' },
+  { kind: 'pcidss',   label: 'PCI DSS Level 1',    desc: 'Cardholder data environment - assessed annually by a QSA' },
+  { kind: 'iso27701', label: 'ISO/IEC 27701:2019', desc: 'Privacy information management - extends ISO 27001' },
   { kind: 'gdpr',     label: 'GDPR',               desc: 'EU General Data Protection Regulation' },
   { kind: 'ukdpa',    label: 'UK DPA 2018',        desc: 'UK Data Protection Act 2018 (incl. UK GDPR)' },
 ];
@@ -40,7 +40,7 @@ export default function TrustCentre() {
           <h1 className="tc-h">Security, compliance and privacy at IDMB</h1>
           <p className="tc-sub">
             IDMB is infrastructure for regulated financial services. Security, compliance and privacy
-            are not features — they are the foundation. This page is the public record of our posture.
+            are not features - they are the foundation. This page is the public record of our posture.
           </p>
         </div>
       </section>

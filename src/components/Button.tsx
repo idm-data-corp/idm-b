@@ -14,7 +14,7 @@ export type ButtonSize = 'md' | 'lg';
 type CommonProps = {
   variant?: ButtonVariant;
   size?: ButtonSize;
-  /* Hide the trailing arrow icon (rare — most CTAs want it). */
+  /* Hide the trailing arrow icon (rare - most CTAs want it). */
   hideArrow?: boolean;
   className?: string;
   children: React.ReactNode;

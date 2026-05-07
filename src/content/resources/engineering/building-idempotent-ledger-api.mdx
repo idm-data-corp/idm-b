@@ -23,7 +23,7 @@ The problem: two concurrent requests with the same key arrive before either has 
 
 The correct implementation requires a distributed lock. The first request to arrive for a given key acquires the lock, processes the operation, and releases the lock. The second request acquires the lock, finds the stored result, and returns it.
 
-We use Redis for the lock. The key insight: the lock must be acquired *before* the database write, not after. The lock TTL is set to 30 seconds — long enough to cover any plausible processing time, short enough that a crashed process doesn't hold the lock indefinitely.
+We use Redis for the lock. The key insight: the lock must be acquired *before* the database write, not after. The lock TTL is set to 30 seconds - long enough to cover any plausible processing time, short enough that a crashed process doesn't hold the lock indefinitely.
 
 ```go
 func (s *LedgerService) Transfer(ctx context.Context, req *TransferRequest) (*TransferResponse, error) {

@@ -7,11 +7,11 @@ type Props = {
   items: TocItem[];
   /* The minimum vertical offset, in px, between the document scroll origin
      and the top of a section before it counts as "the active section".
-     Defaults to 96 — covers the 48px sticky header + 48px breathing room. */
+     Defaults to 96 - covers the 48px sticky header + 48px breathing room. */
   offset?: number;
 };
 
-/* OnThisPage — sticky right-rail table of contents for long-form pages.
+/* OnThisPage - sticky right-rail table of contents for long-form pages.
    - Click highlights and smooth-scrolls to the target with proper offset
      (so the section heading clears the sticky 48px header).
    - Updates the URL hash without forcing a router navigation.

@@ -32,7 +32,7 @@ const WEBINARS: Webinar[] = [
   {
     date: '17 April 2026',
     title: 'Cross-border wallets: corridors, compliance and FX at scale',
-    desc: 'Architecture of the cross-border wallet module — how Vela runs 47 corridors on a single ledger with one operations team.',
+    desc: 'Architecture of the cross-border wallet module - how Vela runs 47 corridors on a single ledger with one operations team.',
     duration: '55 min',
     status: 'on-demand',
   },
@@ -98,7 +98,7 @@ export default function EventWebinars() {
                   <p className="wb-card-desc">{w.desc}</p>
                   <a
                     className="wb-card-link"
-                    href={mailto('summit', `Webinar registration — ${w.title}`)}
+                    href={mailto('summit', `Webinar registration - ${w.title}`)}
                   >
                     Register <ArrowRight size={16} />
                   </a>
@@ -124,7 +124,7 @@ export default function EventWebinars() {
                 <p className="wb-card-desc">{w.desc}</p>
                 <a
                   className="wb-card-link"
-                  href={mailto('summit', `Webinar recording request — ${w.title}`)}
+                  href={mailto('summit', `Webinar recording request - ${w.title}`)}
                 >
                   Watch recording <ArrowRight size={16} />
                 </a>
