@@ -114,6 +114,8 @@ export const walletsOverview: PillarContent = {
   statsHeading: 'Wallets that move at scale',
   statsIntro:
     'A snapshot of IDMB Wallets activity across customers in production today.',
+  statsPlaceholder: true,
+  quotePlaceholder: true,
   stats: [
     { value: '9.4M',    label: 'wallets activated on IDMB across consumer and B2B platforms' },
     { value: '180ms',   label: 'median wallet-to-wallet transfer time on the IDMB network' },

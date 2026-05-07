@@ -26,13 +26,6 @@ const NEWS = [
       'IDMB has completed registration as an ICT third-party service provider under the EU Digital Operational Resilience Act (DORA) and the equivalent FCA Critical Technology Provider regime in the UK.',
   },
   {
-    date: '19 Jan 2026',
-    tag: 'Event',
-    title: 'IDMB Connect 2026 announced for 14–15 October in Accra',
-    excerpt:
-      'IDMB will host its annual infrastructure summit for banking and payments operators in Accra, Ghana. Early-bird registration is now open.',
-  },
-  {
     date: '9 Dec 2025',
     tag: 'Product',
     title: 'IDMB Data adds pre-built IFRS 9 provision schedules and Basel III capital reports',

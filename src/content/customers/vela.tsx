@@ -75,7 +75,7 @@ export const vela: CustomerStoryContent = {
 
   stack: [
     { title: 'Cross-border wallets',   desc: 'The wallet primitive every Vela corridor settles on.',    href: PATHS.walletsCrossBorder, icon: IconIntegration },
-    { title: 'Payments & FX',          desc: 'Real-time and SWIFT rails routed automatically.',         href: PATHS.bankingPayments,    icon: IconAIProductivity },
+    { title: 'Payments & FX',          desc: 'Real-time and SWIFT rails routed automatically.',         href: PATHS.bankingPayments,    icon: IconAIProductivity, comingSoon: true },
     { title: 'Stored-value accounts',  desc: 'Treasury wallets per corridor and per partner.',           href: PATHS.walletsStored,      icon: IconHybridInfra },
     { title: 'Compliance, KYC & AML',  desc: 'Travel rule, BO and origin-of-funds checks pre-wired.',   href: PATHS.bankingCompliance,  icon: IconSecurity },
     { title: 'Real-time analytics',    desc: 'Live position view per corridor and counterparty.',        href: PATHS.dataRealTime,       icon: IconAnalytics },

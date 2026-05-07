@@ -51,7 +51,7 @@ export const embeddedFinance: SolutionContent = {
   stackHeading: 'What IDMB provides for embedded-finance platforms',
   stack: [
     { title: 'Core banking & ledger',  desc: 'A multi-tenant ledger that separates end-customer balances cleanly.',    href: PATHS.bankingCore,        icon: IconHybridInfra },
-    { title: 'Card issuing',           desc: 'White-label debit, credit and virtual cards under your brand.',           href: PATHS.bankingCards,       icon: IconAIModels },
+    { title: 'Card issuing',           desc: 'White-label debit, credit and virtual cards under your brand.',           href: PATHS.bankingCards,       icon: IconAIModels, comingSoon: true },
     { title: 'Stored-value accounts',  desc: 'Branded wallets and e-money accounts in any supported currency.',         href: PATHS.walletsStored,      icon: IconAIProductivity },
     { title: 'Compliance, KYC & AML',  desc: 'Managed compliance so your embedded product stays onside.',              href: PATHS.bankingCompliance,  icon: IconSecurity },
     { title: 'Data lake & warehouse',  desc: 'Your customers\' financial data streamed to your warehouse.',             href: PATHS.dataLake,           icon: IconDataMgmt },

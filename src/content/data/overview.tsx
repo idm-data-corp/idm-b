@@ -108,6 +108,8 @@ export const dataOverview: PillarContent = {
   statsHeading: 'Decisions, not dashboards',
   statsIntro:
     'A snapshot from IDMB Data across customers in production today.',
+  statsPlaceholder: true,
+  quotePlaceholder: true,
   stats: [
     { value: '+38%',    label: 'lift in approval rates after switching to IDMB cashflow analytics' },
     { value: '−31%',    label: 'reduction in fraud false positives across IDMB customer portfolios in 2025' },

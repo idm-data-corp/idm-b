@@ -62,7 +62,7 @@ export const dataRisk: SubProductContent = {
   related: [
     { title: 'Real-time analytics', desc: 'Dashboards over the same risk-scored stream.', href: PATHS.dataRealTime,    icon: IconAnalytics },
     { title: 'Compliance, KYC & AML', desc: 'KYC and sanctions on the same platform.', href: PATHS.bankingCompliance, icon: IconSecurity },
-    { title: 'Card issuing & processing', desc: 'Risk scores attach to every card auth.', href: PATHS.bankingCards, icon: IconAIModels },
+    { title: 'Card issuing & processing', desc: 'Risk scores attach to every card auth.', href: PATHS.bankingCards, icon: IconAIModels, comingSoon: true },
   ],
 
   cta: {

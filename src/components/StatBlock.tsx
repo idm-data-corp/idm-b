@@ -20,6 +20,9 @@ type Props = {
   variant?: StatBlockVariant;
   /* Background tone - defaults to alt (carbon gray); some pages need plain. */
   bg?: 'default' | 'alt' | 'dark';
+  /* When true, render the block in a muted state with a 'Sample data' tag
+     so visitors can tell the numbers are illustrative, not live metrics. */
+  placeholder?: boolean;
 };
 
 export default function StatBlock({
@@ -29,11 +32,13 @@ export default function StatBlock({
   stats,
   variant = 'cards',
   bg = 'alt',
+  placeholder = false,
 }: Props) {
   return (
     <section
-      className={`sbk sbk-bg-${bg} sbk-v-${variant}`}
+      className={`sbk sbk-bg-${bg} sbk-v-${variant}${placeholder ? ' sbk-placeholder' : ''}`}
       aria-labelledby={heading ? 'sbk-h' : undefined}
+      {...(placeholder ? { 'data-placeholder': 'true' } : {})}
     >
       <div className="container sbk-grid">
         {(eyebrow || heading || intro) && (
@@ -42,6 +47,7 @@ export default function StatBlock({
             {heading && (
               <h2 id="sbk-h" className="sbk-h">
                 {heading}
+                {placeholder && <span className="sbk-tag">Sample data</span>}
               </h2>
             )}
             {intro && <p className="sbk-intro">{intro}</p>}

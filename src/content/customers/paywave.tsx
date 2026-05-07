@@ -80,7 +80,7 @@ export const paywave: CustomerStoryContent = {
     { title: 'Cross-border wallets',   desc: 'Live across MENA and East Africa corridors.',            href: PATHS.walletsCrossBorder, icon: IconIntegration },
     { title: 'Risk & fraud signals',   desc: 'Real-time scoring on every wallet transfer.',             href: PATHS.dataRisk,           icon: IconSecurity },
     { title: 'Real-time analytics',    desc: 'Operator console for the support and ops teams.',         href: PATHS.dataRealTime,       icon: IconAnalytics },
-    { title: 'Payments & FX',          desc: 'Top-up and payout rails into and out of wallets.',         href: PATHS.bankingPayments,    icon: IconAIProductivity },
+    { title: 'Payments & FX',          desc: 'Top-up and payout rails into and out of wallets.',         href: PATHS.bankingPayments,    icon: IconAIProductivity, comingSoon: true },
   ],
 
   related: [

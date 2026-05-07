@@ -15,8 +15,8 @@ async function main() {
   const SITE_URL = 'https://www.idmb.com';
 
   const urls = ROUTES
-    /* Skip pages that just bounce to a portal - they shouldn't be indexed. */
-    .filter((r) => !r.portalRedirect)
+    /* Skip pages that just bounce to a portal or are explicitly hidden. */
+    .filter((r) => !r.portalRedirect && !r.noIndex)
     .map((r) => {
       const loc = `${SITE_URL}${r.path === '/' ? '' : r.path}`;
       const changefreq = r.changefreq ?? 'monthly';
@@ -42,7 +42,7 @@ async function main() {
 
   const outPath = resolve(__dirname, '..', 'public', 'sitemap.xml');
   writeFileSync(outPath, xml);
-  console.log(`sitemap.xml written with ${ROUTES.filter((r) => !r.portalRedirect).length} URLs`);
+  console.log(`sitemap.xml written with ${ROUTES.filter((r) => !r.portalRedirect && !r.noIndex).length} URLs`);
 }
 
 main().catch((err) => {

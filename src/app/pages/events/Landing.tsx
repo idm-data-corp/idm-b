@@ -9,16 +9,6 @@ import './Landing.css';
 
 const EVENTS = [
   {
-    href: PATHS.eventsConnect,
-    type: 'Summit',
-    label: 'IDMB Connect 2026',
-    date: '18–19 September 2026',
-    location: 'London, UK',
-    desc: 'The flagship banking infrastructure summit. Two days of sessions on core banking modernisation, embedded finance and the future of payments rails.',
-    cta: 'View the summit',
-    featured: true,
-  },
-  {
     href: PATHS.eventsWebinars,
     type: 'Webinar series',
     label: 'IDMB Webinars',
@@ -26,7 +16,7 @@ const EVENTS = [
     location: 'Online',
     desc: 'Monthly deep-dives into specific IDMB modules, customer engineering case studies, regulatory updates and API walkthroughs. Live Q&A included.',
     cta: 'Browse webinars',
-    featured: false,
+    featured: true,
   },
 ];
 

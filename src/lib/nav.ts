@@ -18,7 +18,6 @@ export const PRIMARY_NAV: PrimaryNavItem[] = [
   { kind: 'menu', label: 'Data',         key: 'data' },
   { kind: 'menu', label: 'Developers',   key: 'developers' },
   { kind: 'link', label: 'Pricing',      href: PATHS.pricing },
-  { kind: 'link', label: 'Connect 2026', href: PATHS.eventsConnect },
 ];
 
 export type MegaItem = { title: string; desc: string; href: string };

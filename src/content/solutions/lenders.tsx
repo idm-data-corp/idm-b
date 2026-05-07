@@ -52,7 +52,7 @@ export const lenders: SolutionContent = {
   stack: [
     { title: 'Risk & fraud signals',    desc: 'Real-time cashflow-based risk scores for underwriting.',                href: PATHS.dataRisk,           icon: IconAnalytics },
     { title: 'Stored-value accounts',   desc: 'Loan wallets that disburse the moment a decision is made.',            href: PATHS.walletsStored,      icon: IconHybridInfra },
-    { title: 'Payments & FX',          desc: 'Automated disbursement and repayment collection on real-time rails.',   href: PATHS.bankingPayments,    icon: IconAIProductivity },
+    { title: 'Payments & FX',          desc: 'Automated disbursement and repayment collection on real-time rails.',   href: PATHS.bankingPayments,    icon: IconAIProductivity, comingSoon: true },
     { title: 'Core banking & ledger',  desc: 'Loan book ledger with full instalment and balance history.',             href: PATHS.bankingCore,        icon: IconAIModels },
     { title: 'Data lake & warehouse',  desc: 'Full credit model training data streamed with rich event metadata.',     href: PATHS.dataLake,           icon: IconDataMgmt },
     { title: 'Compliance, KYC & AML', desc: 'Borrower identity, AML screening and consent management.',               href: PATHS.bankingCompliance,  icon: IconSecurity },

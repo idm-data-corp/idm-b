@@ -53,3 +53,24 @@
 .qc-cta {
   align-self: flex-start;
 }
+
+/* ── Placeholder state ─────────────────────────────────────────────────
+   For pages where the quote is illustrative until a real customer
+   testimonial is collected. */
+.qc-placeholder .qc-quote { color: var(--c-text-mid); }
+.qc-placeholder .qc-name,
+.qc-placeholder .qc-role  { color: var(--c-text-mid); }
+
+.qc-tag {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 3px 10px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--c-text-mid);
+  background: var(--c-bg-alt);
+  border: 1px solid var(--c-border);
+  border-radius: 999px;
+}

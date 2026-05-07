@@ -14,8 +14,8 @@ import './EnterpriseTech.css';
 const TILES = [
   { id: 'banking',        title: 'Core banking & ledger',     Icon: IconHybridInfra,     href: '#banking' },
   { id: 'wallets',        title: 'Wallets & stored value',    Icon: IconIntegration,     href: '#wallets' },
-  { id: 'cards',          title: 'Card issuing & processing', Icon: IconAIModels,        href: '#cards' },
-  { id: 'payments',       title: 'Payments & FX rails',       Icon: IconAIProductivity,  href: '#payments' },
+  { id: 'cards',          title: 'Card issuing & processing', Icon: IconAIModels,        href: '#cards',          comingSoon: true },
+  { id: 'payments',       title: 'Payments & FX rails',       Icon: IconAIProductivity,  href: '#payments',       comingSoon: true },
   { id: 'compliance',     title: 'KYC, AML & compliance',     Icon: IconSecurity,        href: '#compliance' },
   { id: 'data',           title: 'Data lake & warehousing',   Icon: IconDataMgmt,        href: '#data' },
   { id: 'analytics',      title: 'Real-time analytics',       Icon: IconAnalytics,       href: '#analytics' },
@@ -36,10 +36,13 @@ export default function EnterpriseTech() {
         </div>
 
         <ul className="et-grid">
-          {TILES.map(({ id, title, Icon, href }) => (
+          {TILES.map(({ id, title, Icon, href, comingSoon }) => (
             <li key={id} id={id}>
               <a className="et-tile" href={href}>
-                <span className="et-tile-title">{title}</span>
+                <span className="et-tile-title">
+                  {title}
+                  {comingSoon && <span className="et-tile-pill">Coming soon</span>}
+                </span>
                 <Icon size={32} className="et-tile-icon" />
                 <span className="et-tile-arrow">
                   <ArrowRight size={20} />

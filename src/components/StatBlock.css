@@ -158,3 +158,38 @@
 }
 
 .sbk-bg-dark .sbk-sub { color: #a8a8a8; }
+
+/* ── Placeholder state ─────────────────────────────────────────────────
+   Indicates the displayed numbers are illustrative, not live production
+   metrics. Mutes colour to grayscale and adds a small "Sample data" tag
+   so the block does not read as a real performance claim. */
+.sbk-placeholder .sbk-value { color: var(--c-text-mid); filter: grayscale(1); }
+.sbk-placeholder .sbk-label,
+.sbk-placeholder .sbk-sub   { color: var(--c-text-mid); }
+.sbk-placeholder .sbk-h     { color: var(--c-text-mid); }
+.sbk-placeholder .sbk-intro,
+.sbk-placeholder .sbk-eyebrow { color: var(--c-text-mid); }
+.sbk-placeholder.sbk-v-cards .sbk-item { background: var(--c-bg-alt); }
+
+.sbk-tag {
+  display: inline-block;
+  margin-left: 12px;
+  padding: 3px 10px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--c-text-mid);
+  background: var(--c-bg);
+  border: 1px solid var(--c-border);
+  border-radius: 999px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.sbk-bg-alt .sbk-tag { background: #fff; }
+.sbk-bg-dark .sbk-tag {
+  color: #c6c6c6;
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.18);
+}

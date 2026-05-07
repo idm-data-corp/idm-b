@@ -53,8 +53,8 @@ export const banks: SolutionContent = {
   stackIntro: 'You take what you need. Most banks start with Core + Compliance and expand to Cards and Data in year one.',
   stack: [
     { title: 'Core banking & ledger',   desc: 'Real-time, double-entry ledger for retail and commercial workloads.',   href: PATHS.bankingCore,        icon: IconHybridInfra },
-    { title: 'Card issuing',            desc: 'Branded debit, credit and prepaid on Visa and Mastercard rails.',        href: PATHS.bankingCards,       icon: IconAIModels },
-    { title: 'Payments & FX',           desc: 'Real-time local payments and cross-border settlement in 40+ currencies.',href: PATHS.bankingPayments,    icon: IconAIProductivity },
+    { title: 'Card issuing',            desc: 'Branded debit, credit and prepaid on Visa and Mastercard rails.',        href: PATHS.bankingCards,       icon: IconAIModels, comingSoon: true },
+    { title: 'Payments & FX',           desc: 'Real-time local payments and cross-border settlement in 40+ currencies.',href: PATHS.bankingPayments,    icon: IconAIProductivity, comingSoon: true },
     { title: 'Compliance, KYC & AML',   desc: 'Identity, transaction monitoring and regulator-ready reporting.',        href: PATHS.bankingCompliance,  icon: IconSecurity },
     { title: 'Treasury & liquidity',    desc: 'Intra-day liquidity and end-of-day reconciliation in a single feed.',   href: PATHS.bankingTreasury,    icon: IconDataMgmt },
     { title: 'Regulatory reporting',    desc: 'Pre-built statutory returns, refreshed in lockstep with the ledger.',   href: PATHS.dataReporting,      icon: IconAnalytics },

@@ -61,7 +61,7 @@ export const walletsCrossBorder: SubProductContent = {
   relatedHeading: 'Related modules',
   related: [
     { title: 'Stored-value accounts', desc: 'The wallet primitive cross-border builds on.',          href: PATHS.walletsStored,    icon: IconHybridInfra },
-    { title: 'Payments & FX',         desc: 'Real-time payments and 40+ currency settlement.',      href: PATHS.bankingPayments,  icon: IconAIProductivity },
+    { title: 'Payments & FX',         desc: 'Real-time payments and 40+ currency settlement.',      href: PATHS.bankingPayments,  icon: IconAIProductivity, comingSoon: true },
     { title: 'Risk & fraud signals',  desc: 'Real-time scoring on every corridor transfer.',         href: PATHS.dataRisk,         icon: IconSecurity },
   ],
 

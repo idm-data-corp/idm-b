@@ -138,7 +138,7 @@ export default function EventWebinars() {
         heading="Want to present at an IDMB webinar?"
         subheading="We feature customer engineering teams and IDMB partners. Reach out to propose a topic."
         primary={{ label: 'Propose a session', href: mailto('summit', 'Webinar speaker proposal') }}
-        secondary={{ label: 'View Connect 2026', href: PATHS.eventsConnect }}
+        secondary={{ label: 'View all events', href: PATHS.events }}
         tone="dark"
       />
     </>

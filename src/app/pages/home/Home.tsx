@@ -4,11 +4,13 @@ import { usePageMeta } from '../../../lib/seo';
 import { findRoute } from '../../../lib/routes';
 
 const Recommended = lazy(() => import('../../../components/Recommended'));
-const SmarterBusiness = lazy(() => import('../../../components/SmarterBusiness'));
 const EventBanner = lazy(() => import('../../../components/EventBanner'));
 const EnterpriseTech = lazy(() => import('../../../components/EnterpriseTech'));
-const Training = lazy(() => import('../../../components/Training'));
 const StayConnected = lazy(() => import('../../../components/StayConnected'));
+
+/* SmarterBusiness ('Smarter money. Real results.') and Training are
+   temporarily hidden until we have real customer outcomes and a published
+   training programme. Restore the imports + render to bring them back. */
 
 function SectionPlaceholder({ height }: { height: number }) {
   return <div aria-hidden style={{ minHeight: height }} />;
@@ -27,10 +29,8 @@ export default function Home() {
       <Hero />
       <Suspense fallback={<SectionPlaceholder height={300} />}>
         <Recommended />
-        <SmarterBusiness />
         <EventBanner />
         <EnterpriseTech />
-        <Training />
         <StayConnected />
       </Suspense>
     </>

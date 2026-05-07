@@ -60,7 +60,7 @@ export const walletsCardLinked: SubProductContent = {
 
   relatedHeading: 'Related modules',
   related: [
-    { title: 'Card issuing & processing', desc: 'Issue branded cards on Visa and Mastercard rails.', href: PATHS.bankingCards,    icon: IconAIModels },
+    { title: 'Card issuing & processing', desc: 'Issue branded cards on Visa and Mastercard rails.', href: PATHS.bankingCards,    icon: IconAIModels, comingSoon: true },
     { title: 'Stored-value accounts',     desc: 'The wallets behind the cards.',                    href: PATHS.walletsStored,    icon: IconHybridInfra },
     { title: 'Risk & fraud signals',      desc: 'Real-time scoring on every authorisation.',        href: PATHS.dataRisk,         icon: IconSecurity },
   ],

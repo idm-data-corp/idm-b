@@ -22,6 +22,10 @@ export type RouteEntry = {
   /* If a marketing route is just a redirect to a portal, we render a small
      stub that auto-links there rather than a full page. */
   portalRedirect?: keyof typeof PORTAL;
+  /* When true, the route is reachable by direct URL but excluded from the
+     sitemap (and should not be linked from public navigation). Use for
+     pages that are temporarily hidden but not deleted. */
+  noIndex?: boolean;
 };
 
 /* Stable navigation IDs used elsewhere (mega menu, footer, sub-nav). */
@@ -311,7 +315,7 @@ export const ROUTES: RouteEntry[] = [
 
   /* Events */
   { path: PATHS.events,         title: t('Events'),                  description: 'IDMB events, summits and webinars.', layout: 'event', stub: false, priority: 0.7 },
-  { path: PATHS.eventsConnect,  title: t('IDMB Connect 2026'),       description: 'Reserve your seat for IDMB Connect 2026, the banking infrastructure summit.', layout: 'event', stub: false },
+  { path: PATHS.eventsConnect,  title: t('IDMB Connect 2026'),       description: 'Reserve your seat for IDMB Connect 2026, the banking infrastructure summit.', layout: 'event', stub: false, noIndex: true },
   { path: PATHS.eventsWebinars, title: t('Webinars'),                description: 'Upcoming and on-demand webinars from the IDMB team.', layout: 'event', stub: false },
 
   /* Resources */

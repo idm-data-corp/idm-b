@@ -113,8 +113,8 @@ export const bankingOverview: PillarContent = {
     'Run the whole stack or compose only the parts you need. Every module is independently versioned, exposed through the same authentication and observability layer.',
   subProducts: [
     { title: 'Core banking & ledger',      desc: 'Real-time, double-entry ledger. Accounts, balances, holds and reconciliation in a single source of truth.', href: PATHS.bankingCore,        icon: IconHybridInfra },
-    { title: 'Card issuing & processing',  desc: 'Issue branded debit, credit and prepaid cards on Visa and Mastercard rails with a programmable auth engine.', href: PATHS.bankingCards,       icon: IconAIModels },
-    { title: 'Payments & FX rails',        desc: 'Real-time payments, cross-border settlement and FX in 40+ currencies from one integration.',                  href: PATHS.bankingPayments,    icon: IconAIProductivity },
+    { title: 'Card issuing & processing',  desc: 'Issue branded debit, credit and prepaid cards on Visa and Mastercard rails with a programmable auth engine.', href: PATHS.bankingCards,       icon: IconAIModels, comingSoon: true },
+    { title: 'Payments & FX rails',        desc: 'Real-time payments, cross-border settlement and FX in 40+ currencies from one integration.',                  href: PATHS.bankingPayments,    icon: IconAIProductivity, comingSoon: true },
     { title: 'Compliance, KYC & AML',      desc: 'Identity verification, transaction monitoring, sanctions screening and regulator-ready reports built in.',     href: PATHS.bankingCompliance,  icon: IconSecurity },
     { title: 'Treasury & liquidity',       desc: 'Settlement accounts, intra-day liquidity and end-of-day reconciliation on one auditable feed.',                href: PATHS.bankingTreasury,    icon: IconAnalytics },
     { title: 'Reporting & data',           desc: 'Stream every ledger event into your warehouse. Pre-modelled views for risk, finance and growth.',              href: PATHS.dataReporting,      icon: IconDataMgmt },
@@ -124,6 +124,8 @@ export const bankingOverview: PillarContent = {
   statsHeading: 'Banks run on IDMB',
   statsIntro:
     'A snapshot from the IDMB platform across the banks, fintechs and operators in production today.',
+  statsPlaceholder: true,
+  quotePlaceholder: true,
   stats: [
     { value: 'USD 2.1B',  label: 'in customer deposits migrated to the IDMB ledger without a single outage' },
     { value: '99.99%',    label: 'platform availability across our regulated regions in 2025' },

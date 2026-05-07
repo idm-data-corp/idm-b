@@ -81,8 +81,8 @@ export const northbank: CustomerStoryContent = {
 
   stack: [
     { title: 'Core banking & ledger',  desc: 'The ledger that replaced the mainframe.', href: PATHS.bankingCore,    icon: IconHybridInfra },
-    { title: 'Card issuing',           desc: 'Branded debit and credit on Visa and Mastercard rails.', href: PATHS.bankingCards, icon: IconAIModels },
-    { title: 'Payments & FX',          desc: 'Real-time and cross-border payment rails.', href: PATHS.bankingPayments, icon: IconAIProductivity },
+    { title: 'Card issuing',           desc: 'Branded debit and credit on Visa and Mastercard rails.', href: PATHS.bankingCards, icon: IconAIModels, comingSoon: true },
+    { title: 'Payments & FX',          desc: 'Real-time and cross-border payment rails.', href: PATHS.bankingPayments, icon: IconAIProductivity, comingSoon: true },
     { title: 'Compliance, KYC & AML',  desc: 'Regulator-ready monitoring and reports.',  href: PATHS.bankingCompliance, icon: IconSecurity },
     { title: 'Data lake & warehouse',  desc: 'Every ledger event streamed into Snowflake.', href: PATHS.dataLake,    icon: IconDataMgmt },
     { title: 'Real-time analytics',    desc: 'Operator console for risk and finance teams.', href: PATHS.dataRealTime, icon: IconAnalytics },

@@ -61,7 +61,7 @@ export const bankingTreasury: SubProductContent = {
   relatedHeading: 'Related modules',
   related: [
     { title: 'Core banking & ledger', desc: 'Treasury runs on the same ledger as customer accounts.',     href: PATHS.bankingCore,    icon: IconHybridInfra },
-    { title: 'Payments & FX',         desc: 'Move treasury funds across schemes from the same console.', href: PATHS.bankingPayments, icon: IconAIProductivity },
+    { title: 'Payments & FX',         desc: 'Move treasury funds across schemes from the same console.', href: PATHS.bankingPayments, icon: IconAIProductivity, comingSoon: true },
     { title: 'Regulatory reporting',  desc: 'Statutory returns auto-generated from the treasury feed.', href: PATHS.dataReporting,  icon: IconAnalytics },
   ],
 

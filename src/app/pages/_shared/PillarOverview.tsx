@@ -40,6 +40,8 @@ export type PillarContent = {
   stats: Stat[];
   statsVariant?: StatBlockVariant;
   statsBg?: 'default' | 'alt' | 'dark';
+  /* When true, render the stats and quote as illustrative placeholders. */
+  statsPlaceholder?: boolean;
 
   /* Customer quote (QuoteCard) */
   quote: {
@@ -49,6 +51,7 @@ export type PillarContent = {
     company: string;
     storyHref?: string;
   };
+  quotePlaceholder?: boolean;
 
   /* Capabilities row (FeatureGrid). */
   capabilitiesHeading: string;
@@ -108,6 +111,7 @@ export default function PillarOverview({ route, content }: Props) {
         stats={content.stats}
         variant={content.statsVariant ?? 'cards'}
         bg={content.statsBg ?? 'alt'}
+        placeholder={content.statsPlaceholder}
       />
       <QuoteCard
         quote={content.quote.quote}
@@ -117,6 +121,7 @@ export default function PillarOverview({ route, content }: Props) {
           company: content.quote.company,
         }}
         cta={content.quote.storyHref ? { label: 'Read the customer story', href: content.quote.storyHref } : undefined}
+        placeholder={content.quotePlaceholder}
       />
       <FeatureGrid
         heading={content.capabilitiesHeading}

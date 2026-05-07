@@ -11,7 +11,7 @@ import { PATHS } from '../../lib/routes';
 import { mailto } from '../../lib/site';
 
 export const bankingCards: SubProductContent = {
-  heroEyebrow: 'IDMB Banking · Card issuing',
+  heroEyebrow: 'IDMB Banking · Card issuing · Coming soon',
   heroTitle: <>Issue cards on Visa<br />and Mastercard rails</>,
   heroLede:
     'Branded debit, credit and prepaid cards in days, not quarters. Programmable authorisation, in-house 3-D Secure and a dispute lifecycle that ends with the regulator-ready record.',

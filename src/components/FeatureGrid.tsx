@@ -9,6 +9,8 @@ export type FeatureItem = {
   href: string;
   /* Optional small icon (32×32, currentColor). */
   icon?: React.ComponentType<{ size?: number; className?: string }>;
+  /* When true, render a "Coming soon" pill next to the title. */
+  comingSoon?: boolean;
 };
 
 export type FeatureGridVariant =
@@ -87,7 +89,10 @@ function FeatureCard({
           <item.icon size={32} />
         </span>
       )}
-      <strong className="fg-title">{item.title}</strong>
+      <strong className="fg-title">
+        {item.title}
+        {item.comingSoon && <span className="fg-pill" aria-label="Coming soon">Coming soon</span>}
+      </strong>
       <p className="fg-desc">{item.desc}</p>
       <span className="fg-arrow">
         <Arrow size={20} />

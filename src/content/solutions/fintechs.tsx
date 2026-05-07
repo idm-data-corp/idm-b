@@ -51,8 +51,8 @@ export const fintechs: SolutionContent = {
   stackHeading: 'The neobank starter stack on IDMB',
   stack: [
     { title: 'Stored-value accounts',  desc: 'Multi-currency, programmable wallets open in one call.',              href: PATHS.walletsStored,       icon: IconHybridInfra },
-    { title: 'Card issuing',           desc: 'Physical and virtual cards on Visa/Mastercard rails in days.',         href: PATHS.bankingCards,        icon: IconAIModels },
-    { title: 'Payments & FX',          desc: 'Local and cross-border payments with FX in 40+ currencies.',          href: PATHS.bankingPayments,     icon: IconAIProductivity },
+    { title: 'Card issuing',           desc: 'Physical and virtual cards on Visa/Mastercard rails in days.',         href: PATHS.bankingCards,        icon: IconAIModels, comingSoon: true },
+    { title: 'Payments & FX',          desc: 'Local and cross-border payments with FX in 40+ currencies.',          href: PATHS.bankingPayments,     icon: IconAIProductivity, comingSoon: true },
     { title: 'Compliance, KYC & AML',  desc: 'End-to-end identity and monitoring so you stay compliant at scale.',  href: PATHS.bankingCompliance,   icon: IconSecurity },
     { title: 'Real-time analytics',    desc: 'Live dashboards over accounts and transaction activity.',              href: PATHS.dataRealTime,        icon: IconAnalytics },
     { title: 'Risk & fraud signals',   desc: 'Real-time scores on every transaction, with case management.',        href: PATHS.dataRisk,            icon: IconDataMgmt },

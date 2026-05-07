@@ -52,7 +52,7 @@ export const marketplaces: SolutionContent = {
   stack: [
     { title: 'Merchant & B2B wallets',  desc: 'Treasury wallets, payout queues and loyalty balances on one ledger.',  href: PATHS.walletsMerchant,    icon: IconAIProductivity },
     { title: 'Stored-value accounts',   desc: 'Buyer balances and loyalty points as programmable wallet balances.',    href: PATHS.walletsStored,      icon: IconHybridInfra },
-    { title: 'Payments & FX',          desc: 'Real-time local payouts and multi-currency settlement.',                 href: PATHS.bankingPayments,    icon: IconAIModels },
+    { title: 'Payments & FX',          desc: 'Real-time local payouts and multi-currency settlement.',                 href: PATHS.bankingPayments,    icon: IconAIModels, comingSoon: true },
     { title: 'Compliance, KYC & AML',  desc: 'Bulk merchant onboarding, identity and ongoing screening.',             href: PATHS.bankingCompliance,  icon: IconSecurity },
     { title: 'Data lake & warehouse',  desc: 'Every payout event streamed with full split metadata.',                  href: PATHS.dataLake,           icon: IconDataMgmt },
     { title: 'Real-time analytics',    desc: 'Live GMV, take-rate and payout health dashboards.',                      href: PATHS.dataRealTime,       icon: IconAnalytics },

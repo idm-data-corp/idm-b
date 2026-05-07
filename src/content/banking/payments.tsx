@@ -11,7 +11,7 @@ import { PATHS } from '../../lib/routes';
 import { mailto } from '../../lib/site';
 
 export const bankingPayments: SubProductContent = {
-  heroEyebrow: 'IDMB Banking · Payments & FX',
+  heroEyebrow: 'IDMB Banking · Payments & FX · Coming soon',
   heroTitle: <>Real-time payments,<br />40+ currencies, one API</>,
   heroLede:
     'Connect to instant payment schemes across Africa, EMEA and APAC, settle cross-border in 40+ currencies and run direct debits and payouts - with retry logic, audit trails and reconciliation built in.',

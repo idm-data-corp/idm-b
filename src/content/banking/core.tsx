@@ -101,8 +101,8 @@ await idmb.ledger.entries.create({
 
   relatedHeading: 'Related modules',
   related: [
-    { title: 'Card issuing & processing', desc: 'Cards plug straight into the core ledger as authorisation lines.', href: PATHS.bankingCards,    icon: IconAIModels },
-    { title: 'Payments & FX rails',       desc: 'Real-time payments and multi-currency settlement on the same ledger.', href: PATHS.bankingPayments, icon: IconAIProductivity },
+    { title: 'Card issuing & processing', desc: 'Cards plug straight into the core ledger as authorisation lines.', href: PATHS.bankingCards,    icon: IconAIModels, comingSoon: true },
+    { title: 'Payments & FX rails',       desc: 'Real-time payments and multi-currency settlement on the same ledger.', href: PATHS.bankingPayments, icon: IconAIProductivity, comingSoon: true },
     { title: 'Real-time analytics',       desc: 'Stream every ledger event into the IDMB analytics layer.',           href: PATHS.dataRealTime,   icon: IconAnalytics },
   ],
 

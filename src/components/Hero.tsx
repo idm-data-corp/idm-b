@@ -14,7 +14,7 @@ const NEWS_PAGES: NewsItem[][] = [
     { title: 'IDMB and Northbank go live with real-time card issuing in five markets', href: '#customers' },
   ],
   [
-    { title: 'IDMB CONNECT 2026: PROGRAMME, SPEAKERS AND EARLY-BIRD REGISTRATION OPEN', href: '#events' },
+    { title: 'IDMB OPENS DEVELOPER SANDBOX FOR LICENSED FINTECHS ACROSS EMEA', href: '#developers' },
     { title: 'IDMB partners with regional regulator on the open-banking sandbox programme', href: '#banking' },
   ],
   [

@@ -11,13 +11,17 @@ type Props = {
   };
   /* Optional CTA to the full customer story. */
   cta?: { label: string; href: string };
+  /* When true, render the quote in a muted state with a 'Sample testimonial'
+     tag — used while real customer quotes are still being collected. */
+  placeholder?: boolean;
 };
 
-export default function QuoteCard({ quote, attribution, cta }: Props) {
+export default function QuoteCard({ quote, attribution, cta, placeholder = false }: Props) {
   return (
-    <section className="qc" aria-label="Customer quote">
+    <section className={`qc${placeholder ? ' qc-placeholder' : ''}`} aria-label="Customer quote">
       <div className="container qc-grid">
         <blockquote className="qc-quote">
+          {placeholder && <span className="qc-tag">Sample testimonial</span>}
           <p>"{quote}"</p>
         </blockquote>
         <div className="qc-attr">
@@ -25,7 +29,7 @@ export default function QuoteCard({ quote, attribution, cta }: Props) {
           <p className="qc-role">
             {attribution.role}, {attribution.company}
           </p>
-          {cta && (
+          {cta && !placeholder && (
             <Link className="arrow-link qc-cta" to={cta.href}>
               {cta.label}
               <ArrowRight size={16} />
