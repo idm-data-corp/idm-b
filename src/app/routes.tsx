@@ -22,7 +22,7 @@ const DataOverview    = lazy(() => import('./pages/data/Overview'));
 
 /* Banking sub-products */
 const BankingCore       = lazy(() => import('./pages/banking/Core'));
-const BankingCards      = lazy(() => import('./pages/banking/Cards'));
+const BankingCardsLaunchSoon = lazy(() => import('./pages/banking/CardsLaunchSoon'));
 const BankingPayments   = lazy(() => import('./pages/banking/Payments'));
 const BankingCompliance = lazy(() => import('./pages/banking/Compliance'));
 const BankingTreasury   = lazy(() => import('./pages/banking/Treasury'));
@@ -105,7 +105,7 @@ const REAL_PAGES: Record<string, () => React.ReactElement> = {
   [PATHS.data]:                   () => <Suspense fallback={null}><DataOverview         /></Suspense>,
   /* Banking */
   [PATHS.bankingCore]:            () => <Suspense fallback={null}><BankingCore          /></Suspense>,
-  [PATHS.bankingCards]:           () => <Suspense fallback={null}><BankingCards         /></Suspense>,
+  [PATHS.bankingCards]:           () => <Suspense fallback={null}><BankingCardsLaunchSoon /></Suspense>,
   [PATHS.bankingPayments]:        () => <Suspense fallback={null}><BankingPayments      /></Suspense>,
   [PATHS.bankingCompliance]:      () => <Suspense fallback={null}><BankingCompliance    /></Suspense>,
   [PATHS.bankingTreasury]:        () => <Suspense fallback={null}><BankingTreasury      /></Suspense>,

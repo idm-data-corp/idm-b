@@ -75,6 +75,13 @@ export type SubProductContent = {
     primary: { label: string; href: string };
     secondary?: { label: string; href: string };
   };
+
+  /* When true, render a "Launching soon" banner above the hero and apply
+     a muted visual treatment to the rest of the page. The marketing copy
+     and CTAs still render so visitors can read what's coming. */
+  comingSoon?: boolean;
+  /* Optional override for the banner's body copy. */
+  comingSoonNote?: React.ReactNode;
 };
 
 type Props = { route: RouteEntry; content: SubProductContent };
@@ -87,7 +94,19 @@ export default function SubProductPage({ route, content }: Props) {
   });
 
   return (
-    <>
+    <div className={content.comingSoon ? 'sp-coming-soon' : undefined}>
+      {content.comingSoon && (
+        <div className="sp-coming-soon-banner" role="status">
+          <div className="container sp-coming-soon-row">
+            <span className="sp-coming-soon-tag">Launching soon</span>
+            <p>
+              {content.comingSoonNote ?? (
+                <>This module is on the IDMB roadmap and not yet generally available. The page below describes what we're building.</>
+              )}
+            </p>
+          </div>
+        </div>
+      )}
       <ProductHero
         eyebrow={content.heroEyebrow}
         title={content.heroTitle}
@@ -174,6 +193,6 @@ export default function SubProductPage({ route, content }: Props) {
         secondary={content.cta.secondary}
         tone="dark"
       />
-    </>
+    </div>
   );
 }
