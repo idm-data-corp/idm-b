@@ -6,6 +6,10 @@
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr;
+  grid-template-areas:
+    'copy'
+    'visual'
+    'news';
   gap: 24px;
 }
 
@@ -66,10 +70,18 @@
 .orch {
   width: 100%;
   height: 100%;
-  min-height: 300px;
+  min-height: 200px;
+  max-height: 280px;
   aspect-ratio: 600 / 460;
   display: block;
   border-radius: 0;
+}
+
+@media (min-width: 768px) {
+  .orch {
+    min-height: 300px;
+    max-height: none;
+  }
 }
 
 @media (min-width: 1056px) {
