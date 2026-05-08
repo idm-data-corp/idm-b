@@ -72,6 +72,13 @@
     <meta itemprop="description" content="Banking, wallets and data analytics infrastructure for modern finance." />
     <meta itemprop="image" content="https://www.idmb.com/og-image.svg" />
 
+    <!-- Inline critical styles: set white background and hide the static SEO
+         fallback before any JS/CSS loads to prevent a flash of unstyled content. -->
+    <style>
+      html { background: #ffffff; }
+      #root > main { display: none; }
+    </style>
+
     <!-- IBM Plex Sans + Plex Mono are self-hosted via @fontsource and
          imported from src/main.tsx - no third-party font CDN. -->
 
