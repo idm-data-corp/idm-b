@@ -1,55 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="IDMB - Banking, Wallets and Data Analytics Infrastructure">
-  <title>IDMB - Banking, Wallets and Data Analytics Infrastructure</title>
-  <desc>Modern banking, wallets and data analytics infrastructure for banks, fintechs and operators.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="IDMB site icon">
+  <title>IDMB site icon</title>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#0043ce"/>
       <stop offset="1" stop-color="#0f62fe"/>
     </linearGradient>
-    <linearGradient id="rail" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#82cfff"/>
-      <stop offset="1" stop-color="#ffffff"/>
-    </linearGradient>
-    <radialGradient id="glow" cx="0.85" cy="0.15" r="0.7">
-      <stop offset="0" stop-color="#82cfff" stop-opacity="0.55"/>
-      <stop offset="1" stop-color="#0043ce" stop-opacity="0"/>
-    </radialGradient>
   </defs>
 
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect width="1200" height="630" fill="url(#glow)"/>
-
-  <g opacity="0.18" stroke="#ffffff" stroke-width="1" fill="none">
-    <path d="M0 540 Q 300 460 600 540 T 1200 540"/>
-    <path d="M0 580 Q 300 500 600 580 T 1200 580"/>
-    <path d="M0 500 Q 300 420 600 500 T 1200 500"/>
+  <g transform="translate(460,175)">
+    <rect width="280" height="280" rx="56" fill="#ffffff"/>
+    <rect x="77" y="37" width="170" height="48" rx="24" fill="#0f62fe"/>
+    <rect x="23" y="115" width="236" height="48" rx="24" fill="#0f62fe"/>
+    <rect x="55" y="193" width="170" height="48" rx="24" fill="#0f62fe"/>
   </g>
-
-  <g transform="translate(80,110)">
-    <rect width="120" height="120" rx="24" fill="#ffffff"/>
-    <rect x="40" y="26" width="56" height="14" rx="7" fill="#82cfff"/>
-    <rect x="22" y="54" width="80" height="14" rx="7" fill="#0f62fe"/>
-    <rect x="34" y="82" width="56" height="14" rx="7" fill="#0f62fe" opacity="0.78"/>
-  </g>
-
-  <text x="230" y="200" font-family="'IBM Plex Sans', system-ui, -apple-system, Segoe UI, sans-serif" font-size="96" font-weight="700" fill="#ffffff" letter-spacing="-2">IDMB</text>
-
-  <text x="80" y="340" font-family="'IBM Plex Sans', system-ui, -apple-system, Segoe UI, sans-serif" font-size="64" font-weight="600" fill="#ffffff" letter-spacing="-1.5">
-    <tspan x="80" dy="0">Banking. Wallets.</tspan>
-    <tspan x="80" dy="76">Data analytics.</tspan>
-  </text>
-
-  <text x="80" y="500" font-family="'IBM Plex Sans', system-ui, -apple-system, Segoe UI, sans-serif" font-size="28" font-weight="400" fill="#c6e1ff" letter-spacing="0">
-    The infrastructure layer for modern finance - APIs and managed services
-  </text>
-  <text x="80" y="538" font-family="'IBM Plex Sans', system-ui, -apple-system, Segoe UI, sans-serif" font-size="28" font-weight="400" fill="#c6e1ff">
-    for banks, fintechs and operators worldwide.
-  </text>
-
-  <g transform="translate(80,580)">
-    <rect width="220" height="2" fill="url(#rail)"/>
-  </g>
-
-  <text x="1120" y="600" text-anchor="end" font-family="'IBM Plex Sans', system-ui, -apple-system, Segoe UI, sans-serif" font-size="22" font-weight="500" fill="#ffffff" opacity="0.85">idmb.com</text>
 </svg>
