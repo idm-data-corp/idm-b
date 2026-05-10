@@ -26,30 +26,26 @@
     <path d="M0 500 Q 300 420 600 500 T 1200 500"/>
   </g>
 
-  <g transform="translate(80,110)">
-    <rect width="120" height="120" rx="24" fill="#ffffff"/>
-    <rect x="40" y="26" width="56" height="14" rx="7" fill="#82cfff"/>
-    <rect x="22" y="54" width="80" height="14" rx="7" fill="#0f62fe"/>
-    <rect x="34" y="82" width="56" height="14" rx="7" fill="#0f62fe" opacity="0.78"/>
-  </g>
+  <!-- Logo mark: three white rounded bars matching the favicon (dark-mode variant) -->
+  <!-- Bars are proportional to the favicon.svg design (512×512): bar widths 310/430/310, bar2 is widest -->
+  <rect x="93"  y="195" width="108" height="30" rx="15" fill="#ffffff"/>
+  <rect x="72"  y="255" width="150" height="30" rx="15" fill="#ffffff"/>
+  <rect x="93"  y="315" width="108" height="30" rx="15" fill="#ffffff"/>
 
-  <text x="230" y="200" font-family="'IBM Plex Sans', system-ui, -apple-system, Segoe UI, sans-serif" font-size="96" font-weight="700" fill="#ffffff" letter-spacing="-2">IDMB</text>
+  <text x="250" y="305" font-family="'IBM Plex Sans', system-ui, -apple-system, Segoe UI, sans-serif" font-size="110" font-weight="700" fill="#ffffff" letter-spacing="-3">IDMB</text>
 
-  <text x="80" y="340" font-family="'IBM Plex Sans', system-ui, -apple-system, Segoe UI, sans-serif" font-size="64" font-weight="600" fill="#ffffff" letter-spacing="-1.5">
-    <tspan x="80" dy="0">Banking. Wallets.</tspan>
-    <tspan x="80" dy="76">Data analytics.</tspan>
+  <text x="72" y="420" font-family="'IBM Plex Sans', system-ui, -apple-system, Segoe UI, sans-serif" font-size="56" font-weight="600" fill="#ffffff" letter-spacing="-1.5">
+    <tspan x="72" dy="0">Banking. Wallets.</tspan>
+    <tspan x="72" dy="68">Data analytics.</tspan>
   </text>
 
-  <text x="80" y="500" font-family="'IBM Plex Sans', system-ui, -apple-system, Segoe UI, sans-serif" font-size="28" font-weight="400" fill="#c6e1ff" letter-spacing="0">
-    The infrastructure layer for modern finance - APIs and managed services
-  </text>
-  <text x="80" y="538" font-family="'IBM Plex Sans', system-ui, -apple-system, Segoe UI, sans-serif" font-size="28" font-weight="400" fill="#c6e1ff">
-    for banks, fintechs and operators worldwide.
+  <text x="72" y="555" font-family="'IBM Plex Sans', system-ui, -apple-system, Segoe UI, sans-serif" font-size="26" font-weight="400" fill="#c6e1ff">
+    The infrastructure layer for modern finance — APIs and managed services for banks, fintechs and operators.
   </text>
 
-  <g transform="translate(80,580)">
+  <g transform="translate(72,590)">
     <rect width="220" height="2" fill="url(#rail)"/>
   </g>
 
-  <text x="1120" y="600" text-anchor="end" font-family="'IBM Plex Sans', system-ui, -apple-system, Segoe UI, sans-serif" font-size="22" font-weight="500" fill="#ffffff" opacity="0.85">idm-b.com</text>
+  <text x="1128" y="610" text-anchor="end" font-family="'IBM Plex Sans', system-ui, -apple-system, Segoe UI, sans-serif" font-size="22" font-weight="500" fill="#ffffff" opacity="0.85">idm-b.com</text>
 </svg>
