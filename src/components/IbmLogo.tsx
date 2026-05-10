@@ -1,7 +1,6 @@
-/* IDMB wordmark - a heavy, tightly-tracked sans-serif lockup of the four letters
-   I·D·M·B. No surrounding shape: the wordmark sits transparently on whatever
-   background it's placed on. Gray by default; lighter gray when used on a dark
-   surface (footer). */
+/* IDMB logotype – lowercase wordmark followed by the three-bar brand mark.
+   The bars mirror the proportions from favicon.svg (no container, bare bars).
+   Gray by default; lighter gray when used on a dark surface (footer). */
 type Props = {
   size?: number;
   color?: string;
@@ -11,9 +10,9 @@ type Props = {
 
 export default function IbmLogo({ size = 30, color, tone = 'dark', className }: Props) {
   const fill = color ?? (tone === 'dark' ? '#525252' : '#c6c6c6');
-  // viewBox is sized to the four letters at weight 700 with tight tracking.
-  // Width≈2.5× height keeps the proportions of the dfcu-style block wordmark.
-  const w = Math.round(size * 2.5);
+  // viewBox: 130×40 — text occupies ~0–87, gap, then icon occupies 97–127.
+  // Width≈3.25× height accounts for the text + bar-icon lockup.
+  const w = Math.round(size * 3.25);
   const h = size;
 
   return (
@@ -21,7 +20,7 @@ export default function IbmLogo({ size = 30, color, tone = 'dark', className }: 
       className={className}
       width={w}
       height={h}
-      viewBox="0 0 100 40"
+      viewBox="0 0 130 40"
       role="img"
       aria-label="IDMB"
     >
@@ -36,6 +35,13 @@ export default function IbmLogo({ size = 30, color, tone = 'dark', className }: 
       >
         idmb
       </text>
+      {/* Three-bar icon – proportions from favicon.svg scaled to cap height */}
+      {/* Middle bar (widest) */}
+      <rect x="97" y="16" width="30" height="6" rx="3" fill={fill} />
+      {/* Top bar (offset right, same width as bottom) */}
+      <rect x="104" y="6" width="21" height="6" rx="3" fill={fill} />
+      {/* Bottom bar */}
+      <rect x="101" y="26" width="21" height="6" rx="3" fill={fill} />
     </svg>
   );
 }
