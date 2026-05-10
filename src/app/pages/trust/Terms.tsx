@@ -36,7 +36,7 @@ export default function TrustTerms() {
 
             <h2 id="acceptance">Acceptance of terms</h2>
             <p>
-              By accessing or using the IDMB website at idmb.com ("Site"), you agree to be bound
+              By accessing or using the IDMB website at idm-b.com ("Site"), you agree to be bound
               by these Terms of Use ("Terms"). If you do not agree to these Terms, do not use the
               Site. These Terms apply to the public marketing website only. Use of the IDMB
               platform and developer portal is governed by your Master Services Agreement with

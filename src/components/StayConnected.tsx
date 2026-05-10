@@ -39,7 +39,7 @@ export default function StayConnected() {
             />
             <p className="sc-fine">
               The IDMB Money Brief is delivered in English. You will find an unsubscribe link in every issue.
-              You can manage your subscriptions or unsubscribe <a href="mailto:newsletter@idmb.com?subject=Unsubscribe">here</a>. Refer to our{' '}
+              You can manage your subscriptions or unsubscribe <a href="mailto:newsletter@idm-b.com?subject=Unsubscribe">here</a>. Refer to our{' '}
               <a href="#privacy">IDMB Privacy Statement</a> for more information.
             </p>
             <button type="submit" className="sc-submit" disabled={submitted}>

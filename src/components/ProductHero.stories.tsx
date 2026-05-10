@@ -20,7 +20,7 @@ const baseArgs = {
   lede:
     'Issue accounts and cards, run a real-time ledger and connect to the payment rails licensed banks operate on. Every module composable, every event observable.',
   primary:   { label: 'Start building on IDMB',  href: '/banking' },
-  secondary: { label: 'Talk to our banking team', href: 'mailto:sales@idmb.com' },
+  secondary: { label: 'Talk to our banking team', href: 'mailto:sales@idm-b.com' },
 };
 
 function PlaceholderVisual() {

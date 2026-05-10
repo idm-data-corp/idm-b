@@ -50,7 +50,7 @@ export const walletsStored: SubProductContent = {
       {
         label: 'cURL',
         language: 'shell',
-        code: `curl https://api.idmb.com/v1/wallets \\
+        code: `curl https://api.idm-b.com/v1/wallets \\
   -H "Authorization: Bearer $IDMB_API_KEY" \\
   -d '{
     "holder_id": "h_001",
@@ -59,7 +59,7 @@ export const walletsStored: SubProductContent = {
   }'
 
 # Move 25.00 from one wallet to another
-curl https://api.idmb.com/v1/wallets/transfers \\
+curl https://api.idm-b.com/v1/wallets/transfers \\
   -H "Authorization: Bearer $IDMB_API_KEY" \\
   -d '{ "from_wallet_id": "w_a", "to_wallet_id": "w_b", "amount": 2500 }'`,
       },

@@ -42,7 +42,7 @@ export default function Hero() {
               <span>Start building on IDMB</span>
               <ArrowRight />
             </a>
-            <a className="btn btn-tertiary" href="mailto:sales@idmb.com">
+            <a className="btn btn-tertiary" href="mailto:sales@idm-b.com">
               <span>Talk to our banking team</span>
               <ArrowRight />
             </a>

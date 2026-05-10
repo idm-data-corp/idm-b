@@ -11,12 +11,12 @@ type PortalKey =
   | 'trust';
 
 const FALLBACKS: Record<PortalKey, string> = {
-  developers: 'https://developers.idmb.com',
-  dashboard: 'https://dashboard.idmb.com',
-  status: 'https://status.idmb.com',
-  careers: 'https://careers.idmb.com',
-  investors: 'https://investors.idmb.com',
-  trust: 'https://trust.idmb.com',
+  developers: 'https://developers.idm-b.com',
+  dashboard: 'https://dashboard.idm-b.com',
+  status: 'https://status.idm-b.com',
+  careers: 'https://careers.idm-b.com',
+  investors: 'https://investors.idm-b.com',
+  trust: 'https://trust.idm-b.com',
 };
 
 const ENV_KEYS: Record<PortalKey, string> = {
