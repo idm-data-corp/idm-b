@@ -31,8 +31,10 @@
     <link rel="alternate" hreflang="en" href="https://www.idm-b.com/" />
 
     <!-- Icons & PWA -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="mask-icon" href="/favicon.svg" color="#8d8d8d" />
     <link rel="manifest" href="/site.webmanifest" />
@@ -49,12 +51,12 @@
     <meta property="og:title" content="IDMB - Banking, Wallets & Data Analytics Infrastructure" />
     <meta property="og:description" content="Modern banking, wallet and analytics infrastructure for banks, fintechs and operators. Ship products faster on rails built for scale, security and compliance." />
     <meta property="og:url" content="https://www.idm-b.com/" />
-    <meta property="og:image" content="https://www.idm-b.com/og-image.svg" />
-    <meta property="og:image:secure_url" content="https://www.idm-b.com/og-image.svg" />
-    <meta property="og:image:type" content="image/svg+xml" />
+    <meta property="og:image" content="https://www.idm-b.com/og-image.png" />
+    <meta property="og:image:secure_url" content="https://www.idm-b.com/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="IDMB - Banking, Wallets and Data Analytics infrastructure for modern finance" />
+    <meta property="og:image:alt" content="IDMB site icon" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="en_GB" />
 
@@ -64,19 +66,19 @@
     <meta name="twitter:creator" content="@idmb" />
     <meta name="twitter:title" content="IDMB - Banking, Wallets & Data Analytics Infrastructure" />
     <meta name="twitter:description" content="Core banking APIs, embedded wallets and real-time analytics on a single, trusted infrastructure layer for modern finance." />
-    <meta name="twitter:image" content="https://www.idm-b.com/og-image.svg" />
+    <meta name="twitter:image" content="https://www.idm-b.com/og-image.png" />
     <meta name="twitter:image:alt" content="IDMB - Banking, Wallets and Data Analytics infrastructure" />
 
     <!-- LinkedIn / Schema fallbacks -->
     <meta itemprop="name" content="IDMB" />
     <meta itemprop="description" content="Banking, wallets and data analytics infrastructure for modern finance." />
-    <meta itemprop="image" content="https://www.idm-b.com/og-image.svg" />
+    <meta itemprop="image" content="https://www.idm-b.com/og-image.png" />
 
     <!-- Inline critical styles: set white background and hide the static SEO
          fallback before any JS/CSS loads to prevent a flash of unstyled content. -->
     <style>
       html { background: #ffffff; }
-      #root > main { display: none; }
+      #seo-fallback { display: none; }
     </style>
 
     <!-- IBM Plex Sans + Plex Mono are self-hosted via @fontsource and
@@ -99,7 +101,7 @@
         "width": 512,
         "height": 512
       },
-      "image": "https://www.idm-b.com/og-image.svg",
+      "image": "https://www.idm-b.com/og-image.png",
       "description": "IDMB is a modern infrastructure provider delivering core banking APIs, embedded wallets and real-time data analytics for banks, fintechs and digital operators worldwide.",
       "foundingDate": "2024",
       "knowsAbout": [
@@ -183,7 +185,7 @@
       "name": "IDMB - Banking, Wallets & Data Analytics Infrastructure",
       "isPartOf": { "@id": "https://www.idm-b.com/#website" },
       "about": { "@id": "https://www.idm-b.com/#organization" },
-      "primaryImageOfPage": "https://www.idm-b.com/og-image.svg",
+      "primaryImageOfPage": "https://www.idm-b.com/og-image.png",
       "description": "Modern infrastructure for banking, wallets and analytics. Build, launch and scale financial products on a trusted, compliant platform.",
       "inLanguage": "en",
       "breadcrumb": {
@@ -358,7 +360,7 @@
         (Bing, link-preview bots, accessibility tools) get a real page.
         React replaces this with the full app on mount.
       -->
-      <main>
+      <main id="seo-fallback">
         <h1>IDMB - Banking, Wallets &amp; Data Analytics Infrastructure</h1>
         <p>
           IDMB is the modern infrastructure layer for finance. Banks, fintechs

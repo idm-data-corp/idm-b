@@ -152,14 +152,6 @@ textarea {
   border: 0;
 }
 
-/* Performance: skip rendering offscreen sections until they enter the viewport */
-@supports (content-visibility: auto) {
-  main > section {
-    content-visibility: auto;
-    contain-intrinsic-size: 1px 600px;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
