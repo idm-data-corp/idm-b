@@ -22,7 +22,7 @@ export default function EventBanner() {
               accounts, cards and wallets on a single, real-time data platform.
             </p>
           </div>
-          <a className="evb-btn" href="mailto:summit@idmb.com?subject=IDMB%20Banking%20Summit%20registration">
+          <a className="evb-btn" href="mailto:summit@idm-b.com?subject=IDMB%20Banking%20Summit%20registration">
             <span>Register now</span>
             <ArrowRight size={20} />
           </a>

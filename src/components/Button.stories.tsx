@@ -43,7 +43,7 @@ export const Secondary: Story = {
 export const Tertiary: Story = {
   args: {
     variant: 'tertiary',
-    href: 'mailto:sales@idmb.com',
+    href: 'mailto:sales@idm-b.com',
     children: 'Talk to sales',
   },
 };
@@ -68,7 +68,7 @@ export const Large: Story = {
 export const ExternalAutoArrow: Story = {
   args: {
     variant: 'primary',
-    href: 'https://developers.idmb.com',
+    href: 'https://developers.idm-b.com',
     children: 'Open the developer portal',
   },
   parameters: {

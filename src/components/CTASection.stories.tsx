@@ -19,7 +19,7 @@ export const Dark: Story = {
     subheading:
       'Open a free sandbox, post your first ledger entry in minutes, or talk to our banking team about a production deployment.',
     primary:   { label: 'Open the sandbox',     href: '/developers/sandbox' },
-    secondary: { label: 'Talk to banking team', href: 'mailto:sales@idmb.com' },
+    secondary: { label: 'Talk to banking team', href: 'mailto:sales@idm-b.com' },
     tone: 'dark',
   },
 };
@@ -29,7 +29,7 @@ export const Light: Story = {
     heading: 'Connect IDMB Data to your warehouse in minutes',
     subheading: 'Snowflake, BigQuery, Databricks or your own object store.',
     primary:   { label: 'Read the data docs',     href: '/developers/docs' },
-    secondary: { label: 'Talk to the data team',  href: 'mailto:sales@idmb.com' },
+    secondary: { label: 'Talk to the data team',  href: 'mailto:sales@idm-b.com' },
     tone: 'light',
   },
 };
@@ -37,7 +37,7 @@ export const Light: Story = {
 export const PrimaryOnly: Story = {
   args: {
     heading: 'Pass your next regulator return on autopilot',
-    primary:   { label: 'Talk to compliance team', href: 'mailto:sales@idmb.com' },
+    primary:   { label: 'Talk to compliance team', href: 'mailto:sales@idm-b.com' },
     tone: 'dark',
   },
 };

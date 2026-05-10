@@ -17,7 +17,7 @@ export const Single: Story = {
   args: {
     language: 'shell',
     label: 'cURL',
-    code: `curl https://api.idmb.com/v1/wallets \\
+    code: `curl https://api.idm-b.com/v1/wallets \\
   -H "Authorization: Bearer $IDMB_API_KEY" \\
   -d '{
     "holder_id": "h_001",
@@ -33,7 +33,7 @@ export const MultiTab: Story = {
       {
         label: 'cURL',
         language: 'shell',
-        code: `curl https://api.idmb.com/v1/ledger/entries \\
+        code: `curl https://api.idm-b.com/v1/ledger/entries \\
   -H "Authorization: Bearer $IDMB_API_KEY" \\
   -H "Idempotency-Key: 9f3c-2025-04-12-001" \\
   -d '{

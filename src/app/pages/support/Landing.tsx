@@ -36,7 +36,7 @@ const FAQS = [
   },
   {
     q: 'How do I report a security issue?',
-    a: 'Security issues should be reported through our responsible disclosure programme. Email security@idmb.com with "SECURITY:" in the subject line. We acknowledge reports within 24 hours.',
+    a: 'Security issues should be reported through our responsible disclosure programme. Email security@idm-b.com with "SECURITY:" in the subject line. We acknowledge reports within 24 hours.',
   },
   {
     q: 'Can I get a dedicated support engineer?',

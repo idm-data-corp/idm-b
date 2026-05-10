@@ -52,7 +52,7 @@ export const bankingPayments: SubProductContent = {
       {
         label: 'cURL',
         language: 'shell',
-        code: `curl https://api.idmb.com/v1/payments \\
+        code: `curl https://api.idm-b.com/v1/payments \\
   -H "Authorization: Bearer $IDMB_API_KEY" \\
   -d '{
     "debtor_account_id":   "acc_treasury_us",

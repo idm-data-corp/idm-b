@@ -1,4 +1,4 @@
-# https://www.idmb.com/robots.txt
+# https://www.idm-b.com/robots.txt
 # IDMB - Banking, Wallets & Data Analytics Infrastructure
 
 User-agent: *
@@ -44,4 +44,4 @@ User-agent: DotBot
 Disallow: /
 
 # Sitemaps
-Sitemap: https://www.idmb.com/sitemap.xml
+Sitemap: https://www.idm-b.com/sitemap.xml
