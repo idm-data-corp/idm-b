@@ -40,7 +40,7 @@ test.describe('Page metadata', () => {
     await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute('content', '630');
     await expect(page.locator('meta[property="og:image:alt"]')).toHaveAttribute(
       'content',
-      /IDMB social preview/i,
+      'IDMB social preview showing the IDMB wordmark and banking, wallets and data analytics messaging',
     );
   });
 });
