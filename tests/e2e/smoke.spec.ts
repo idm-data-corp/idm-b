@@ -32,6 +32,17 @@ test.describe('Page metadata', () => {
       await expect(page).toHaveTitle(new RegExp(titleContains, 'i'), { timeout: 5_000 });
     });
   }
+
+  test('home page exposes the branded social preview asset', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /\/og-image\.png$/);
+    await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute('content', '1200');
+    await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute('content', '630');
+    await expect(page.locator('meta[property="og:image:alt"]')).toHaveAttribute(
+      'content',
+      /IDMB social preview/i,
+    );
+  });
 });
 
 test.describe('Home - primary CTA', () => {
