@@ -38,7 +38,7 @@ export default function TrustAccessibility() {
               commitment starts with our own public website.
             </p>
             <p>
-              This accessibility statement applies to idmb.com. It does not cover the IDMB
+              This accessibility statement applies to idm-b.com. It does not cover the IDMB
               developer portal or platform console, which have separate accessibility programmes.
             </p>
 
@@ -128,7 +128,7 @@ export default function TrustAccessibility() {
             </p>
             <ul>
               <li>
-                Email: <a href={mailto('accessibility', 'Accessibility feedback')}>accessibility@idmb.com</a>
+                Email: <a href={mailto('accessibility', 'Accessibility feedback')}>accessibility@idm-b.com</a>
               </li>
               <li>
                 Response target: we will acknowledge your message within 2 working days and aim

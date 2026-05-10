@@ -102,7 +102,7 @@ export default function SmarterBusiness() {
                 </div>
               ))}
             </div>
-            <a className="arrow-link sb-cta" href="mailto:sales@idmb.com?subject=Case%20study%20enquiry">
+            <a className="arrow-link sb-cta" href="mailto:sales@idm-b.com?subject=Case%20study%20enquiry">
               {story.cta}
               <ArrowRight size={16} />
             </a>

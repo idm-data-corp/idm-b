@@ -51,7 +51,7 @@ export const bankingCards: SubProductContent = {
       {
         label: 'cURL',
         language: 'shell',
-        code: `curl https://api.idmb.com/v1/cards \\
+        code: `curl https://api.idm-b.com/v1/cards \\
   -H "Authorization: Bearer $IDMB_API_KEY" \\
   -d '{
     "programme_id": "prog_retail_uk",

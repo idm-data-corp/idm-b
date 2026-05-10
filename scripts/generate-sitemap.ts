@@ -12,7 +12,7 @@ async function main() {
      site.ts and links.ts so this script doesn't pull import.meta.env. */
   const { ROUTES } = await import('../src/lib/routes.ts');
   const today = new Date().toISOString().slice(0, 10);
-  const SITE_URL = 'https://www.idmb.com';
+  const SITE_URL = 'https://www.idm-b.com';
 
   const urls = ROUTES
     /* Skip pages that just bounce to a portal or are explicitly hidden. */

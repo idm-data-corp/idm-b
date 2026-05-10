@@ -130,7 +130,7 @@ export default function TrustPrivacy() {
 
             <h2 id="contact">Contact</h2>
             <p>
-              Data Protection Officer: <a href={mailto('dpo', 'DPO inquiry')}>dpo@idmb.com</a>
+              Data Protection Officer: <a href={mailto('dpo', 'DPO inquiry')}>dpo@idm-b.com</a>
               <br />
               Postal address: Data Protection Officer, IDMB Limited, 100 Bishopsgate, London EC2N 4AG
             </p>

@@ -89,7 +89,7 @@ export default function TrustSecurity() {
             <ul>
               <li>Annual penetration testing by an independent CREST-accredited firm. Reports available under NDA.</li>
               <li>Continuous automated vulnerability scanning of all production infrastructure and container images.</li>
-              <li>Bug bounty programme: responsible disclosure is rewarded. Details at <a href={mailto('security', 'Bug bounty enquiry')}>security@idmb.com</a>.</li>
+              <li>Bug bounty programme: responsible disclosure is rewarded. Details at <a href={mailto('security', 'Bug bounty enquiry')}>security@idm-b.com</a>.</li>
               <li>Critical CVEs are patched within 48 hours. High CVEs within 7 days.</li>
             </ul>
 
@@ -108,7 +108,7 @@ export default function TrustSecurity() {
             <p>
               To report a security vulnerability, request an audit report, or ask questions about
               our security posture, contact{' '}
-              <a href={mailto('security', 'Security enquiry')}>security@idmb.com</a>.
+              <a href={mailto('security', 'Security enquiry')}>security@idm-b.com</a>.
               For urgent security reports, include "[URGENT]" in the subject line.
             </p>
           </div>

@@ -39,15 +39,15 @@ export default function CookieBanner() {
           </div>
           <div>
             <p>
-              For more information, please review your <a href="mailto:privacy@idmb.com?subject=Cookie%20preferences">cookie preferences</a>. By visiting
-              idmb.com, you agree to our processing of information as described in IDMB's{' '}
-              <a href="mailto:privacy@idmb.com?subject=Privacy%20statement">privacy statement</a>.
+              For more information, please review your <a href="mailto:privacy@idm-b.com?subject=Cookie%20preferences">cookie preferences</a>. By visiting
+              idm-b.com, you agree to our processing of information as described in IDMB's{' '}
+              <a href="mailto:privacy@idm-b.com?subject=Privacy%20statement">privacy statement</a>.
             </p>
           </div>
           <div className="ck-actions">
             <p className="ck-note">
               To provide a smooth experience, your cookie preferences will be shared across the IDMB web
-              properties listed <a href="mailto:privacy@idmb.com?subject=IDMB%20web%20properties">here</a>.
+              properties listed <a href="mailto:privacy@idm-b.com?subject=IDMB%20web%20properties">here</a>.
             </p>
             <button className="ck-btn ck-btn-primary" onClick={() => close('all')}>Accept all</button>
             <button className="ck-btn ck-btn-secondary" onClick={() => close('partial')}>More options</button>

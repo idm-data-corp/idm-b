@@ -1,6 +1,6 @@
 /* TEAM */
   Site: IDMB
-  Contact: hello [at] idmb.com
+  Contact: hello [at] idm-b.com
   Location: Worldwide
 
 /* THANKS */

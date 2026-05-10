@@ -54,7 +54,7 @@ export default function Newsroom() {
           <p className="co-sub">
             Product launches, partnerships, regulatory milestones and events from IDMB. For press
             enquiries contact{' '}
-            <a href={mailto('press', 'Press inquiry')}>press@idmb.com</a>.
+            <a href={mailto('press', 'Press inquiry')}>press@idm-b.com</a>.
           </p>
         </div>
       </section>
