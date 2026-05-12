@@ -49,12 +49,13 @@ const SolutionTelecoms   = lazy(() => import('./pages/solutions/Telecoms'));
 const SolutionEmbedded   = lazy(() => import('./pages/solutions/EmbeddedFinance'));
 const SolutionLenders    = lazy(() => import('./pages/solutions/Lenders'));
 
-/* Customer stories */
+/* Customer stories - hidden until real customers are onboarded
 const CustomersIndex = lazy(() => import('./pages/customers/Index'));
 const StoryNorthbank = lazy(() => import('./pages/customers/Northbank'));
 const StoryPaywave   = lazy(() => import('./pages/customers/Paywave'));
 const StoryMosaic    = lazy(() => import('./pages/customers/Mosaic'));
 const StoryVela      = lazy(() => import('./pages/customers/Vela'));
+*/
 
 /* Pricing */
 const PricingOverview = lazy(() => import('./pages/pricing/Overview'));

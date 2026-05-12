@@ -4,7 +4,9 @@ import CTASection from '../../../components/CTASection';
 import { mailto } from '../../../lib/site';
 import './Company.css';
 
-const LEADERS = [
+type Leader = { name: string; initials: string; title: string; bio: string };
+
+const LEADERS: Leader[] = [
   /* Team members coming soon - we'll add them when they're ready. */
 ];
 
