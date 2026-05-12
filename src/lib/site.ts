@@ -5,6 +5,8 @@ export const SITE = {
   brand: 'IDMB',
   productionUrl: 'https://www.idm-b.com',
   defaultLocale: 'en-US',
+  /* Set to 'down' to show the unavailability message instead of redirecting */
+  onboardingStatus: 'down' as 'live' | 'down',
   email: {
     sales: 'sales@idm-b.com',
     support: 'support@idm-b.com',
@@ -21,6 +23,7 @@ export const SITE = {
     partnerships: 'partnerships@idm-b.com',
     oncall: 'oncall@idm-b.com',
     accounts: 'accounts@idm-b.com',
+    onboarding: 'onboarding@idm-b.com',
     accessibility: 'accessibility@idm-b.com',
     legal: 'legal@idm-b.com',
     dpo: 'dpo@idm-b.com',

@@ -91,6 +91,9 @@ const CompanyLeadership = lazy(() => import('./pages/company/Leadership'));
 const CompanyNewsroom   = lazy(() => import('./pages/company/Newsroom'));
 const CompanyContact    = lazy(() => import('./pages/company/Contact'));
 
+/* Onboarding gate - all "Open the sandbox" / "Get started" CTAs land here */
+const OnboardingGate = lazy(() => import('./pages/developers/OnboardingGate'));
+
 /* Support */
 const SupportLanding = lazy(() => import('./pages/support/Landing'));
 const SupportContact = lazy(() => import('./pages/support/Contact'));
@@ -140,6 +143,8 @@ const REAL_PAGES: Record<string, () => React.ReactElement> = {
   [PATHS.pricingBanking]:         () => <Suspense fallback={null}><PricingBanking       /></Suspense>,
   [PATHS.pricingWallets]:         () => <Suspense fallback={null}><PricingWallets       /></Suspense>,
   [PATHS.pricingData]:            () => <Suspense fallback={null}><PricingData          /></Suspense>,
+  /* Onboarding gate - handles "Open the sandbox" / "Get started" clicks */
+  [PATHS.developersSandbox]:      () => <Suspense fallback={null}><OnboardingGate       /></Suspense>,
   /* Events */
   [PATHS.events]:                 () => <Suspense fallback={null}><EventsLanding        /></Suspense>,
   [PATHS.eventsConnect]:          () => <Suspense fallback={null}><EventConnect         /></Suspense>,

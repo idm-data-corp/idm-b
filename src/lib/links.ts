@@ -8,7 +8,8 @@ type PortalKey =
   | 'status'
   | 'careers'
   | 'investors'
-  | 'trust';
+  | 'trust'
+  | 'onboarding';
 
 const FALLBACKS: Record<PortalKey, string> = {
   developers: 'https://developers.idm-b.com',
@@ -17,6 +18,7 @@ const FALLBACKS: Record<PortalKey, string> = {
   careers: 'https://careers.idm-b.com',
   investors: 'https://investors.idm-b.com',
   trust: 'https://trust.idm-b.com',
+  onboarding: 'https://onboarding.idm-b.com',
 };
 
 const ENV_KEYS: Record<PortalKey, string> = {
@@ -26,6 +28,7 @@ const ENV_KEYS: Record<PortalKey, string> = {
   careers: 'VITE_PORTAL_CAREERS',
   investors: 'VITE_PORTAL_INVESTORS',
   trust: 'VITE_PORTAL_TRUST',
+  onboarding: 'VITE_PORTAL_ONBOARDING',
 };
 
 function read(key: PortalKey): string {
@@ -44,6 +47,7 @@ export const PORTAL: Record<PortalKey, string> = {
   careers: read('careers'),
   investors: read('investors'),
   trust: read('trust'),
+  onboarding: read('onboarding'),
 };
 
 /* Helper for components that need to know whether a link should open in a new
