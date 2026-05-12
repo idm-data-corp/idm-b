@@ -279,17 +279,17 @@ export const ROUTES: RouteEntry[] = [
   { path: PATHS.solutionsEmbedded,      title: t('For embedded-finance platforms'),   description: 'Embed IDMB banking and wallets into your product.',     layout: 'marketing', stub: false },
   { path: PATHS.solutionsLenders,       title: t('For lenders & credit products'),    description: 'Credit decisioning and disbursement on IDMB.',          layout: 'marketing', stub: false },
 
-  /* Customers */
+  /* Customers - hidden until real customer data is available */
   {
     path: PATHS.customers,
     title: t('Customer stories'),
     description: 'How real banks, fintechs and operators ship on IDMB.',
-    layout: 'marketing', stub: false, priority: 0.8,
+    layout: 'marketing', stub: true, priority: 0.8,
   },
-  { path: PATHS.customerNorthbank, title: t('Northbank - customer story'), description: 'Northbank rebuilt its core on IDMB in 11 months.',     layout: 'marketing', stub: false },
-  { path: PATHS.customerPaywave,   title: t('Paywave - customer story'),   description: 'Paywave embedded IDMB Wallets into its 9M-user super-app.', layout: 'marketing', stub: false },
-  { path: PATHS.customerMosaic,    title: t('Mosaic - customer story'),    description: 'Mosaic uses IDMB Data to score borrowers in real time.',  layout: 'marketing', stub: false },
-  { path: PATHS.customerVela,      title: t('Vela - customer story'),      description: 'Vela runs cross-border settlement on IDMB across 47 corridors.', layout: 'marketing', stub: false },
+  { path: PATHS.customerNorthbank, title: t('Northbank - customer story'), description: 'Northbank rebuilt its core on IDMB in 11 months.',     layout: 'marketing', stub: true },
+  { path: PATHS.customerPaywave,   title: t('Paywave - customer story'),   description: 'Paywave embedded IDMB Wallets into its 9M-user super-app.', layout: 'marketing', stub: true },
+  { path: PATHS.customerMosaic,    title: t('Mosaic - customer story'),    description: 'Mosaic uses IDMB Data to score borrowers in real time.',  layout: 'marketing', stub: true },
+  { path: PATHS.customerVela,      title: t('Vela - customer story'),      description: 'Vela runs cross-border settlement on IDMB across 47 corridors.', layout: 'marketing', stub: true },
 
   /* Developers - landing has the Banking/Wallets/Data sub-nav treatment;
      the leaf pages are portal redirects (and surface the same sub-nav

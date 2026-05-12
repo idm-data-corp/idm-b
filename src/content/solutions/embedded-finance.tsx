@@ -39,6 +39,7 @@ export const embeddedFinance: SolutionContent = {
     },
   ],
 
+  outcomesPlaceholder: true,
   outcomesHeading: 'Embedded-finance results on IDMB',
   outcomes: [
     { value: '1 contract', label: 'From ledger to compliance to data', sub: 'no patchwork of sponsor banks and vendors' },
@@ -69,6 +70,7 @@ export const embeddedFinance: SolutionContent = {
     logo: LogoNorthbank,
   },
 
+  quotePlaceholder: true,
   quote: {
     quote: 'We needed to launch a branded financial product in five markets. IDMB handled the regulatory coverage, the ledger and the card programme. We handled the brand and the customer experience.',
     name: 'Aisha Mensah',

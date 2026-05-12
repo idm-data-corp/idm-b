@@ -39,6 +39,7 @@ export const marketplaces: SolutionContent = {
     },
   ],
 
+  outcomesPlaceholder: true,
   outcomesHeading: 'Marketplace outcomes on IDMB',
   outcomes: [
     { value: '<4s', label: 'Median merchant payout time', sub: 'real-time settlement over IDMB rails' },
@@ -70,6 +71,7 @@ export const marketplaces: SolutionContent = {
     logo: LogoPaywave,
   },
 
+  quotePlaceholder: true,
   quote: {
     quote: 'Merchant payouts that used to take three days now clear in under four seconds. Our merchant NPS moved double digits in the first quarter.',
     name: 'Tariq Osei',

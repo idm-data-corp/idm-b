@@ -36,7 +36,8 @@ export type CustomerStoryContent = {
     result: React.ReactNode;
   };
 
-  /* Pull-quote */
+  /* Pull-quote — set quotePlaceholder: true to hide until real quotes are collected */
+  quotePlaceholder?: boolean;
   quote: {
     quote: string;
     name: string;
@@ -110,14 +111,16 @@ export default function CustomerStoryPage({ route, content }: Props) {
         </div>
       </section>
 
-      <QuoteCard
-        quote={content.quote.quote}
-        attribution={{
-          name: content.quote.name,
-          role: content.quote.role,
-          company: content.customer.name,
-        }}
-      />
+      {!content.quotePlaceholder && (
+        <QuoteCard
+          quote={content.quote.quote}
+          attribution={{
+            name: content.quote.name,
+            role: content.quote.role,
+            company: content.customer.name,
+          }}
+        />
+      )}
 
       <FeatureGrid
         eyebrow="Stack"

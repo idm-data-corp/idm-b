@@ -47,7 +47,8 @@ export type SubProductContent = {
     samples: { label: string; language: string; code: string }[];
   };
 
-  /* Customer quote */
+  /* Customer quote — set quotePlaceholder: true to hide until real quotes are collected */
+  quotePlaceholder?: boolean;
   quote: {
     quote: string;
     name: string;
@@ -154,15 +155,17 @@ export default function SubProductPage({ route, content }: Props) {
         </section>
       )}
 
-      <QuoteCard
-        quote={content.quote.quote}
-        attribution={{
-          name: content.quote.name,
-          role: content.quote.role,
-          company: content.quote.company,
-        }}
-        cta={content.quote.storyHref ? { label: 'Read the customer story', href: content.quote.storyHref } : undefined}
-      />
+      {!content.quotePlaceholder && (
+        <QuoteCard
+          quote={content.quote.quote}
+          attribution={{
+            name: content.quote.name,
+            role: content.quote.role,
+            company: content.quote.company,
+          }}
+          cta={content.quote.storyHref ? { label: 'Read the customer story', href: content.quote.storyHref } : undefined}
+        />
+      )}
 
       <section className="sp-price" aria-label="Pricing">
         <div className="container sp-price-card">

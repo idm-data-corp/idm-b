@@ -5,42 +5,7 @@ import { mailto } from '../../../lib/site';
 import './Company.css';
 
 const LEADERS = [
-  {
-    initials: 'AO',
-    name: 'Amara Osei',
-    title: 'Chief Executive Officer',
-    bio: 'Amara co-founded IDMB after a decade running payment infrastructure at large West African banks. He leads strategy, commercial relationships and the regulatory programme.',
-  },
-  {
-    initials: 'TA',
-    name: 'Tunde Adeyemi',
-    title: 'Chief Technology Officer',
-    bio: 'Tunde architected three production core-banking systems before joining IDMB. He leads platform engineering, infrastructure and developer experience.',
-  },
-  {
-    initials: 'KA',
-    name: 'Kwame Asante',
-    title: 'Chief Compliance Officer',
-    bio: 'Kwame previously led financial crime compliance at a Tier 1 bank. He owns IDMB\'s regulatory posture, certification programme and customer compliance support.',
-  },
-  {
-    initials: 'PN',
-    name: 'Priya Nair',
-    title: 'VP Payments',
-    bio: 'Priya built and operated cross-border payment rails in 40+ corridors at a global payments network. She leads IDMB\'s payments and FX product.',
-  },
-  {
-    initials: 'SL',
-    name: 'Sofia Lindqvist',
-    title: 'VP Commercial',
-    bio: 'Sofia brings 12 years of enterprise fintech sales experience from Stockholm, London and Singapore. She leads the global commercial team.',
-  },
-  {
-    initials: 'KE',
-    name: 'Karim El-Amin',
-    title: 'VP Customer Success',
-    bio: 'Karim ensures that IDMB customers go live on schedule and operate successfully at scale. He leads implementation, support and account management.',
-  },
+  /* Team members coming soon - we'll add them when they're ready. */
 ];
 
 export default function Leadership() {

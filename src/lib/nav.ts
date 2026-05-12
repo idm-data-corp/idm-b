@@ -322,7 +322,6 @@ export const FOOTER: FooterColumn[] = [
     heading: 'Company',
     links: [
       { label: 'About IDMB',             href: PATHS.company },
-      { label: 'Customers',              href: PATHS.customers },
       { label: 'Licences & regulators',  href: PATHS.trustLicences },
       { label: 'Careers',                href: PATHS.companyCareers },
       { label: 'Newsroom',               href: PATHS.companyNewsroom },

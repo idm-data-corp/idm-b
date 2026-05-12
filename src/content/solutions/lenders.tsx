@@ -39,6 +39,7 @@ export const lenders: SolutionContent = {
     },
   ],
 
+  outcomesPlaceholder: true,
   outcomesHeading: 'IDMB credit product results',
   outcomes: [
     { value: '+38%', label: 'Approval rate improvement', sub: 'after Mosaic switched to IDMB cashflow signals' },
@@ -69,6 +70,7 @@ export const lenders: SolutionContent = {
     logo: LogoMosaic,
   },
 
+  quotePlaceholder: true,
   quote: {
     quote: 'We used to approve one in five applicants. On IDMB cashflow signals we approve one in three - with a lower NPL rate. The data was always there. We just couldn\'t see it in real time.',
     name: 'Priya Nair',

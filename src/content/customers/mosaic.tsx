@@ -68,6 +68,7 @@ export const mosaic: CustomerStoryContent = {
     ),
   },
 
+  quotePlaceholder: true,
   quote: {
     quote:
       'IDMB Data lets us underwrite a borrower in under four minutes and lift our approval rate by nearly forty percent - using cashflow signals we never had access to before.',

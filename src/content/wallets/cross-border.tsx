@@ -43,6 +43,7 @@ export const walletsCrossBorder: SubProductContent = {
     { title: 'Cash out',           desc: 'Send to bank, card, wallet or mobile money on the destination corridor.' },
   ],
 
+  quotePlaceholder: true,
   quote: {
     quote:
       'IDMB lets us run 47 corridors with one operations team, one compliance team and one ledger. The economics simply did not work without it.',

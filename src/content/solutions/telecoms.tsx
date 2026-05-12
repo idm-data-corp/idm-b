@@ -39,6 +39,7 @@ export const telecoms: SolutionContent = {
     },
   ],
 
+  outcomesPlaceholder: true,
   outcomesHeading: 'What telcos achieve with IDMB',
   outcomes: [
     { value: '6 weeks', label: 'Time to first wallet transaction', sub: 'in a new market, using an existing telco licence' },
@@ -69,6 +70,7 @@ export const telecoms: SolutionContent = {
     logo: LogoVela,
   },
 
+  quotePlaceholder: true,
   quote: {
     quote: 'We did not want to become a bank. We wanted to offer our subscribers a wallet. IDMB made that distinction real - we own the product, they own the infrastructure.',
     name: 'Nadia Kamara',

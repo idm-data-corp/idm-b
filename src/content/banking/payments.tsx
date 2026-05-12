@@ -76,6 +76,7 @@ export const bankingPayments: SubProductContent = {
     ],
   },
 
+  quotePlaceholder: true,
   quote: {
     quote:
       'IDMB Payments collapsed three vendor integrations into one. We turned on three new payment corridors in a quarter - that used to be a year of work.',

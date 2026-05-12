@@ -43,6 +43,7 @@ export const dataRisk: SubProductContent = {
     { title: 'Tune',                desc: 'A/B test rules in shadow mode; promote with one click and a full audit trail.' },
   ],
 
+  quotePlaceholder: true,
   quote: {
     quote:
       'IDMB Risk dropped our fraud false-positive rate by thirty-one percent in the first quarter. Investigators stopped chasing noise and got time back for actual cases.',

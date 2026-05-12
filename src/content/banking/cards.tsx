@@ -75,6 +75,7 @@ export const bankingCards: SubProductContent = {
     ],
   },
 
+  quotePlaceholder: true,
   quote: {
     quote:
       'Eight weeks from contract to a fully branded card programme live in five markets. The IDMB cards team carried the integration, but we own the auth logic - that combination is rare.',

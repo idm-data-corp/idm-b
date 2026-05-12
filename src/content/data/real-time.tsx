@@ -43,6 +43,7 @@ export const dataRealTime: SubProductContent = {
     { title: 'Embed in product',    desc: 'Take any chart and drop it into your customer-facing app.' },
   ],
 
+  quotePlaceholder: true,
   quote: {
     quote:
       'Our risk team stopped exporting CSVs. They live in the IDMB operator console - same data, sub-second, and with the audit trail attached.',

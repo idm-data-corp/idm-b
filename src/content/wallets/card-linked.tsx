@@ -43,6 +43,7 @@ export const walletsCardLinked: SubProductContent = {
     { title: 'Reconcile',      desc: 'Card transactions post into the IDMB ledger; wallets and cards are always in sync.' },
   ],
 
+  quotePlaceholder: true,
   quote: {
     quote:
       'Customers stopped seeing two separate balances. The wallet and the card became one product, and the support volume dropped immediately.',

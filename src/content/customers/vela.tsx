@@ -66,6 +66,7 @@ export const vela: CustomerStoryContent = {
     ),
   },
 
+  quotePlaceholder: true,
   quote: {
     quote:
       'IDMB lets us run 47 corridors with one operations team, one compliance team and one ledger. The economics simply did not work without it.',

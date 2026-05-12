@@ -39,6 +39,7 @@ export const fintechs: SolutionContent = {
     },
   ],
 
+  outcomesPlaceholder: true,
   outcomesHeading: 'The IDMB neobank track record',
   outcomes: [
     { value: '90 days', label: 'Median time to first live transaction', sub: 'on the IDMB production environment' },
@@ -69,6 +70,7 @@ export const fintechs: SolutionContent = {
     logo: LogoPaywave,
   },
 
+  quotePlaceholder: true,
   quote: {
     quote: 'IDMB gave us a ledger, a card programme and a compliance engine through one API. We shipped our first card in 22 days.',
     name: 'Tariq Osei',

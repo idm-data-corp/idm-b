@@ -43,6 +43,7 @@ export const bankingTreasury: SubProductContent = {
     { title: 'Cut & reconcile',   desc: 'EOD cuts run continuously; regulator returns and bank confirmations align by construction.' },
   ],
 
+  quotePlaceholder: true,
   quote: {
     quote:
       'The same balance the regulator sees is the same balance our treasury reports the next morning. That used to take a team of reconcilers; now it is a single export.',

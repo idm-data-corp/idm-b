@@ -104,25 +104,27 @@ export default function PillarOverview({ route, content }: Props) {
         variant={content.subProductsVariant ?? 'cards'}
         bg={content.subProductsBg ?? 'default'}
       />
-      <StatBlock
-        eyebrow={content.statsEyebrow}
-        heading={content.statsHeading}
-        intro={content.statsIntro}
-        stats={content.stats}
-        variant={content.statsVariant ?? 'cards'}
-        bg={content.statsBg ?? 'alt'}
-        placeholder={content.statsPlaceholder}
-      />
-      <QuoteCard
-        quote={content.quote.quote}
-        attribution={{
-          name: content.quote.name,
-          role: content.quote.role,
-          company: content.quote.company,
-        }}
-        cta={content.quote.storyHref ? { label: 'Read the customer story', href: content.quote.storyHref } : undefined}
-        placeholder={content.quotePlaceholder}
-      />
+      {!content.statsPlaceholder && (
+        <StatBlock
+          eyebrow={content.statsEyebrow}
+          heading={content.statsHeading}
+          intro={content.statsIntro}
+          stats={content.stats}
+          variant={content.statsVariant ?? 'cards'}
+          bg={content.statsBg ?? 'alt'}
+        />
+      )}
+      {!content.quotePlaceholder && (
+        <QuoteCard
+          quote={content.quote.quote}
+          attribution={{
+            name: content.quote.name,
+            role: content.quote.role,
+            company: content.quote.company,
+          }}
+          cta={content.quote.storyHref ? { label: 'Read the customer story', href: content.quote.storyHref } : undefined}
+        />
+      )}
       <FeatureGrid
         heading={content.capabilitiesHeading}
         intro={content.capabilitiesIntro}

@@ -100,11 +100,13 @@ function FeatureCard({
     </>
   );
 
+  const cardClass = item.comingSoon ? 'fg-card fg-card-coming-soon' : 'fg-card';
+
   if (external) {
     const isHttp = /^https?:\/\//.test(item.href);
     return (
       <a
-        className="fg-card"
+        className={cardClass}
         href={item.href}
         {...(isHttp ? { target: '_blank', rel: 'noopener noreferrer' } : null)}
       >
@@ -113,7 +115,7 @@ function FeatureCard({
     );
   }
   return (
-    <Link className="fg-card" to={item.href}>
+    <Link className={cardClass} to={item.href}>
       {inner}
     </Link>
   );

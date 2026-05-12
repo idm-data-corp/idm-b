@@ -43,6 +43,7 @@ export const walletsMerchant: SubProductContent = {
     { title: 'Close out',           desc: 'EOD cuts and accruals reconcile continuously across the platform.' },
   ],
 
+  quotePlaceholder: true,
   quote: {
     quote:
       'IDMB Wallets gives our sellers instant payouts and our finance team a deterministic close. The platform never needed an engineer to clean up reconciliation again.',

@@ -57,6 +57,10 @@ export type SolutionContent = {
     logo: React.ComponentType<{ size?: number }>;
   };
 
+  /* Set to true to hide until real data is available */
+  outcomesPlaceholder?: boolean;
+  quotePlaceholder?: boolean;
+
   /* Pull quote */
   quote: {
     quote: string;
@@ -119,13 +123,15 @@ export default function SolutionPage({ route, content }: Props) {
       </section>
 
       {/* Outcomes */}
-      <StatBlock
-        heading={content.outcomesHeading}
-        intro={content.outcomesIntro}
-        stats={content.outcomes}
-        variant={content.outcomesVariant ?? 'inline'}
-        bg="dark"
-      />
+      {!content.outcomesPlaceholder && (
+        <StatBlock
+          heading={content.outcomesHeading}
+          intro={content.outcomesIntro}
+          stats={content.outcomes}
+          variant={content.outcomesVariant ?? 'inline'}
+          bg="dark"
+        />
+      )}
 
       {/* IDMB stack */}
       <FeatureGrid
@@ -137,34 +143,38 @@ export default function SolutionPage({ route, content }: Props) {
         bg="default"
       />
 
-      {/* Customer story callout */}
-      <section className="sol-story" aria-label="Customer story">
-        <div className="container sol-story-inner">
-          <div className="sol-story-meta">
-            <p className="sol-story-eyebrow">{content.storyCallout.eyebrow}</p>
-            <div className="sol-story-logo"><Logo size={48} /></div>
-            <h2 className="sol-story-h">{content.storyCallout.heading}</h2>
-            <p className="sol-story-summary">{content.storyCallout.summary}</p>
-            <Button variant="tertiary" href={content.storyCallout.href}>
-              Read the full story
-            </Button>
-          </div>
-          <div className="sol-story-stat">
-            <p className="sol-story-stat-value">{content.storyCallout.stat}</p>
-            <p className="sol-story-stat-label">{content.storyCallout.statLabel}</p>
-          </div>
-        </div>
-      </section>
+      {/* Customer story callout + quote — hidden until real customer data is available */}
+      {!content.quotePlaceholder && (
+        <>
+          <section className="sol-story" aria-label="Customer story">
+            <div className="container sol-story-inner">
+              <div className="sol-story-meta">
+                <p className="sol-story-eyebrow">{content.storyCallout.eyebrow}</p>
+                <div className="sol-story-logo"><Logo size={48} /></div>
+                <h2 className="sol-story-h">{content.storyCallout.heading}</h2>
+                <p className="sol-story-summary">{content.storyCallout.summary}</p>
+                <Button variant="tertiary" href={content.storyCallout.href}>
+                  Read the full story
+                </Button>
+              </div>
+              <div className="sol-story-stat">
+                <p className="sol-story-stat-value">{content.storyCallout.stat}</p>
+                <p className="sol-story-stat-label">{content.storyCallout.statLabel}</p>
+              </div>
+            </div>
+          </section>
 
-      <QuoteCard
-        quote={content.quote.quote}
-        attribution={{
-          name: content.quote.name,
-          role: content.quote.role,
-          company: content.quote.company,
-        }}
-        cta={content.quote.storyHref ? { label: 'Read the customer story', href: content.quote.storyHref } : undefined}
-      />
+          <QuoteCard
+            quote={content.quote.quote}
+            attribution={{
+              name: content.quote.name,
+              role: content.quote.role,
+              company: content.quote.company,
+            }}
+            cta={content.quote.storyHref ? { label: 'Read the customer story', href: content.quote.storyHref } : undefined}
+          />
+        </>
+      )}
 
       <CTASection
         heading={content.cta.heading}

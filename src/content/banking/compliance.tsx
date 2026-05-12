@@ -43,6 +43,7 @@ export const bankingCompliance: SubProductContent = {
     { title: 'Report continuously', desc: 'Statutory returns refresh in lockstep with the ledger; exports on demand.' },
   ],
 
+  quotePlaceholder: true,
   quote: {
     quote:
       'Our regulator review took two days, not two months. The IDMB audit trail let us answer every question with a deterministic export - same numbers as the ledger, same numbers as the dashboard.',

@@ -69,7 +69,21 @@
   color: var(--c-text);
   text-decoration: none;
   width: 100%;
-  transition: background 120ms ease;
+  transition: background 120ms ease, opacity 120ms ease;
+}
+
+/* Gray out cards marked as coming soon */
+.fg-card-coming-soon {
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.fg-card-coming-soon .fg-title {
+  color: var(--c-text-mid);
+}
+
+.fg-card-coming-soon .fg-desc {
+  color: var(--c-text-mid);
 }
 
 .fg-card:hover {

@@ -67,6 +67,7 @@ export const paywave: CustomerStoryContent = {
     ),
   },
 
+  quotePlaceholder: true,
   quote: {
     quote:
       'We replaced an in-house wallet engine that took two years to build with a single IDMB integration. Day-one performance was already better than what we had operated for three years.',

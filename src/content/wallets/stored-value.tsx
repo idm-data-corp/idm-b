@@ -81,6 +81,7 @@ await idmb.wallets.transfers.create({
     ],
   },
 
+  quotePlaceholder: true,
   quote: {
     quote:
       'We replaced an in-house wallet engine that took two years to build with a single IDMB integration. The day-one performance was already better than what we had operated for three years.',

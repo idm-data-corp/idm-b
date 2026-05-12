@@ -43,6 +43,7 @@ export const dataLake: SubProductContent = {
     { title: 'Build on top',       desc: 'Pre-modelled views, dbt packages and ready-to-query SQL.' },
   ],
 
+  quotePlaceholder: true,
   quote: {
     quote:
       'We replaced a homegrown Kafka-to-Snowflake pipeline with the IDMB lake in a weekend. The data we get is more useful and more trustworthy than what we had built in-house.',

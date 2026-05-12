@@ -39,6 +39,7 @@ export const mobileMoney: SolutionContent = {
     },
   ],
 
+  outcomesPlaceholder: true,
   outcomesHeading: 'What mobile-money operators unlock on IDMB',
   outcomes: [
     { value: '47', label: 'Corridors live on IDMB', sub: 'managed by Vela with fully automated screening' },
@@ -69,6 +70,7 @@ export const mobileMoney: SolutionContent = {
     logo: LogoVela,
   },
 
+  quotePlaceholder: true,
   quote: {
     quote: "We added fourteen corridors in our first year on IDMB. The same work used to take two years. Compliance screening just works - it's not a project anymore.",
     name: 'Nadia Kamara',

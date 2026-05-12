@@ -40,6 +40,7 @@ export const banks: SolutionContent = {
     },
   ],
 
+  outcomesPlaceholder: true,
   outcomesHeading: 'What IDMB banks report after cutover',
   outcomes: [
     { value: '11 months', label: 'Average core migration timeline', sub: 'from contract to live retail banking' },
@@ -71,6 +72,7 @@ export const banks: SolutionContent = {
     logo: LogoNorthbank,
   },
 
+  quotePlaceholder: true,
   quote: {
     quote: 'We migrated two billion dollars of customer deposits onto the IDMB core in a single weekend, with zero customer-facing outages. The ledger has not blinked.',
     name: 'Aisha Mensah',

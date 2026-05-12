@@ -128,12 +128,13 @@ const REAL_PAGES: Record<string, () => React.ReactElement> = {
   [PATHS.solutionsTelecoms]:      () => <Suspense fallback={null}><SolutionTelecoms     /></Suspense>,
   [PATHS.solutionsEmbedded]:      () => <Suspense fallback={null}><SolutionEmbedded     /></Suspense>,
   [PATHS.solutionsLenders]:       () => <Suspense fallback={null}><SolutionLenders      /></Suspense>,
-  /* Customer stories */
+  /* Customer stories - hidden until real customers are onboarded
   [PATHS.customers]:              () => <Suspense fallback={null}><CustomersIndex       /></Suspense>,
   [PATHS.customerNorthbank]:      () => <Suspense fallback={null}><StoryNorthbank       /></Suspense>,
   [PATHS.customerPaywave]:        () => <Suspense fallback={null}><StoryPaywave         /></Suspense>,
   [PATHS.customerMosaic]:         () => <Suspense fallback={null}><StoryMosaic          /></Suspense>,
   [PATHS.customerVela]:           () => <Suspense fallback={null}><StoryVela            /></Suspense>,
+  */
   /* Pricing */
   [PATHS.pricing]:                () => <Suspense fallback={null}><PricingOverview      /></Suspense>,
   [PATHS.pricingBanking]:         () => <Suspense fallback={null}><PricingBanking       /></Suspense>,

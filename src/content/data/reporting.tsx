@@ -43,6 +43,7 @@ export const dataReporting: SubProductContent = {
     { title: 'Audit',             desc: 'Every report is tamper-evident and reproducible against any ledger slice.' },
   ],
 
+  quotePlaceholder: true,
   quote: {
     quote:
       'Our regulator review took two days, not two months. The IDMB audit trail let us answer every question with a deterministic export.',
