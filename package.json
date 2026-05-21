@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && npm run sitemap && vite build && npm run check:size && npm run ping",
+    "build": "tsc -b && npm run sitemap && vite build && npm run check:size && npm run prerender && npm run ping",
+    "prerender": "tsx scripts/prerender.ts",
     "deploy": "npm run build && wrangler deploy && npm run ping",
     "preview": "vite preview --port 4173",
     "typecheck": "tsc -b",
