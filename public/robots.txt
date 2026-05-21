@@ -45,3 +45,6 @@ Disallow: /
 
 # Sitemaps
 Sitemap: https://www.idm-b.com/sitemap.xml
+
+# IndexNow — instant URL submission on deploy (Bing, Yandex, Seznam)
+# Key file: https://www.idm-b.com/b4f7a2e9c3d18456b4f7a2e9c3d18456.txt

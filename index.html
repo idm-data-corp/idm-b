@@ -8,7 +8,7 @@
     <!-- Primary SEO -->
     <title>IDMB - Banking, Wallets & Data Analytics Infrastructure</title>
     <meta name="description" content="IDMB is the modern infrastructure layer for finance: core banking APIs, embedded wallets and real-time data analytics. Launch faster, scale safely, stay compliant." />
-    <meta name="keywords" content="banking infrastructure, banking as a service, BaaS, core banking API, embedded wallets, wallet infrastructure, digital wallet platform, payments infrastructure, fintech infrastructure, data analytics for banks, real-time financial analytics, ledger API, KYC, compliance, IDMB" />
+    <meta name="keywords" content="idm-b, IDMB Banking, IDMB Wallets, IDMB Data Analytics, banking infrastructure, banking as a service, BaaS, core banking API, embedded wallets, wallet infrastructure, digital wallet platform, payments infrastructure, fintech infrastructure, data analytics for banks, real-time financial analytics, ledger API, KYC, compliance, IDMB" />
     <meta name="author" content="IDMB" />
     <meta name="publisher" content="IDMB" />
     <meta name="copyright" content="© IDMB. All rights reserved." />
@@ -20,6 +20,7 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="bingbot" content="index, follow" />
+    <meta name="indexnow-key" content="b4f7a2e9c3d18456b4f7a2e9c3d18456" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="color-scheme" content="light dark" />
@@ -93,7 +94,7 @@
       "@id": "https://www.idm-b.com/#organization",
       "name": "IDMB",
       "legalName": "IDMB",
-      "alternateName": ["IDMB Infrastructure", "IDMB Platform"],
+      "alternateName": ["IDMB Infrastructure", "IDMB Platform", "IDMB Banking", "IDMB Wallets", "IDMB Mobile Banking", "IDMB Privacy", "IDMB Fintech", "IDMB Data Analytics", "IDM-B"],
       "url": "https://www.idm-b.com/",
       "logo": {
         "@type": "ImageObject",
@@ -188,6 +189,10 @@
       "primaryImageOfPage": "https://www.idm-b.com/og-image.png",
       "description": "Modern infrastructure for banking, wallets and analytics. Build, launch and scale financial products on a trusted, compliant platform.",
       "inLanguage": "en",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", "h2", "p"]
+      },
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -210,7 +215,8 @@
         {
           "@type": "Service",
           "@id": "https://www.idm-b.com/#service-banking",
-          "name": "Banking Infrastructure",
+          "name": "IDMB Banking",
+          "alternateName": "IDMB Banking Infrastructure",
           "serviceType": "Core Banking Infrastructure",
           "category": "Banking-as-a-Service",
           "description": "Production-grade core banking APIs, ledger, accounts, payments and card issuing - everything required to launch a regulated financial product, exposed as composable services.",
@@ -233,7 +239,8 @@
         {
           "@type": "Service",
           "@id": "https://www.idm-b.com/#service-wallets",
-          "name": "Wallets Infrastructure",
+          "name": "IDMB Wallets",
+          "alternateName": "IDMB Wallets Infrastructure",
           "serviceType": "Digital Wallet Platform",
           "category": "Embedded Wallets",
           "description": "Multi-currency, multi-tenant wallet infrastructure with stored-value accounts, instant transfers, top-ups, payouts and full lifecycle controls - built for high-throughput consumer and B2B use cases.",
@@ -252,7 +259,8 @@
         {
           "@type": "Service",
           "@id": "https://www.idm-b.com/#service-analytics",
-          "name": "Data Analytics",
+          "name": "IDMB Data Analytics",
+          "alternateName": "IDMB Analytics",
           "serviceType": "Real-time Financial Data Analytics",
           "category": "Analytics & BI",
           "description": "Stream-native data analytics for financial workloads: customer 360, risk and fraud signals, regulatory reporting and revenue intelligence - derived from the same ledger that powers your products.",
@@ -285,17 +293,17 @@
         {
           "@type": "Offer",
           "itemOffered": { "@id": "https://www.idm-b.com/#service-banking" },
-          "category": "Banking infrastructure"
+          "category": "IDMB Banking"
         },
         {
           "@type": "Offer",
           "itemOffered": { "@id": "https://www.idm-b.com/#service-wallets" },
-          "category": "Wallets infrastructure"
+          "category": "IDMB Wallets"
         },
         {
           "@type": "Offer",
           "itemOffered": { "@id": "https://www.idm-b.com/#service-analytics" },
-          "category": "Data analytics"
+          "category": "IDMB Data Analytics"
         }
       ]
     }
@@ -347,6 +355,46 @@
             "@type": "Answer",
             "text": "Real-time analytics over the IDMB ledger and wallet activity: customer 360, transaction monitoring, fraud and risk signals, revenue intelligence and regulator-ready reporting."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "What is IDMB Banking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "IDMB Banking is a full-stack core banking infrastructure: double-entry ledger, accounts management, payments orchestration, card issuing and regulatory compliance tooling — all available via API. It enables banks, neobanks and fintechs to launch regulated financial products in weeks rather than years."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are IDMB Wallets?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "IDMB Wallets is a multi-currency, multi-tenant digital wallet infrastructure. It supports stored-value accounts, instant transfers, top-ups, payouts and full lifecycle controls — purpose-built for consumer apps, super-apps, marketplaces, telecoms and gig platforms that need embedded financial capabilities."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is IDMB Mobile Banking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "IDMB Mobile Banking refers to the mobile-first financial services layer powered by IDMB's core banking and wallet APIs. Operators embed account management, card controls, person-to-person payments and real-time notifications directly into mobile applications using the IDMB API."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is IDMB Privacy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "IDMB Privacy encompasses the platform's data protection, security and compliance posture. IDMB processes financial data with controls aligned to GDPR, PCI DSS, ISO 27001 and SOC 2. End-to-end encryption, audit-grade event logs, data residency options and configurable data retention are built in — giving operators a compliant foundation without extra engineering."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does IDMB stand for in fintech?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "IDMB (also written IDM-B) is the brand name of a financial infrastructure company providing IDMB Banking (core banking APIs), IDMB Wallets (embedded wallet infrastructure) and IDMB Data Analytics (real-time financial intelligence). The platform is designed for banks, fintechs, mobile money operators and digital businesses that need production-grade financial rails."
+          }
         }
       ]
     }
@@ -370,40 +418,60 @@
         </p>
 
         <section>
-          <h2>Banking infrastructure</h2>
+          <h2>IDMB Banking</h2>
           <p>
-            Production-grade core banking APIs, double-entry ledger, accounts,
-            payments and card issuing - composable services that compress the
-            path to a regulated financial product from quarters to weeks.
+            IDMB Banking delivers production-grade core banking APIs, double-entry
+            ledger, accounts, payments and card issuing — composable services that
+            compress the path to a regulated financial product from quarters to weeks.
           </p>
         </section>
 
         <section>
-          <h2>Wallets infrastructure</h2>
+          <h2>IDMB Wallets</h2>
           <p>
-            Multi-currency, multi-tenant wallet infrastructure with stored-value
-            accounts, instant transfers, top-ups, payouts and full lifecycle
-            controls - engineered for high-throughput consumer and B2B use cases.
+            IDMB Wallets is a multi-currency, multi-tenant wallet infrastructure with
+            stored-value accounts, instant transfers, top-ups, payouts and full
+            lifecycle controls — engineered for high-throughput consumer and B2B use cases.
           </p>
         </section>
 
         <section>
-          <h2>Data analytics</h2>
+          <h2>IDMB Data Analytics</h2>
           <p>
-            Stream-native analytics over the IDMB ledger: customer 360, risk and
-            fraud signals, regulatory reporting and revenue intelligence - from
-            the same source of truth that powers your products.
+            IDMB Data Analytics provides stream-native insights over the IDMB ledger:
+            customer 360, risk and fraud signals, regulatory reporting and revenue
+            intelligence — from the same source of truth that powers your products.
+          </p>
+        </section>
+
+        <section>
+          <h2>IDMB Mobile Banking</h2>
+          <p>
+            IDMB Mobile Banking APIs enable operators to embed account management,
+            card controls, peer-to-peer transfers and real-time push notifications
+            directly into mobile applications — powering consumer-grade experiences
+            on production-ready infrastructure.
+          </p>
+        </section>
+
+        <section>
+          <h2>IDMB Privacy &amp; Compliance</h2>
+          <p>
+            IDMB Privacy is built on end-to-end encryption, audit-grade event logs
+            and controls aligned to GDPR, PCI DSS, ISO 27001 and SOC 2. Data
+            residency, configurable retention and KYC/AML tooling give every
+            operator a compliant foundation from day one.
           </p>
         </section>
 
         <nav aria-label="Primary">
           <ul>
-            <li><a href="/products/banking">Banking infrastructure</a></li>
-            <li><a href="/products/wallets">Wallets infrastructure</a></li>
-            <li><a href="/products/analytics">Data analytics</a></li>
+            <li><a href="/banking">IDMB Banking</a></li>
+            <li><a href="/wallets">IDMB Wallets</a></li>
+            <li><a href="/data">IDMB Data Analytics</a></li>
             <li><a href="/developers">Developer documentation</a></li>
-            <li><a href="/security">Security &amp; compliance</a></li>
-            <li><a href="/contact">Contact sales</a></li>
+            <li><a href="/trust/security">IDMB Privacy &amp; Security</a></li>
+            <li><a href="/company/contact">Contact sales</a></li>
           </ul>
         </nav>
       </main>
