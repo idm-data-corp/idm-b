@@ -1,77 +1,58 @@
 /**
- * Prerender all sitemap routes to static HTML.
+ * For each route, write a dist/[path]/index.html with the correct
+ * <title>, <meta description>, canonical URL and Open Graph tags
+ * injected from the route metadata in src/lib/routes.ts.
  *
- * Each route gets its own dist/[path]/index.html so Cloudflare serves
- * real content to Googlebot without waiting for JavaScript execution.
- * Run automatically as part of `npm run build`.
+ * No browser required — runs in plain Node.js on any platform including
+ * Cloudflare Pages build workers.
  *
- * Usage (standalone): npm run prerender  (requires dist/ to already exist)
+ * Usage: npm run prerender  (requires vite build to have run first)
  */
 
-import { chromium } from '@playwright/test';
 import { readFileSync, mkdirSync, writeFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { preview } from 'vite';
+import { ROUTES } from '../src/lib/routes.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const DIST = join(ROOT, 'dist');
-const PORT = 4175;
-const CONCURRENCY = 5;
+const SITE = 'https://www.idm-b.com';
 
-function extractPaths(): string[] {
-  const xml = readFileSync(join(ROOT, 'public/sitemap.xml'), 'utf8');
-  return (xml.match(/<loc>([^<]+)<\/loc>/g) ?? [])
-    .map(m => m.replace(/<\/?loc>/g, '').trim())
-    .map(u => new URL(u).pathname);
+function esc(s: string): string {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-async function main(): Promise<void> {
-  const paths = extractPaths();
-  console.log(`\nPrerendering ${paths.length} routes (${CONCURRENCY} parallel)…\n`);
+function inject(template: string, title: string, description: string, path: string): string {
+  const url = `${SITE}${path}`;
+  return template
+    .replace(/<title>[^<]*<\/title>/, `<title>${esc(title)}</title>`)
+    .replace(/(<meta\s+name="description"\s+content=")[^"]*(")/,      `$1${esc(description)}$2`)
+    .replace(/(<meta\s+name="twitter:title"\s+content=")[^"]*(")/,    `$1${esc(title)}$2`)
+    .replace(/(<meta\s+name="twitter:description"\s+content=")[^"]*(")/,`$1${esc(description)}$2`)
+    .replace(/(<meta\s+property="og:title"\s+content=")[^"]*(")/,     `$1${esc(title)}$2`)
+    .replace(/(<meta\s+property="og:description"\s+content=")[^"]*(")/,`$1${esc(description)}$2`)
+    .replace(/(<meta\s+property="og:url"\s+content=")[^"]*(")/,       `$1${url}$2`)
+    .replace(/(<link\s+rel="canonical"\s+href=")[^"]*(")/,             `$1${url}$2`);
+}
 
-  const server = await preview({ preview: { port: PORT, open: false }, logLevel: 'silent' });
-  const base = `http://localhost:${PORT}`;
+function main(): void {
+  const template = readFileSync(join(DIST, 'index.html'), 'utf8');
+  const routes = ROUTES.filter(r => r.path !== '/' && !r.noIndex);
 
-  const browser = await chromium.launch();
+  console.log(`\nPrerendering ${routes.length} routes…\n`);
   let ok = 0;
-  let fail = 0;
 
-  // Process in batches to avoid overwhelming the preview server
-  for (let i = 0; i < paths.length; i += CONCURRENCY) {
-    const batch = paths.slice(i, i + CONCURRENCY);
-    await Promise.all(batch.map(async (path) => {
-      const page = await browser.newPage();
-      try {
-        await page.goto(`${base}${path === '/' ? '' : path}`, {
-          waitUntil: 'networkidle',
-          timeout: 20000,
-        });
-        const html = await page.content();
-
-        const outDir = path === '/' ? DIST : join(DIST, path.replace(/^\//, ''));
-        mkdirSync(outDir, { recursive: true });
-        writeFileSync(join(outDir, 'index.html'), html, 'utf8');
-        console.log(`  ✓ ${path}`);
-        ok++;
-      } catch (err) {
-        console.error(`  ✗ ${path}  — ${(err as Error).message}`);
-        fail++;
-      } finally {
-        await page.close();
-      }
-    }));
+  for (const route of routes) {
+    const html = inject(template, route.title, route.description, route.path);
+    const outDir = join(DIST, route.path.replace(/^\//, ''));
+    mkdirSync(outDir, { recursive: true });
+    writeFileSync(join(outDir, 'index.html'), html, 'utf8');
+    console.log(`  ✓ ${route.path}`);
+    ok++;
   }
 
-  await browser.close();
-  server.httpServer.close();
-
-  console.log(`\nPrerender: ${ok} ok, ${fail} failed.`);
-  if (fail > 0) process.exit(1);
+  console.log(`\nPrerender: ${ok} routes done.`);
 }
 
-main().catch(err => {
-  console.error(err);
-  process.exit(1);
-});
+main();
